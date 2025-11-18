@@ -42,7 +42,7 @@
         "title": "スパークリング",
         "subtitle": "Sparkling Wine",
         "items": [
-          "Veuve du Vernay Brut（ヴーヴ・デュ・ヴェルネイ ブリュット）"
+          "Veuve du Vernay Brut（ヴーヴ・デュ・ヴェルネイ ブリュット） 1000円" 
         ]
       },
       {
@@ -65,8 +65,8 @@
         ]
       },
       {
-        "title": "果実酒",
-        "subtitle": "Fruit Liqueur　各 800円",
+        "title":"果実酒",
+        "subtitle": "Fruit Liqueur",
         "items": [
           "鳳凰美田 ゆず酒（Yuzu Liqueur）",
           "鳳凰美田 完熟もも酒（Peach Liqueur）",
@@ -75,7 +75,7 @@
         ]
       },
       {
-        "title": "ワイン",
+        "title":"ワイン",
         "subtitle": "Japanese Wine（国産ワイン）",
         "items": [
           "Cfa Backyard Winery（シーエフエー・バックヤードワイナリー）［栃木県 足利市］",

@@ -1,6 +1,10 @@
 /* ===========================
    基本設定・リセット
    =========================== */
+
+/* Google Fontsを読み込み（HTMLのheadに追加する場合はこの行は不要です） */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +12,8 @@
 }
 
 body {
-    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+    /* より上品な和モダンフォントに変更 */
+    font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
     background-color: #F7F5F2;
     color: #333;
     line-height: 1.7;
@@ -459,17 +464,20 @@ body {
 }
 
 /* ===========================
-   お飲み物ページ
+   お飲み物ページ - 改善版
    =========================== */
+
+/* リード文 */
 .drinks-intro {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     text-align: left;
 }
 
 .drinks-lead {
     font-size: 15px;
-    line-height: 1.8;
+    line-height: 1.9;
     color: #555;
+    font-family: 'Noto Serif JP', serif;  /* セリフ体で上品に */
 }
 
 /* カテゴリカード全体のグリッド */
@@ -480,50 +488,167 @@ body {
     margin-bottom: 24px;
 }
 
-@media (min-width: 768px) {
-    .drinks-sections {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-/* 各カテゴリカード */
+/* 各カテゴリカード（枠）- 左側の余白を統一 */
 .drink-section-card {
     background: #FAF7F2;
     border-radius: 16px;
-    padding: 16px 18px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     border-left: 4px solid #C9A063;  /* ゴールド系の差し色 */
+    overflow: hidden;
+    /* ★左側の余白をカード全体で統一 */
+    padding-left: 0;
 }
 
-/* カテゴリタイトル */
+/* ヘッダー（タイトル＋アイコンの行）*/
+.drink-section-header {
+    width: 100%;
+    /* ★左側のpaddingを統一して余白のズレを解消 */
+    padding: 16px 18px 16px 20px;
+    border: none;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.drink-section-header:hover {
+    background-color: rgba(201, 160, 99, 0.08);
+}
+
+/* タイトル全体 */
 .drink-section-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: #4A3B28;
-    margin: 0 0 6px;
+    margin: 0;
+    flex: 1;
+    display: flex;            /* 横並びにする */
+    align-items: baseline;    /* ベースラインをそろえる */
+    column-gap: 0.5em;        /* 日英のあいだの余白 */
 }
 
-/* （説明があれば）カテゴリ説明 */
+
+/* 日本語タイトル - 視認性向上（太字・大きく） */
+.drink-title-ja {
+    font-size: 17px;
+    font-weight: 700;
+    color: #3A2F1F;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.5px;
+    display: inline-block;   /* 行内表示に変更 */
+    margin-bottom: 0;        /* 下の余白をなくす */
+}
+
+/* 英語サブタイトル */
+.drink-title-en {
+    font-size: 12px;
+    font-weight: 400;
+    color: #998262;
+    font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.3px;
+    display: inline-block;   /* 行内表示に変更 */
+}
+
+/* ＋ / − アイコン */
+.drink-toggle-icon {
+    font-size: 20px;
+    line-height: 1;
+    margin-left: 16px;
+    color: #C9A063;
+    transition: transform 0.2s ease;
+}
+
+.drink-section-card.is-open .drink-toggle-icon {
+    transform: rotate(45deg);  /* 開いた時に回転 */
+}
+
+/* 折りたたみ部分（中身）- ★左側の余白を統一 */
+.drink-section-body {
+    display: none;
+    /* ★左側のpaddingをヘッダーと同じ20pxに統一 */
+    padding: 12px 20px 18px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* 開いているカードだけ中身を表示 */
+.drink-section-card.is-open .drink-section-body {
+    display: block;
+}
+
+/* カテゴリ説明（もしあれば） */
 .drink-section-desc {
     font-size: 13px;
     color: #777;
-    margin: 0 0 8px;
+    margin: 0 0 12px 0;
+    line-height: 1.7;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-/* 中のリスト */
+/* 中のリスト - ★左側の余白をゼロに */
 .drink-item-list {
     list-style: none;
     margin: 0;
-    padding-left: 0;
+    padding: 0;  /* ★paddingを完全にゼロに */
 }
 
+/* 各商品アイテム - 視認性向上版 */
 .drink-item {
-    font-size: 14px;
-    line-height: 1.7;
-    color: #333;
-    padding-left: 0;
+    /* ★左側のpaddingをゼロに */
+    padding: 10px 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(201, 160, 99, 0.15);
+    line-height: 1.8;
 }
 
+.drink-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* 商品名と価格を分離して視認性向上 */
+/* 商品名部分（日本語 + 英語） */
+.drink-item-name {
+    font-size: 15px;  /* 商品名は大きめ */
+    font-weight: 600;  /* 太字で目立たせる */
+    color: #2C2416;  /* 濃い色 */
+    font-family: 'Noto Sans JP', sans-serif;
+    display: inline;
+    margin-right: 8px;
+}
+
+/* 価格部分 */
+.drink-item-price {
+    font-size: 14px;  /* 商品名より少し小さく */
+    font-weight: 500;
+    color: #7A6B4E;  /* グレー寄りの色で区別 */
+    font-family: 'Noto Sans JP', sans-serif;
+    display: inline;
+}
+
+/* 注釈・説明文（小さめ・薄め） */
+/* 注釈・説明文（小さめ・薄め） */
+.drink-item-note {
+    font-size: 11px;                 /* 全体よりぐっと小さく */
+    color: #A08A6A;                  /* 少しブラウン寄りで上品に */
+    margin-top: 2px;
+    display: block;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+}
+
+
+/* ラストオーダー表示 */
+.drinks-last-order {
+    text-align: center;
+    margin-top: 24px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #4A7C7E 0%, #3A6C6E 100%);
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 12px rgba(74, 124, 126, 0.25);
+}
 
 /* ===========================
    お風呂ページ
@@ -811,5 +936,17 @@ body {
     
     .seasonal-content {
         padding: 20px;
+    }
+
+    /* スマホでの視認性をさらに向上 */
+    .drink-item-name {
+        font-size: 16px;
+        display: block;  /* スマホでは改行 */
+        margin-bottom: 4px;
+    }
+    
+    .drink-item-price {
+        font-size: 15px;
+        display: block;
     }
 }

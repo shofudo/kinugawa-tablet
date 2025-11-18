@@ -124,39 +124,113 @@ function populateDrinksPage() {
         leadEl.textContent = drinks.lead;
     }
 
-    // カテゴリカード
+    // カテゴリカード（アコーディオン）
     const sectionsContainer = document.getElementById('drinks-sections');
     if (sectionsContainer && Array.isArray(drinks.sections)) {
         sectionsContainer.innerHTML = "";
 
-        drinks.sections.forEach(section => {
+        drinks.sections.forEach((section, index) => {
             const sectionEl = document.createElement("section");
             sectionEl.className = "drink-section-card";
 
+            // ── ヘッダー（タイトル＋開閉アイコン） ──
+            const headerEl = document.createElement("button");
+            headerEl.type = "button";
+            headerEl.className = "drink-section-header";
+
             const titleEl = document.createElement("h3");
             titleEl.className = "drink-section-title";
-            titleEl.textContent = section.title + (section.subtitle ? " / " + section.subtitle : "");
-            sectionEl.appendChild(titleEl);
+
+            // 日本語タイトル
+            const titleJa = document.createElement("span");
+            titleJa.className = "drink-title-ja";
+            titleJa.textContent = section.title;
+            titleEl.appendChild(titleJa);
+
+           // 英語サブタイトル（あれば）
+if (section.subtitle) {
+    const titleEn = document.createElement("span");
+    titleEn.className = "drink-title-en";
+    titleEn.textContent = section.subtitle;
+    titleEl.appendChild(titleEn);
+}
+
+
+            headerEl.appendChild(titleEl);
+
+            // ＋ / − アイコン
+            const toggleIcon = document.createElement("span");
+            toggleIcon.className = "drink-toggle-icon";
+            toggleIcon.textContent = "＋";
+            headerEl.appendChild(toggleIcon);
+
+            sectionEl.appendChild(headerEl);
+
+            // ── 中身（説明＋リスト） ──
+            const bodyEl = document.createElement("div");
+            bodyEl.className = "drink-section-body";
 
             if (section.description) {
                 const descEl = document.createElement("p");
                 descEl.className = "drink-section-desc";
                 descEl.textContent = section.description;
-                sectionEl.appendChild(descEl);
+                bodyEl.appendChild(descEl);
             }
 
-            if (Array.isArray(section.items)) {
-                const listEl = document.createElement("ul");
-                listEl.className = "drink-item-list";
+         if (Array.isArray(section.items)) {
+    const listEl = document.createElement("ul");
+    listEl.className = "drink-item-list";
 
-                section.items.forEach(text => {
-                    const li = document.createElement("li");
-                    li.className = "drink-item";
-                    li.textContent = text;
-                    listEl.appendChild(li);
-                });
+    section.items.forEach(text => {
+        const li = document.createElement("li");
+        li.className = "drink-item";
 
-                sectionEl.appendChild(listEl);
+        // 「※」が含まれているかチェック
+        const noteIndex = text.indexOf("※");
+
+        if (noteIndex !== -1) {
+            // 「※」より前：通常の本文
+            const mainText = text.slice(0, noteIndex).trim();
+            // 「※」以降：注意書き
+            const noteText = text.slice(noteIndex).trim(); // 「※」も含めてOK
+
+            // 本文部分
+            const mainSpan = document.createElement("span");
+            mainSpan.className = "drink-item-main";
+            mainSpan.textContent = mainText;
+            li.appendChild(mainSpan);
+
+            // 改行してから注意書き
+            li.appendChild(document.createElement("br"));
+
+            const noteSpan = document.createElement("span");
+            noteSpan.className = "drink-item-note";   // ← 既にCSSにあるクラス
+            noteSpan.textContent = noteText;
+            li.appendChild(noteSpan);
+        } else {
+            // 通常アイテムはそのまま
+            li.textContent = text;
+        }
+
+        listEl.appendChild(li);
+    });
+
+    bodyEl.appendChild(listEl);
+}
+
+
+            sectionEl.appendChild(bodyEl);
+
+            // ── 開閉処理 ──
+            headerEl.addEventListener("click", () => {
+                const isOpen = sectionEl.classList.toggle("is-open");
+                toggleIcon.textContent = isOpen ? "－" : "＋";
+            });
+
+            // 最初のカテゴリだけ最初から開いておく（お好みで）
+            if (index === 0) {
+                sectionEl.classList.add("is-open");
+                toggleIcon.textContent = "－";
             }
 
             sectionsContainer.appendChild(sectionEl);
@@ -168,6 +242,7 @@ function populateDrinksPage() {
         lastOrderEl.textContent = drinks.lastOrder || "";
     }
 }
+
 
 
 // ===========================
