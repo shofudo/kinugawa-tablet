@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客室インフォメーション | きぬ川不動瀧</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 緊急時ボタン（全ページ固定表示） -->
+    <button id="emergency-button" class="emergency-fab" onclick="showPage('emergency')">
+        <span class="emergency-icon">!</span>
+        <span class="emergency-text">緊急時</span>
+    </button>
+
+    <!-- メインコンテナ -->
+    <div id="app-container">
+        
+        <!-- ===== トップページ ===== -->
+        <div id="page-home" class="page active">
+            <header class="page-header">
+                <div class="logo-container">
+                    <h1 class="logo-text">きぬ川不動瀧</h1>
+                </div>
+                <h2 class="page-title">客室インフォメーション</h2>
+                <p class="subtitle">ごゆっくりお寛ぎくださいませ</p>
+            </header>
+
+            <main class="page-content">
+                <div class="menu-grid">
+                    <!-- 上段: よく使うもの -->
+                    <div class="menu-section">
+                        <button class="menu-card" onclick="showPage('wifi')">
+                            <div class="card-icon">📶</div>
+                            <div class="card-title">Wi-Fiのご案内</div>
+                        </button>
+
+                        <button class="menu-card" onclick="showPage('facilities')">
+                            <div class="card-icon">🏠</div>
+                            <div class="card-title">館内設備のご案内</div>
+                        </button>
+
+                        <button class="menu-card" onclick="showPage('bath')">
+                            <div class="card-icon">♨️</div>
+                            <div class="card-title">お風呂のご案内</div>
+                        </button>
+
+                        <button class="menu-card" onclick="showPage('drinks')">
+                            <div class="card-icon">🍶</div>
+                            <div class="card-title">お飲み物のご案内</div>
+                        </button>
+                    </div>
+
+                    <!-- 下段: アクティビティ系 -->
+                    <div class="menu-section">
+                        <button class="menu-card" onclick="showPage('bicycle')">
+                            <div class="card-icon">🚲</div>
+                            <div class="card-title">レンタサイクル</div>
+                        </button>
+
+                        <button class="menu-card" onclick="showPage('seasonal')">
+                            <div class="card-icon">🌸</div>
+                            <div class="card-title">季節のご案内</div>
+                        </button>
+
+                        <button class="menu-card" onclick="showPage('sightseeing')">
+                            <div class="card-icon">🗾</div>
+                            <div class="card-title">周辺観光のご案内</div>
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- ===== Wi-Fiのご案内 ===== -->
+        <div id="page-wifi" class="page">
+            <header class="page-header">
+                <h2 class="page-title">Wi-Fiのご案内</h2>
+            </header>
+
+            <main class="page-content">
+                <div class="info-card large">
+                    <div class="wifi-info">
+                        <div class="wifi-item">
+                            <div class="wifi-label">ネットワーク名（SSID）</div>
+                            <div class="wifi-value" id="wifi-ssid">読み込み中...</div>
+                        </div>
+                        <div class="wifi-item">
+                            <div class="wifi-label">パスワード</div>
+                            <div class="wifi-value" id="wifi-password">読み込み中...</div>
+                        </div>
+                    </div>
+                    <p class="info-text">
+                        接続できない場合や、ご不明な点がございましたら、<br>
+                        お手元の「フロント」ボタンを押してお知らせください。
+                    </p>
+                </div>
+            </main>
+
+            <footer class="page-footer">
+                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+            </footer>
+        </div>
+
+        <!-- ===== 館内設備のご案内 ===== -->
+        <div id="page-facilities" class="page">
+            <header class="page-header">
+                <h2 class="page-title">館内設備のご案内</h2>
+            </header>
+
+            <main class="page-content">
+                <!-- 製氷機 -->
+                <div class="info-card">
+                    <div class="facility-header">
+                        <span class="facility-icon">🧊</span>
+                        <h3>製氷機</h3>
+                    </div>
+                    <p class="facility-location" id="ice-machine-location">読み込み中...</p>
+                </div>
+
+                <!-- コーヒーメーカー -->
+                <div class="info-card">
+                    <div class="facility-header">
+                        <span class="facility-icon">☕</span>
+                        <h3>コーヒーメーカー</h3>
+                    </div>
+                    <p class="facility-location" id="coffee-maker-location">読み込み中...</p>
+                    <div class="facility-steps">
+                        <p class="steps-title">使い方</p>
+                        <ol id="coffee-maker-steps" class="steps-list">
+                            <li>読み込み中...</li>
+                        </ol>
+                        <p class="facility-note">※熱湯が出ますので、やけどにご注意ください。</p>
+                    </div>
+                </div>
+
+                <div class="contact-message">
+                    ご不明な点は、お手元の「フロント」ボタンを押してお知らせください。
+                </div>
+            </main>
+
+            <footer class="page-footer">
+                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+            </footer>
+        </div>
+
+        <!-- ===== レンタサイクルのご案内 ===== -->
+        <div id="page-bicycle" class="page">
+            <header class="page-header">
+                <h2 class="page-title">レンタサイクルのご案内</h2>
+            </header>
+
+            <main class="page-content">
+                <div class="info-card large">
+                    <div class="bicycle-info">
+                        <div class="info-row">
+                            <span class="info-label">貸出場所</span>
+                            <span class="info-value" id="bicycle-location">読み込み中...</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">貸出時間</span>
+                            <span class="info-value" id="bicycle-hours">読み込み中...</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">料金</span>
+                            <span class="info-value" id="bicycle-price">読み込み中...</span>
+                        </div>
+                    </div>
+                    <div class="apply-section">
+                        <p class="apply-text">
+                            ご利用の際は、お手元の「フロント」ボタンを押して<br>
+                            お申し込みください。
+                        </p>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="page-footer">
+                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+            </footer>
+        </div>
+
+        <!-- ===== お飲み物のご案内 ===== -->
+        <div id="page-drinks" class="page">
+            <header class="page-header">
+                <h2 class="page-title">お飲み物のご案内</h2>
+            </header>
+
+            <main class="page-content">
+                <div class="info-card large">
+                    <p class="drinks-intro" id="drinks-intro">読み込み中...</p>
+                    
+                    <div class="drinks-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📋</span>
+                            <p>詳しいメニューは、お部屋の紙メニューをご覧ください。</p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📞</span>
+                            <p>ご注文の際は、お手元の「フロント」ボタンを押してお知らせください。</p>
+                        </div>
+                        <div class="detail-item highlight">
+                            <span class="detail-icon">⏰</span>
+                            <p><strong>ラストオーダー: <span id="drinks-last-order">読み込み中...</span></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="page-footer">
+                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+            </footer>
+        </div>
+
+        <!-- ===== お風呂のご案内 ===== -->
+        <div id="page-bath" class="page">
+            <header class="page-header">
+                <h2 class="page-title">お風呂のご案内</h2>
+            </header>
+
+            <main class="page-content">
+                <div class="info-card">
+                    <h3 class="bath-name" id="bath-name">読み込み中...</h3>
+                    
+                    <div class="bath-hours">
+                        <div class="hours-item">
+                            <span class="hours-label">夜</span>
+                            <span class="hours-value" id="bath-evening">読み込み中...</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="hours-label">朝</span>
+                            <span class="hours-value" id="bath-morning">読み込み中...</span>
+                        </div>
+                    </div>
+
+                    <div class="bath-notes" id="bath-notes">
+                        <p class="note-title">ご利用にあたって</p>
+                        <!-- JavaScriptで挿入 -->
+                    </div>
+                </div>
+
+                <div class="private-bath-section" id="private-bath-section" style="display: none;">
+                    <div class="info-card">
+                        <h3 class="bath-name">貸切風呂</h3>
+                        <p id="private-bath-info">読み込み中...</p>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="page-footer">
+                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+            </footer>
+        </div>
+
+        <!-- ===== 季節のご案内 ===== -->
+        <div id="page-seasonal" class="page">
+            <header class="page-header">
+                <h2 class="page-title">季節のご案内</h2>
+            </header>
+
+            <main class="page-content">
+                <div id="seasonal-events" class="seasonal-container">
+                    <!-- JavaScriptで動的に生成 -->
+                    <p class="loading-text">読み込み中...</p>
+                </div>
+            </main>
+
+            <footer class="page-footer">
+                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+            </footer>
+        </div>
+
+        <!-- ===== 周辺観光のご案内 ===== -->
+        <div id="page-sightseeing" class="page">
+            <header class="page-header">
+                <h2 class="page-title">周辺観光のご案内</h2>
+                <p class="subtitle">きぬ川不動瀧おすすめスポット</p>
+            </header>
+
+            <main class="page-content">
+                <div id="sightseeing-list" class="sightseeing-grid">
+                    <!-- JavaScriptで動的に生成 -->
+                    <p class="loading-text">読み込み中...</p>
+                </div>
+                <p class="sightseeing-note">
+                    ※最新の営業情報や料金は、各施設の公式サイトをご確認ください。
+                </p>
+            </main>
+
+            <footer class="page-footer">
+                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+            </footer>
+        </div>
+
+        <!-- ===== 緊急時のご案内 ===== -->
+        <div id="page-emergency" class="page">
+            <header class="page-header emergency-header">
+                <h2 class="page-title">緊急時のご案内</h2>
+            </header>
+
+            <main class="page-content">
+                <div class="emergency-card alert">
+                    <div class="emergency-icon-large">⚠️</div>
+                    <h3>まずは落ち着いて行動してください</h3>
+                </div>
+
+                <div class="emergency-card" id="emergency-fire">
+                    <h3>🔥 火災の場合</h3>
+                    <!-- JavaScriptで挿入 -->
+                </div>
+
+                <div class="emergency-card" id="emergency-earthquake">
+                    <h3>🏠 地震の場合</h3>
+                    <!-- JavaScriptで挿入 -->
+                </div>
+
+                <div class="emergency-card" id="emergency-illness">
+                    <h3>🏥 急病・けがの場合</h3>
+                    <!-- JavaScriptで挿入 -->
+                </div>
+
+                <div class="emergency-contact">
+                    <p class="emergency-contact-text">
+                        緊急の際は、すぐにお手元の「フロント」ボタンを押してお知らせください。<br>
+                        スタッフが迅速に対応いたします。
+                    </p>
+                </div>
+            </main>
+
+            <footer class="page-footer">
+                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+            </footer>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
