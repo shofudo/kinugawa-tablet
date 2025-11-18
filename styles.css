@@ -48,6 +48,92 @@ body {
 .page-header {
     text-align: center;
     margin-bottom: 30px;
+    position: relative;
+}
+
+/* 上部の戻るボタン */
+.back-to-top-button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #4A7C7E;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(74, 124, 126, 0.2);
+}
+
+.back-to-top-button:hover {
+    background-color: #3A6C6E;
+    box-shadow: 0 4px 12px rgba(74, 124, 126, 0.3);
+    transform: translateX(-3px);
+}
+
+.back-to-top-button:active {
+    transform: translateX(0);
+}
+
+.back-arrow {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 緊急時ページの戻るボタン */
+.emergency-back {
+    background-color: white;
+    color: #E53935;
+    border: 2px solid white;
+}
+
+.emergency-back:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #C62828;
+}
+
+/* エラー画面 */
+.error-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #F7F5F2;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-content {
+    text-align: center;
+    padding: 40px;
+    max-width: 600px;
+}
+
+.error-icon {
+    font-size: 80px;
+    margin-bottom: 30px;
+}
+
+.error-title {
+    font-size: 26px;
+    font-weight: 500;
+    color: #E53935;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.error-message {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.8;
 }
 
 .logo-container {
@@ -376,43 +462,68 @@ body {
    お飲み物ページ
    =========================== */
 .drinks-intro {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 30px;
-    text-align: center;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.drinks-lead {
+    font-size: 15px;
     line-height: 1.8;
+    color: #555;
 }
 
-.drinks-details {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* カテゴリカード全体のグリッド */
+.drinks-sections {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
 }
 
-.detail-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    padding: 20px;
-    background-color: #F9F8F6;
-    border-radius: 10px;
+@media (min-width: 768px) {
+    .drinks-sections {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
-.detail-item.highlight {
-    background-color: #FFF9E6;
-    border: 2px solid #C9A961;
+/* 各カテゴリカード */
+.drink-section-card {
+    background: #FAF7F2;
+    border-radius: 16px;
+    padding: 16px 18px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    border-left: 4px solid #C9A063;  /* ゴールド系の差し色 */
 }
 
-.detail-icon {
-    font-size: 28px;
-    flex-shrink: 0;
-}
-
-.detail-item p {
+/* カテゴリタイトル */
+.drink-section-title {
     font-size: 16px;
-    color: #333;
-    line-height: 1.7;
+    font-weight: 600;
+    color: #4A3B28;
+    margin: 0 0 6px;
 }
+
+/* （説明があれば）カテゴリ説明 */
+.drink-section-desc {
+    font-size: 13px;
+    color: #777;
+    margin: 0 0 8px;
+}
+
+/* 中のリスト */
+.drink-item-list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.drink-item {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333;
+    padding-left: 0;
+}
+
 
 /* ===========================
    お風呂ページ

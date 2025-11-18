@@ -3,11 +3,17 @@
 // ===========================
 let configData = null;
 
+// 無操作タイマー設定（ミリ秒）
+// 5分 = 300000, 10分 = 600000
+const INACTIVITY_TIMEOUT = 300000; // 5分（必要に応じて変更してください）
+let inactivityTimer = null;
+
 // ===========================
 // 初期化
 // ===========================
 document.addEventListener('DOMContentLoaded', function() {
     loadConfig();
+    setupInactivityTimer();
 });
 
 // ===========================
@@ -15,16 +21,33 @@ document.addEventListener('DOMContentLoaded', function() {
 // ===========================
 async function loadConfig() {
     try {
-        const response = await fetch('config.json');
+        // キャッシュを回避するためにタイムスタンプをクエリパラメータに追加
+        const timestamp = new Date().getTime();
+        const response = await fetch(`config.json?t=${timestamp}`);
+        
         if (!response.ok) {
-            throw new Error('設定ファイルの読み込みに失敗しました');
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
+        
         configData = await response.json();
         populateAllPages();
+        
+        // エラー画面が表示されていれば非表示に
+        document.getElementById('error-screen').style.display = 'none';
+        document.getElementById('app-container').style.display = 'block';
+        
     } catch (error) {
         console.error('設定ファイル読み込みエラー:', error);
-        alert('設定ファイルの読み込みに失敗しました。ページをリロードしてください。');
+        showErrorScreen();
     }
+}
+
+// ===========================
+// エラー画面表示
+// ===========================
+function showErrorScreen() {
+    document.getElementById('error-screen').style.display = 'flex';
+    document.getElementById('app-container').style.display = 'none';
 }
 
 // ===========================
@@ -92,10 +115,60 @@ function populateBicyclePage() {
 // ===========================
 function populateDrinksPage() {
     if (!configData || !configData.drinks) return;
-    
-    document.getElementById('drinks-intro').textContent = configData.drinks.description;
-    document.getElementById('drinks-last-order').textContent = configData.drinks.lastOrder;
+
+    const drinks = configData.drinks;
+
+    // リード文
+    const leadEl = document.getElementById('drinks-lead');
+    if (leadEl && drinks.lead) {
+        leadEl.textContent = drinks.lead;
+    }
+
+    // カテゴリカード
+    const sectionsContainer = document.getElementById('drinks-sections');
+    if (sectionsContainer && Array.isArray(drinks.sections)) {
+        sectionsContainer.innerHTML = "";
+
+        drinks.sections.forEach(section => {
+            const sectionEl = document.createElement("section");
+            sectionEl.className = "drink-section-card";
+
+            const titleEl = document.createElement("h3");
+            titleEl.className = "drink-section-title";
+            titleEl.textContent = section.title + (section.subtitle ? " / " + section.subtitle : "");
+            sectionEl.appendChild(titleEl);
+
+            if (section.description) {
+                const descEl = document.createElement("p");
+                descEl.className = "drink-section-desc";
+                descEl.textContent = section.description;
+                sectionEl.appendChild(descEl);
+            }
+
+            if (Array.isArray(section.items)) {
+                const listEl = document.createElement("ul");
+                listEl.className = "drink-item-list";
+
+                section.items.forEach(text => {
+                    const li = document.createElement("li");
+                    li.className = "drink-item";
+                    li.textContent = text;
+                    listEl.appendChild(li);
+                });
+
+                sectionEl.appendChild(listEl);
+            }
+
+            sectionsContainer.appendChild(sectionEl);
+        });
+    }
+
+    const lastOrderEl = document.getElementById('drinks-last-order');
+    if (lastOrderEl) {
+        lastOrderEl.textContent = drinks.lastOrder || "";
+    }
 }
+
 
 // ===========================
 // お風呂ページ
@@ -146,10 +219,15 @@ function populateSeasonalPage() {
         const eventDiv = document.createElement('div');
         eventDiv.className = 'seasonal-event';
         
-        eventDiv.innerHTML = `
+        // 画像がある場合のみ画像セクションを追加
+        const imageHTML = event.image ? `
             <div class="seasonal-image">
                 <img src="${event.image}" alt="${event.title}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 400%22%3E%3Crect fill=%22%23E8E6E1%22 width=%22300%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2220%22%3E画像なし%3C/text%3E%3C/svg%3E'">
             </div>
+        ` : '';
+        
+        eventDiv.innerHTML = `
+            ${imageHTML}
             <div class="seasonal-content">
                 <h3 class="seasonal-title">${event.title}</h3>
                 <p class="seasonal-period">${event.period}</p>
@@ -254,6 +332,38 @@ function showPage(pageId) {
     } else {
         emergencyButton.style.display = 'flex';
     }
+}
+
+// ===========================
+// 無操作タイマー設定
+// ===========================
+function setupInactivityTimer() {
+    // タイマーをリセットする関数
+    function resetTimer() {
+        // 既存のタイマーをクリア
+        if (inactivityTimer) {
+            clearTimeout(inactivityTimer);
+        }
+        
+        // 新しいタイマーを設定
+        inactivityTimer = setTimeout(() => {
+            // トップページでない場合のみトップに戻る
+            const currentPage = document.querySelector('.page.active');
+            if (currentPage && currentPage.id !== 'page-home') {
+                showPage('home');
+            }
+        }, INACTIVITY_TIMEOUT);
+    }
+    
+    // 各種イベントでタイマーをリセット
+    const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
+    
+    events.forEach(event => {
+        document.addEventListener(event, resetTimer, true);
+    });
+    
+    // 初回タイマー設定
+    resetTimer();
 }
 
 // ===========================

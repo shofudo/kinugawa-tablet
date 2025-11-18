@@ -1,35 +1,129 @@
 {
   "wifi": {
-    "networkName": "kinugawa-guest",
-    "password": "fudotaki2025"
+    "networkName": "fudotaki",
+    "password": "fudotaki"
   },
   
   "facilities": {
-    "iceMachine": "3階 エレベーター横",
+    "iceMachine": "地下1階",
     "coffeeMaker": {
       "location": "地下1階 ラウンジ",
       "steps": [
-        "コーヒーカップをセットする",
-        "お好みのコーヒー豆を選ぶ",
-        "スタートボタンを押す",
-        "抽出が完了するまでお待ちください"
+        "好きなカップをセットしてフタを閉じる",
+        "好きなカプセルを入れてレバーを下げる",
+        "抽出ボタン（ESPRESSO または COFFEE/TEA/GREEN TEA）を押す",
+        "抽出が終わったらカップを取り出す"
       ]
     }
   },
   
   "bicycle": {
-    "location": "1階 フロント横",
-    "hours": "9:00〜17:00",
-    "price": "2時間 500円 / 1日 1,000円"
+    "location": "1階 フロントにて受付",
+    "hours": "7:00〜21:00",
+    "price": "最初の1時間無料 / 以降1時間ごと500円",
+    "note": "電動アシスト付き自転車「RealStream Mini」"
   },
-  
+
   "drinks": {
-    "description": "ビール・日本酒・ワイン・焼酎・ソフトドリンクなど、各種お飲み物をご用意しております。",
-    "lastOrder": "22:00"
+    "lead": "きぬ川不動瀧では、栃木の地酒や国産ワインを中心に、お料理に寄り添うお飲み物を取り揃えております。",
+    "sections": [
+      {
+        "title": "瓶ビール",
+        "subtitle": "Bottle Beer",
+        "items": [
+          "Nikko Belgian Beer Deux（ニッコー ベルジャン ビール デュクス）330ml　1000円",
+          "プレミアムモルツ（Premium Malt）500ml　1100円",
+          "アサヒスーパードライ（Asahi Super Dry）500ml　1000円",
+          "キリン一番搾り（Kirin Ichiban Shibori）500ml　1000円",
+          "ドライゼロ（Non-Alcoholic Beer）334ml　400円（ノンアルコールビール）"
+        ]
+      },
+      {
+        "title": "スパークリング",
+        "subtitle": "Sparkling Wine",
+        "items": [
+          "Veuve du Vernay Brut（ヴーヴ・デュ・ヴェルネイ ブリュット）"
+        ]
+      },
+      {
+        "title": "純米吟醸酒",
+        "subtitle": "Junmai Ginjo Sake",
+        "items": [
+          "鳳凰美田（ほうおう びでん）［栃木県 小山市］カラフェ 330ml　1800円",
+          "忠愛（ちゅうあい）［栃木県 矢板市］カラフェ 330ml　1800円"
+        ]
+      },
+      {
+        "title": "冷酒",
+        "subtitle": "Cold Sake",
+        "items": [
+          "惣誉（そうほまれ）［辛口］300ml　1300円",
+          "澤姫（さわひめ）［すっきり］300ml　1300円",
+          "四季桜（しきざくら）［辛口］180ml　800円",
+          "四季桜（しきざくら）［甘口］180ml　800円",
+          "大那（だいな）超辛口 +10［辛口］180ml　900円"
+        ]
+      },
+      {
+        "title": "果実酒",
+        "subtitle": "Fruit Liqueur　各 800円",
+        "items": [
+          "鳳凰美田 ゆず酒（Yuzu Liqueur）",
+          "鳳凰美田 完熟もも酒（Peach Liqueur）",
+          "鳳凰美田 熟成秘蔵梅酒（Plum Wine）",
+          "飲み方：ロック、サワー、水割り など　各 800円"
+        ]
+      },
+      {
+        "title": "ワイン",
+        "subtitle": "Japanese Wine（国産ワイン）",
+        "items": [
+          "Cfa Backyard Winery（シーエフエー・バックヤードワイナリー）［栃木県 足利市］",
+          "種類：赤（RED）／白（WHITE）／ロゼ（ROSE）／オレンジ（ORANGE）",
+          "デカンタ（Decanter）400ml　2800円",
+          "グラス（Glass）　900円"
+        ]
+      },
+      {
+        "title": "サワー・カクテル",
+        "subtitle": "Sours & Cocktails",
+        "items": [
+          "レモンサワー（Lemon Sour）900円",
+          "カシスみかん（Cassis Orange）900円"
+        ]
+      },
+      {
+        "title": "焼酎",
+        "subtitle": "Shochu",
+        "items": [
+          "天使の誘惑（芋）Tenshi no Yuwaku　グラス 1300円",
+          "佐藤 黒（芋）Sato Kuro　グラス 1300円",
+          "吉四六（麦）Kitchomu　グラス 1300円",
+          "富乃宝山（芋）Tomi no Houzan　グラス 1100円",
+          "黒霧島（芋）Kurokirishima　グラス 900円"
+        ]
+      },
+      {
+        "title": "ジュース・ソフトドリンク",
+        "subtitle": "Juice & Soft Drink",
+        "items": [
+          "しまなみ みかんジュース（Japanese Orange Juice）500円",
+          "COCOファームワイナリー ぶどうジュース（Grape Juice）600円",
+          "三ツ矢サイダー（Mitsuya Cider）300円",
+          "ジンジャーエール（Ginger Ale）300円",
+          "コカ・コーラ（Coca-Cola）300円",
+          "ウーロン茶（Oolong Tea）300円",
+          "トマトジュース（Tomato Juice）300円",
+          "にんじんジュース（Carrot Juice）300円",
+          "炭酸水（Sparkling Water）300円　※常温でご用意しております。氷が必要な場合はお申し付けください。"
+        ]
+      }
+    ],
+    "lastOrder": "21:00"
   },
   
   "bath": {
-    "name": "大浴場「渓流の湯」",
+    "name": "大浴場 渓流の湯",
     "hours": {
       "evening": "15:00〜23:00",
       "morning": "6:00〜9:30"
@@ -50,14 +144,12 @@
     {
       "title": "春のいちごフェア",
       "period": "2025年3月1日〜5月31日",
-      "description": "栃木県産「とちおとめ」をふんだんに使った特別デザートをご用意しております。旬の甘さをお楽しみください。",
-      "image": "images/seasonal/spring-strawberry.svg"
+      "description": "栃木県産「とちおとめ」をふんだんに使った特別デザートをご用意しております。旬の甘さをお楽しみください。"
     },
     {
       "title": "新緑の鬼怒川散策ツアー",
       "period": "2025年4月15日〜6月30日",
-      "description": "新緑が美しい季節に、当館スタッフがご案内する散策ツアーを開催いたします。毎週土曜日 9:00出発。",
-      "image": "images/seasonal/green-tour.svg"
+      "description": "新緑が美しい季節に、当館スタッフがご案内する散策ツアーを開催いたします。毎週土曜日 9:00出発。"
     }
   ],
   

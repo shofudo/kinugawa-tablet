@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- エラー表示画面 -->
+    <div id="error-screen" class="error-screen" style="display: none;">
+        <div class="error-content">
+            <div class="error-icon">⚠️</div>
+            <h2 class="error-title">ただいまインフォメーションを表示できません</h2>
+            <p class="error-message">
+                お手数ですが、お手元の「フロント」ボタンを押して<br>
+                スタッフまでお知らせください。
+            </p>
+        </div>
+    </div>
+
     <!-- 緊急時ボタン（全ページ固定表示） -->
     <button id="emergency-button" class="emergency-fab" onclick="showPage('emergency')">
         <span class="emergency-icon">!</span>
@@ -75,6 +87,9 @@
         <!-- ===== Wi-Fiのご案内 ===== -->
         <div id="page-wifi" class="page">
             <header class="page-header">
+                <button class="back-to-top-button" onclick="showPage('home')">
+                    <span class="back-arrow">←</span> トップへ
+                </button>
                 <h2 class="page-title">Wi-Fiのご案内</h2>
             </header>
 
@@ -105,6 +120,9 @@
         <!-- ===== 館内設備のご案内 ===== -->
         <div id="page-facilities" class="page">
             <header class="page-header">
+                <button class="back-to-top-button" onclick="showPage('home')">
+                    <span class="back-arrow">←</span> トップへ
+                </button>
                 <h2 class="page-title">館内設備のご案内</h2>
             </header>
 
@@ -147,6 +165,9 @@
         <!-- ===== レンタサイクルのご案内 ===== -->
         <div id="page-bicycle" class="page">
             <header class="page-header">
+                <button class="back-to-top-button" onclick="showPage('home')">
+                    <span class="back-arrow">←</span> トップへ
+                </button>
                 <h2 class="page-title">レンタサイクルのご案内</h2>
             </header>
 
@@ -183,12 +204,21 @@
         <!-- ===== お飲み物のご案内 ===== -->
         <div id="page-drinks" class="page">
             <header class="page-header">
+                <button class="back-to-top-button" onclick="showPage('home')">
+                    <span class="back-arrow">←</span> トップへ
+                </button>
                 <h2 class="page-title">お飲み物のご案内</h2>
             </header>
 
             <main class="page-content">
                 <div class="info-card large">
-                    <p class="drinks-intro" id="drinks-intro">読み込み中...</p>
+<div class="drinks-intro">
+  <p class="drinks-lead" id="drinks-lead">読み込み中...</p>
+</div>
+
+<div class="drinks-sections" id="drinks-sections">
+  <!-- JavaScriptでカテゴリごとのカードが入ります -->
+</div>
                     
                     <div class="drinks-details">
                         <div class="detail-item">
@@ -215,6 +245,9 @@
         <!-- ===== お風呂のご案内 ===== -->
         <div id="page-bath" class="page">
             <header class="page-header">
+                <button class="back-to-top-button" onclick="showPage('home')">
+                    <span class="back-arrow">←</span> トップへ
+                </button>
                 <h2 class="page-title">お風呂のご案内</h2>
             </header>
 
@@ -255,6 +288,9 @@
         <!-- ===== 季節のご案内 ===== -->
         <div id="page-seasonal" class="page">
             <header class="page-header">
+                <button class="back-to-top-button" onclick="showPage('home')">
+                    <span class="back-arrow">←</span> トップへ
+                </button>
                 <h2 class="page-title">季節のご案内</h2>
             </header>
 
@@ -273,6 +309,9 @@
         <!-- ===== 周辺観光のご案内 ===== -->
         <div id="page-sightseeing" class="page">
             <header class="page-header">
+                <button class="back-to-top-button" onclick="showPage('home')">
+                    <span class="back-arrow">←</span> トップへ
+                </button>
                 <h2 class="page-title">周辺観光のご案内</h2>
                 <p class="subtitle">きぬ川不動瀧おすすめスポット</p>
             </header>
@@ -295,6 +334,9 @@
         <!-- ===== 緊急時のご案内 ===== -->
         <div id="page-emergency" class="page">
             <header class="page-header emergency-header">
+                <button class="back-to-top-button emergency-back" onclick="showPage('home')">
+                    <span class="back-arrow">←</span> トップへ
+                </button>
                 <h2 class="page-title">緊急時のご案内</h2>
             </header>
 
