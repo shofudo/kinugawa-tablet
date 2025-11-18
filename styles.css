@@ -649,6 +649,54 @@ body {
     letter-spacing: 0.5px;
     box-shadow: 0 3px 12px rgba(74, 124, 126, 0.25);
 }
+/* ドリンクページ下部の案内ブロック（電話・ラストオーダー） */
+.drinks-details {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: #FFF8EE; /* 少しクリーム色で柔らかく */
+    border-radius: 16px;
+    border: 1px solid rgba(201, 160, 99, 0.25); /* ゴールド系の細い枠 */
+}
+
+/* 1行ごとのレイアウト */
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.9;
+    color: #4A3A26;
+}
+
+.detail-item:last-child {
+    margin-bottom: 0;
+}
+
+/* 丸型アイコン部分 */
+.detail-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E0C39A 0%, #C9A063 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+/* テキストの余白調整 */
+.detail-item p {
+    margin: 0;
+}
+
+/* ラストオーダーの行だけ少し強調 */
+.detail-item.highlight p strong {
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
 
 /* ===========================
    お風呂ページ
