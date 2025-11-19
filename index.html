@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>客室インフォメーション | きぬ川不動瀧</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -215,26 +219,25 @@
 <div class="drinks-intro">
   <p class="drinks-lead" id="drinks-lead">読み込み中...</p>
 </div>
-
-<div class="drinks-sections" id="drinks-sections">
-  <!-- JavaScriptでカテゴリごとのカードが入ります -->
-</div>
-                    
 <div class="drinks-bottom-notes">
   <div class="drinks-bottom-row">
-    <span class="drinks-bottom-icon">📞</span>
+    <span class="drinks-bottom-icon icon-phone"></span>
     <span class="drinks-bottom-text">
       ご注文の際は、お部屋の電話にございます「フロント」ボタンを押してお知らせください。
     </span>
   </div>
 
   <div class="drinks-bottom-row drinks-bottom-row-last">
-    <span class="drinks-bottom-icon">⏰</span>
+    <span class="drinks-bottom-icon icon-clock"></span>
     <span class="drinks-bottom-text">
-      <strong>ラストオーダー：21:00</strong>
+      <strong>ラストオーダー：<span id="drinks-last-order">21:00</span></strong>
     </span>
   </div>
 </div>
+<div class="drinks-sections" id="drinks-sections">
+  <!-- JavaScriptでカテゴリごとのカードが入ります -->
+</div>
+                
  </div> 
             </main>
 
