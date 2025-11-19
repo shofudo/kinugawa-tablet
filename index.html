@@ -63,7 +63,7 @@
 
                         <button class="menu-card" onclick="showPage('drinks')">
                             <div class="card-icon">🍶</div>
-                            <div class="card-title">お飲み物のご案内</div>
+                            <div class="card-title">ルームサービス</div>
                         </button>
                     </div>
 
@@ -97,23 +97,52 @@
                 <h2 class="page-title">Wi-Fiのご案内</h2>
             </header>
 
-            <main class="page-content">
-                <div class="info-card large">
-                    <div class="wifi-info">
-                        <div class="wifi-item">
-                            <div class="wifi-label">ネットワーク名（SSID）</div>
-                            <div class="wifi-value" id="wifi-ssid">読み込み中...</div>
-                        </div>
-                        <div class="wifi-item">
-                            <div class="wifi-label">パスワード</div>
-                            <div class="wifi-value" id="wifi-password">読み込み中...</div>
-                        </div>
+            <main class="page-content" style="display: flex; flex-direction: column; justify-content: center; min-height: 60vh;">
+                
+                <div style="
+                    display: flex; 
+                    max-width: 850px; 
+                    width: 95%;
+                    margin: 0 auto; 
+                    background-color: #FFFAF6; /* ルームサービスと同じ、ほんのり温かい白 */
+                    border: 1px solid rgba(201, 160, 99, 0.3); /* 薄い金の枠を追加 */
+                    border-radius: 16px; 
+                    box-shadow: 0 10px 40px rgba(74, 58, 38, 0.1); /* 影の色も柔らかい茶色に */
+                    overflow: hidden;
+                ">
+                    
+                    <div style="width: 40%; position: relative; background-color: #FFFAF6;">
+                        <img src="images/wifi-symbol.jpg" alt="Wi-Fi" 
+                             style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;">
                     </div>
-                    <p class="info-text">
-                        接続できない場合や、ご不明な点がございましたら、<br>
-                        お手元の「フロント」ボタンを押してお知らせください。
-                    </p>
+
+                    <div style="width: 60%; padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; text-align: left;">
+                        
+                        <div style="margin-bottom: 30px; border-bottom: 1px dashed #DCC095; padding-bottom: 20px;">
+                            <p style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: #8A7B66; margin-bottom: 8px; letter-spacing: 1px;">
+                                ネットワーク名（SSID）
+                            </p>
+                            <p style="font-family: 'Courier New', monospace; font-size: 36px; font-weight: bold; color: #4A3A26; margin: 0; letter-spacing: 2px;">
+                                <span id="wifi-ssid">fudotaki</span>
+                            </p>
+                        </div>
+
+                        <div>
+                            <p style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: #8A7B66; margin-bottom: 8px; letter-spacing: 1px;">
+                                パスワード
+                            </p>
+                            <p style="font-family: 'Courier New', monospace; font-size: 36px; font-weight: bold; color: #4A3A26; margin: 0; letter-spacing: 2px;">
+                                <span id="wifi-password">fudotaki</span>
+                            </p>
+                        </div>
+
+                    </div>
                 </div>
+
+                <p style="text-align: center; font-size: 13px; color: #8A7B66; margin-top: 25px; font-family: 'Noto Serif JP', serif;">
+                    ※接続できない場合は、フロントまでお知らせください。
+                </p>
+
             </main>
 
             <footer class="page-footer">
@@ -132,28 +161,69 @@
 
             <main class="page-content">
                 <!-- 製氷機 -->
-                <div class="info-card">
-                    <div class="facility-header">
-                        <span class="facility-icon">🧊</span>
+               <div class="facility-card-modern">
+                    <div class="facility-modern-header">
+                        <span class="facility-modern-icon">🧊</span>
                         <h3>製氷機</h3>
                     </div>
-                    <p class="facility-location" id="ice-machine-location">読み込み中...</p>
+                    
+                    <p style="font-family: 'Noto Serif JP', serif; color: #4A3A26;">
+                        設置場所: 地下1階
+                    </p>
+
+                    <div class="notice-box-modern">
+                        <p style="text-align: center; margin-bottom: 10px; font-weight: bold; color: #C9A063;">
+                            ◆ ご利用について ◆
+                        </p>
+                        <p>
+                            氷をご利用の際は、<br>
+                            <strong>お部屋のアイスペール（氷入れ）</strong>をお持ちになり、<br>
+                            地下1階までお越しくださいませ。
+                        </p>
+                    </div>
                 </div>
 
                 <!-- コーヒーメーカー -->
-                <div class="info-card">
-                    <div class="facility-header">
-                        <span class="facility-icon">☕</span>
+                <div class="facility-card-modern">
+                    <div class="facility-modern-header">
+                        <span class="facility-modern-icon">☕</span>
                         <h3>コーヒーメーカー</h3>
                     </div>
-                    <p class="facility-location" id="coffee-maker-location">読み込み中...</p>
-                    <div class="facility-steps">
-                        <p class="steps-title">使い方</p>
-                        <ol id="coffee-maker-steps" class="steps-list">
-                            <li>読み込み中...</li>
+
+                    <img src="images/coffee-manual.jpg" class="manual-image" alt="コーヒーメーカーの使い方" onclick="this.classList.toggle('enlarged')">
+                    
+                    <p style="text-align: center; font-size: 12px; color: #8A7B66; margin-top: -10px; margin-bottom: 20px; font-family: 'Noto Serif JP', serif;">
+                        ※画像をタップすると拡大します
+                    </p>
+
+                    <div style="background-color: #fff; border: 1px dashed #DCC095; padding: 20px; border-radius: 8px;">
+                        <p style="font-weight: bold; margin-bottom: 10px; color: #4A3A26; font-family: 'Noto Serif JP', serif;">
+                            手順の要約
+                        </p>
+                        <ol style="padding-left: 20px; line-height: 1.8; color: #5D5245; font-family: 'Noto Serif JP', serif;">
+                            <li>
+                                電源を入れます<br>
+                                <span style="font-size: 13px; color: #8A7B66;">（※タンクにはすでにお水が入っております）</span>
+                            </li>
+                            <li style="margin-top: 10px;">
+                                カプセルをセットします<br>
+                                <span style="color: #E53935; font-weight: bold;">
+                                    ⚠️下の「透明な受け皿」を必ず外してください
+                                </span>
+                            </li>
+                            <li style="margin-top: 10px;">湯量を合わせて、抽出ボタンを押します</li>
                         </ol>
-                        <p class="facility-note">※熱湯が出ますので、やけどにご注意ください。</p>
+
+                        <div style="border-top: 1px dotted #DCC095; margin: 15px 0;"></div>
+
+                        <p style="font-size: 15px; color: #5D5245; font-family: 'Noto Serif JP', serif;">
+                            <span style="color: #C9A063; font-weight: bold;">☕ カプセルの追加</span><br>
+                            追加は <strong>1個 200円</strong> で承っております。<br>
+                            ご希望の際はフロントまでお知らせください。
+                        </p>
                     </div>
+                    
+                    <p class="facility-note" style="margin-top: 15px; text-align: center;">※熱湯が出ますので、やけどにご注意ください。</p>
                 </div>
 
                 <div class="contact-message">
@@ -211,7 +281,7 @@
                 <button class="back-to-top-button" onclick="showPage('home')">
                     <span class="back-arrow">←</span> トップへ
                 </button>
-                <h2 class="page-title">お飲み物のご案内</h2>
+                <h2 class="page-title">ルームサービス</h2>
             </header>
 
             <main class="page-content">
@@ -233,6 +303,12 @@
       <strong>ラストオーダー：<span id="drinks-last-order">21:00</span></strong>
     </span>
   </div>
+  <div class="amenity-button-container">
+    <button class="amenity-btn" onclick="toggleAmenityModal()">
+        <span class="material-icons-outlined">shopping_bag</span>
+        有料アメニティ・その他料金表
+    </button>
+</div>
 </div>
 <div class="drinks-sections" id="drinks-sections">
   <!-- JavaScriptでカテゴリごとのカードが入ります -->
@@ -381,5 +457,35 @@
     </div>
 
     <script src="script.js"></script>
+    <div id="amenity-modal" class="amenity-modal-overlay" style="display: none;">
+    <div class="amenity-modal-content">
+        <button class="modal-close-btn" onclick="toggleAmenityModal()">×</button>
+        <h3 class="modal-title">有料アメニティ・その他</h3>
+        <p class="modal-desc">フロントにお問い合わせください</p>
+        
+        <ul class="amenity-list">
+            <li>
+                <span class="amenity-name">フェイスタオル</span>
+                <span class="amenity-price">250円</span>
+            </li>
+            <li>
+                <span class="amenity-name">バスタオル（レンタル）</span>
+                <span class="amenity-price">100円</span>
+            </li>
+            <li>
+                <span class="amenity-name">歯ブラシ</span>
+                <span class="amenity-price">100円</span>
+            </li>
+             <li>
+                <span class="amenity-name">使い捨てコンタクト保存液</span>
+                <span class="amenity-price">200円</span>
+            </li>
+        </ul>
+        
+        <div class="modal-footer">
+            <button class="modal-back-btn" onclick="toggleAmenityModal()">閉じる</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

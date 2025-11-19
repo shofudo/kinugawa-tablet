@@ -79,24 +79,9 @@ function populateWiFiPage() {
 // ===========================
 function populateFacilitiesPage() {
     if (!configData || !configData.facilities) return;
+        
     
-    // 製氷機
-    document.getElementById('ice-machine-location').textContent = 
-        `製氷機は、${configData.facilities.iceMachine} にございます。`;
-    
-    // コーヒーメーカー
-    const coffeeMaker = configData.facilities.coffeeMaker;
-    document.getElementById('coffee-maker-location').textContent = 
-        `設置場所: ${coffeeMaker.location}`;
-    
-    // 使い方の手順
-    const stepsList = document.getElementById('coffee-maker-steps');
-    stepsList.innerHTML = '';
-    coffeeMaker.steps.forEach(step => {
-        const li = document.createElement('li');
-        li.textContent = step;
-        stepsList.appendChild(li);
-    });
+    // ★以前ここにあった「使い方の手順（steps）」のプログラムは削除しました★
 }
 
 // ===========================
@@ -468,3 +453,16 @@ function preventScreenSleep() {
 window.addEventListener('load', () => {
     preventScreenSleep();
 });
+// ===========================
+// アメニティポップアップの制御
+// ===========================
+function toggleAmenityModal() {
+    const modal = document.getElementById('amenity-modal');
+    if (modal) {
+        if (modal.style.display === 'none' || modal.style.display === '') {
+            modal.style.display = 'flex'; // 表示する
+        } else {
+            modal.style.display = 'none'; // 隠す
+        }
+    }
+}

@@ -1032,3 +1032,199 @@ body {
 .icon-clock::before {
     content: "\e192"; 
 }
+/* ===========================
+   アメニティ・ポップアップ設定
+   =========================== */
+
+/* ボタンの周りの余白 */
+.amenity-button-container {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed #C9A063; /* 金色の点線で区切る */
+}
+
+/* アメニティボタン */
+.amenity-btn {
+    background-color: white;
+    color: #4A3A26;
+    border: 1px solid #C9A063;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.amenity-btn:hover {
+    background-color: #C9A063;
+    color: white;
+}
+
+/* ポップアップの背景（暗くなる部分） */
+.amenity-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
+    z-index: 9999; /* 一番手前に表示 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/* ポップアップの白い箱 */
+.amenity-modal-content {
+    background: #FFFAF6; /* 和紙っぽい白 */
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 12px;
+    border: 2px solid #C9A063; /* 金色の枠 */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+/* 閉じるボタン（×） */
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #C9A063;
+    cursor: pointer;
+}
+
+/* タイトル */
+.modal-title {
+    text-align: center;
+    font-family: 'Noto Serif JP', serif;
+    color: #4A3A26;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.modal-desc {
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* リスト */
+.amenity-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.amenity-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(201, 160, 99, 0.3);
+    font-family: 'Noto Serif JP', serif;
+    color: #333;
+}
+
+.amenity-price {
+    font-weight: bold;
+    color: #4A3A26;
+}
+
+/* 下の閉じるボタン */
+.modal-footer {
+    text-align: center;
+}
+
+.modal-back-btn {
+    background-color: #666;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+/* コーヒーメーカー説明画像の調整 */
+.manual-image {
+    width: 100%;         /* 横幅をカードの幅いっぱいに合わせる */
+    height: auto;        /* 高さは自動調整 */
+    border-radius: 8px;  /* 角を少し丸くして優しくする */
+    margin-bottom: 15px; /* 下に少し隙間をあける */
+    border: 1px solid #ccc; /* 薄い枠線をつける */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+/* 画像を拡大した時のスタイル（タップした時） */
+.manual-image.enlarged {
+    position: fixed;      /* 画面の特定の位置に固定する */
+    top: 0;
+    left: 0;
+    width: 100vw;        /* 画面の横幅いっぱい */
+    height: 100vh;       /* 画面の縦幅いっぱい */
+    object-fit: contain; /* 画像を切らずに全体を見せる */
+    background-color: rgba(0, 0, 0, 0.8); /* 背景を少し暗くする */
+    z-index: 9999;       /* 一番手前に表示する */
+    padding: 20px;       /* 端っこすぎないように余白を入れる */
+    margin: 0;           /* 余計な隙間をなくす */
+    border-radius: 0;    /* 丸角をなくす */
+    cursor: zoom-out;    /* カーソルを「戻る」っぽい見た目に */
+}
+/* === ルームサービス風（和モダン）のデザイン設定 === */
+
+/* 1. カード全体を上品な和紙色に */
+.facility-card-modern {
+    background: #FFFAF6; /* ほんのりクリーム色 */
+    border: 1px solid rgba(201, 160, 99, 0.3); /* 薄い金の枠 */
+    border-left: 6px solid #C9A063; /* 左側に金のアクセントバー */
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px; /* カード同士の間隔 */
+    box-shadow: 0 3px 10px rgba(74, 58, 38, 0.05);
+}
+
+/* 2. 見出しを明朝体（和風）に */
+.facility-card-modern h3 {
+    font-family: 'Noto Serif JP', serif;
+    color: #4A3A26; /* 濃い茶色 */
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* ヘッダー部分（アイコンとタイトルの並び） */
+.facility-modern-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #DCC095; /* 金色の点線で区切る */
+    padding-bottom: 15px;
+}
+
+/* アイコンの色を落ち着かせる */
+.facility-modern-icon {
+    font-size: 28px;
+    filter: sepia(0.5) hue-rotate(10deg); /* アイコンを少しセピア調に */
+}
+
+/* 3. 案内ボックス（二重線の枠） */
+.notice-box-modern {
+    border: 3px double #DCC095; /* 金色の二重線 */
+    background-color: #fff;     /* 中は白く */
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+    color: #5D5245;
+    font-family: 'Noto Serif JP', serif; /* 文章も明朝体に */
+    line-height: 1.8;
+}
