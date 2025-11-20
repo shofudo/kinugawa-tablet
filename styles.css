@@ -2504,3 +2504,67 @@ body {
         text-align: center;
     }
 }
+/* 1. トップページ（#page-home）だけに背景画像を設定 */
+#page-home {
+    /* お預かりした写真を背景にします */
+background-image: url('images/top_bg.jpg');    
+    /* 写真の大きさの設定：画面いっぱいに綺麗に広げる */
+    background-size: cover;
+    background-position: center;
+    
+    /* 文字が読みやすいように、写真の上にうっすら「白い霧」をかけます */
+    /* これがないと、黒いロゴが見えなくなってしまうのを防ぎます */
+    position: relative;
+}
+
+/* 白い霧（フィルター）の設定 */
+#page-home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 白色の薄い膜（透明度40%）を張ります */
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: 0; /* 写真より手前、文字より奥 */
+}
+
+/* 2. 文字やボタンが霧の下に隠れないように浮き上がらせる */
+#page-home .page-header,
+#page-home .page-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* 3. メニューボタンを「すりガラス」のようにオシャレにする */
+#page-home .menu-card {
+    /* 背景を少し透けさせる（透明度90%の白） */
+    background-color: rgba(255, 255, 255, 0.9);
+    
+    /* 枠線をなくして、ふんわりした影をつける */
+    border: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    
+    /* 文字の色を少し濃くして読みやすく */
+    color: #4A3A26;
+}
+
+/* ボタンにマウスを乗せたとき（指で触れたとき）の動き */
+#page-home .menu-card:active {
+    transform: scale(0.98); /* 押した感じが出るように少し縮む */
+    background-color: rgba(255, 255, 255, 1); /* 真っ白になる */
+}
+
+/* 4. ロゴ周りの調整 */
+#page-home .logo-text {
+    /* ロゴの文字を少しクッキリさせる */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+#page-home .subtitle {
+    /* サブタイトル（ごゆっくり〜）を少し濃い色に */
+    color: #333;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
