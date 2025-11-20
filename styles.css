@@ -2763,3 +2763,49 @@ background-image: url('images/top_bg.jpg');
     letter-spacing: 3px; /* 数字同士の間隔を広げてゆったりと */
     text-shadow: 0 2px 5px rgba(0,0,0,0.5); /* 文字に影をつけて浮き上がらせる */
 }
+/* ===========================
+   館内図・基本情報のレイアウト改善（iPad対応）
+   =========================== */
+
+/* 1. 「チェックアウト」などの単語が途中で切れないようにする */
+.checkout-label-top,
+.floor-badge {
+    white-space: nowrap; /* 「改行しないで！」という命令 */
+}
+
+/* 2. 長い文章（1Fの説明など）の改行を自然にする */
+.floor-desc {
+    line-height: 1.6;
+    /* 単語の途中（駐、車場など）で不自然に切れないようにする */
+    word-break: keep-all; 
+    overflow-wrap: break-word;
+}
+
+/* 3. iPadなどで画面が狭いときは、地図と文字を「縦並び」にして広々見せる */
+@media screen and (max-width: 1100px) {
+    /* 横並びの設定を解除して、縦積みにする */
+    .floor-map-layout {
+        flex-direction: column; /* 縦に並べる */
+        align-items: center;    /* 真ん中に揃える */
+    }
+
+    /* 地図（左側だったもの）の設定 */
+    .floor-map-left {
+        width: 100%;           /* 幅をいっぱいに使う */
+        max-width: 600px;      /* でも大きくなりすぎないように */
+        margin: 0 auto 30px;   /* 中央寄せ & 下に隙間をあける */
+    }
+
+    /* 文字リスト（右側だったもの）の設定 */
+    .floor-map-right {
+        width: 100%;           /* 幅をいっぱいに使う */
+        max-width: 700px;      /* 読みやすい幅に制限 */
+    }
+    
+    /* チェックアウトの箱も微調整 */
+    .checkout-top-box {
+        padding: 20px;         /* 余白を増やしてゆったり */
+        justify-content: space-between;
+        flex-wrap: wrap;       /* 必要なら折り返す */
+    }
+}
