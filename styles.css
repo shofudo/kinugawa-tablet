@@ -2728,3 +2728,38 @@ background-image: url('images/top_bg.jpg');
     /* 文字の太さ */
     font-weight: 500;
 }
+/* ===========================
+   レンタサイクル：貸出時間の視認性アップ
+   =========================== */
+
+/* 時間の入っている箱（濃い茶色の部分）の設定 */
+.bicycle-info-box.time-box {
+    /* 背景色は今の濃い茶色(#5D5245)を維持しつつ、文字が見やすいように調整 */
+    background-color: #5D5245 !important; 
+    border: 1px solid #5D5245; /* 枠線も背景と同じ色に */
+    
+    /* 中身を真ん中に揃える */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* 「貸出時間」と「7:00...」の間隔 */
+}
+
+/* 「貸出時間」というラベル文字 */
+.bicycle-info-box.time-box .info-label {
+    color: #DCC095 !important; /* 上品なゴールドベージュに変更 */
+    font-size: 16px; /* 文字サイズをアップ */
+    font-weight: normal;
+    font-family: 'Noto Serif JP', serif; /* 明朝体にして高級感を */
+    margin-bottom: 0; /* 余計な隙間を消す */
+}
+
+/* 「7:00 〜 21:00」の時間文字 */
+.bicycle-info-box.time-box .info-time {
+    color: #ffffff !important; /* 真っ白にして、最強の読みやすさに！ */
+    font-size: 32px !important; /* サイズを倍くらい大きく！ */
+    font-family: 'Courier New', monospace; /* 数字が読みやすいフォント */
+    font-weight: bold;
+    letter-spacing: 3px; /* 数字同士の間隔を広げてゆったりと */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5); /* 文字に影をつけて浮き上がらせる */
+}
