@@ -2646,3 +2646,85 @@ background-image: url('images/top_bg.jpg');
     /* ボタンとの距離を少し縮めて、画面全体を引き締めます */
     margin-bottom: 30px;
 }
+/* ===========================
+   視認性アップ＆レイアウト調整の魔法（最終仕上げ）
+   =========================== */
+
+/* 1. タイトル文字を「絶対に読める」ように強化 */
+#page-home .page-title {
+    /* 文字色をさらに濃くしてコントラストをつける */
+    color: #3A2F1F;
+    
+    /* 「白い光」を何重にも重ねて、文字の周りを白く縁取る */
+    /* これで背景がどんな色でもクッキリ見えます */
+    text-shadow: 
+        0 0 10px rgba(255,255,255, 1),
+        0 0 20px rgba(255,255,255, 0.8),
+        2px 2px 0px rgba(255,255,255, 0.5);
+        
+    /* 少し位置を下げて、景色を見せるスペースを作る */
+    margin-top: 60px;
+    margin-bottom: 15px;
+    
+    font-size: 28px; /* 少し大きく */
+}
+
+#page-home .subtitle {
+    /* サブタイトルも同様に読みやすく */
+    color: #5D5245;
+    font-weight: 600;
+    text-shadow: 
+        0 0 8px rgba(255,255,255, 1),
+        0 0 15px rgba(255,255,255, 0.8);
+}
+
+/* 2. 下に移動したロゴのデザイン */
+.bottom-logo-container {
+    text-align: center;
+    margin-top: 40px; /* メニューとの間に隙間をあける */
+    margin-bottom: 20px;
+    opacity: 0.9; /* 少しだけ透けさせて上品に */
+}
+
+.bottom-logo-container img {
+    width: 180px; /* ロゴの大きさ調整 */
+    height: auto;
+    /* ロゴも背景に埋もれないように少し影をつける */
+    filter: drop-shadow(0 2px 5px rgba(255,255,255, 0.8));
+}
+
+/* 3. 画面全体のバランス調整 */
+#page-home .page-content {
+    /* ロゴが下に来たので、下側の余白をたっぷり確保 */
+    padding-bottom: 120px;
+}
+/* ===========================
+   英語タイトル（Guest Information）のデザイン
+   =========================== */
+
+#page-home .page-title-en {
+    /* フォントを明朝体にして上品に */
+    font-family: 'Noto Serif JP', serif;
+    
+    /* 色は茶色系で統一 */
+    color: #6D5D4B;
+    
+    /* サイズは小さめに */
+    font-size: 14px;
+    
+    /* 全部大文字で表示（カッコよくなります） */
+    text-transform: uppercase;
+    
+    /* 文字の間隔を広げてゆったりさせる */
+    letter-spacing: 0.2em;
+    
+    /* 上の日本語との距離を縮めて「セット」に見せる */
+    margin-top: -10px;
+    margin-bottom: 15px;
+    
+    /* 背景に負けないように白い光で縁取り */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    
+    /* 文字の太さ */
+    font-weight: 500;
+}
