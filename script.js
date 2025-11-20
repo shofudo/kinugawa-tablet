@@ -234,31 +234,7 @@ if (section.subtitle) {
 // お風呂ページ
 // ===========================
 function populateBathPage() {
-    if (!configData || !configData.bath) return;
-    
-    const bath = configData.bath;
-    
-    document.getElementById('bath-name').textContent = bath.name;
-    document.getElementById('bath-evening').textContent = bath.hours.evening;
-    document.getElementById('bath-morning').textContent = bath.hours.morning;
-    
-    // 注意事項
-    const notesContainer = document.getElementById('bath-notes');
-    if (bath.notes && bath.notes.length > 0) {
-        const ul = document.createElement('ul');
-        bath.notes.forEach(note => {
-            const li = document.createElement('li');
-            li.textContent = note;
-            ul.appendChild(li);
-        });
-        notesContainer.appendChild(ul);
-    }
-    
-    // 貸切風呂
-    if (bath.privateBath && bath.privateBath.available) {
-        document.getElementById('private-bath-section').style.display = 'block';
-        document.getElementById('private-bath-info').textContent = bath.privateBath.info;
-    }
+    // お風呂ページはHTMLに直接書いたので、何もしなくてOKです！
 }
 
 // ===========================
