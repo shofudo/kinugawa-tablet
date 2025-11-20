@@ -79,10 +79,10 @@
                             <div class="card-title">季節のご案内</div>
                         </button>
 
-                        <button class="menu-card" onclick="showPage('sightseeing')">
-                            <div class="card-icon">🗾</div>
-                            <div class="card-title">周辺観光のご案内</div>
-                        </button>
+                      <button class="menu-card" onclick="showPage('bus')">
+                            <div class="card-icon">🚌</div>
+                            <div class="card-title">ダイヤルバス</div>
+                        </button>  
                     </div>
                 </div>
             </main>
@@ -168,14 +168,78 @@
             </header>
 
             <main class="page-content">
-                <!-- 製氷機 -->
+                
                <div class="facility-card-modern">
                     <div class="facility-modern-header">
-                        <span class="facility-modern-icon">🧊</span>
-                        <h3>製氷機</h3>
+                        <span class="material-icons-outlined facility-modern-icon">map</span>
+                        <h3>館内図・基本情報</h3>
+                    </div>
+
+                    <div class="floor-map-layout">
+                        
+                        <div class="floor-map-left">
+                            <p style="text-align: center; font-size: 12px; color: #8A7B66; margin-bottom: 5px;">
+                                ※画像をタップすると拡大します
+                            </p>
+                            <img src="images/floor_map.jpg" class="manual-image" alt="館内図" onclick="this.classList.toggle('enlarged')" style="margin-bottom: 0;">
+                        </div>
+
+                        <div class="floor-map-right">
+                            
+                            <div class="checkout-top-box">
+                                <div class="checkout-icon-area">
+                                    <span class="material-icons-outlined checkout-icon-top">luggage</span>
+                                    <span class="checkout-label-top">チェックアウト</span>
+                                </div>
+                                <span class="checkout-time-top">10:00</span>
+                            </div>
+
+                            <div class="floor-guide-text" style="margin-top: 15px; height: auto;">
+                                
+                                <div class="floor-row">
+                                    <span class="floor-badge">3F</span>
+                                    <span class="floor-desc">客室（すずらん・やまぶき）</span>
+                                </div>
+
+                                <div class="floor-row">
+                                    <span class="floor-badge">2F</span>
+                                    <span class="floor-desc">客室（はぎ・ゆり・きすげ・さつき・ふじ・さくら・やしお・つばき・なでしこ）</span>
+                                </div>
+
+                                <div class="floor-row floor-row-highlight">
+                                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                        <span class="floor-badge">1F</span>
+                                        <span class="floor-desc">フロント・ロビー・お食事処・駐車場</span>
+                                    </div>
+                                    
+                                    <div class="floor-mixed-info-single">
+                                        <span class="mixed-label"><span class="material-icons-outlined icon-tiny">restaurant</span> お食事処「野の花」</span>
+                                        <div class="mixed-time-row">
+                                            <span class="time-tag evening">夕食</span> 18:00〜20:30
+                                        </div>
+                                        <div class="mixed-time-row">
+                                            <span class="time-tag morning">朝食</span> 08:00〜09:30
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="floor-row">
+                                    <span class="floor-badge">B1F</span>
+                                    <span class="floor-desc">大浴場・露天風呂・お休み処</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="facility-card-modern">
+                    <div class="facility-modern-header">
+<span class="material-icons-outlined facility-modern-icon">ac_unit</span>                        <h3>製氷機</h3>
                     </div>
                     
-                    <p style="font-family: 'Noto Serif JP', serif; color: #4A3A26;">
+                    <p style="font-family: 'Noto Serif JP', serif; color: #4A3A26; margin-bottom: 15px;">
                         設置場所: 地下1階
                     </p>
 
@@ -191,11 +255,9 @@
                     </div>
                 </div>
 
-                <!-- コーヒーメーカー -->
                 <div class="facility-card-modern">
                     <div class="facility-modern-header">
-                        <span class="facility-modern-icon">☕</span>
-                        <h3>コーヒーメーカー</h3>
+<span class="material-icons-outlined facility-modern-icon">coffee_maker</span>                        <h3>コーヒーメーカー</h3>
                     </div>
 
                     <img src="images/coffee-manual.jpg" class="manual-image" alt="コーヒーメーカーの使い方" onclick="this.classList.toggle('enlarged')">
@@ -243,9 +305,88 @@
                 <button class="back-button" onclick="showPage('home')">トップに戻る</button>
             </footer>
         </div>
+<div id="page-bus" class="page">
+            <header class="page-header">
+                <button class="back-to-top-button" onclick="showPage('home')">
+                    <span class="back-arrow">←</span> トップへ
+                </button>
+                <h2 class="page-title">ダイヤルバスのご案内</h2>
+                <p class="subtitle">鬼怒川温泉駅へのアクセス</p>
+            </header>
+
+            <main class="page-content">
+                
+                <div class="bus-card">
+                    
+                    <div class="bus-intro">
+                        <span class="material-icons-outlined bus-icon-main">directions_bus</span>
+                        <p>
+                            当館玄関前から、鬼怒川温泉駅や<br>
+                            周辺の観光施設を巡回するバスにご乗車いただけます。
+                        </p>
+                    </div>
+
+                    <div class="bus-timetable-section">
+                        <h4 class="timetable-title" style="color: #C9A063; font-weight: bold; font-family: 'Noto Serif JP', serif;">▼ 出発時刻</h4>
+                        <div class="timetable-grid">
+                            <div class="time-box">
+                                <span class="time-value">09:25</span>
+                            </div>
+                            <div class="time-box">
+                                <span class="time-value">09:45</span>
+                            </div>
+                            <div class="time-box">
+                                <span class="time-value">10:05</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bus-alert-box">
+                        <h4 class="alert-title">⚠️ 完全予約制です</h4>
+                        <p class="alert-text">
+                            お席に限りがございます。<br>
+                            満席になり次第、受付終了となりますので<br>
+                            <strong>お早めのご予約</strong>をおすすめいたします。
+                        </p>
+                        <div class="alert-divider"></div>
+                        <ul class="alert-schedule">
+                            <li><strong>前日</strong>：17:30 まで受付</li>
+                            <li><strong>当日</strong>：08:30 から受付</li>
+                        </ul>
+                    </div>
+
+                    <div class="bus-route-section">
+                        <div class="route-visual">
+                            <span class="route-point">きぬ川不動瀧</span>
+                            <span class="route-arrow">▶</span>
+                            <span class="route-point">鬼怒川温泉駅</span>
+                        </div>
+                        <div class="bus-price-box">
+                            <span class="price-label">片道料金</span>
+                            <div class="price-row">
+                                <span class="price-item"><strong>300円</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bus-action-area">
+                        <p class="action-guide" style="font-size: 18px; font-weight: bold; color: #5D5245; border-top: 1px dashed #ccc; padding-top: 20px;">
+                            <span class="material-icons-outlined" style="vertical-align: middle; margin-right: 5px; color: #C9A063;">phone_in_talk</span>
+                            ご予約の際は、フロントまでご連絡ください。
+                        </p>
+                    </div>
+
+                </div>
+
+            </main>
+
+            <footer class="page-footer">
+                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+            </footer>
+        </div>
 
         <!-- ===== レンタサイクルのご案内 ===== -->
-        <div id="page-bicycle" class="page">
+       <div id="page-bicycle" class="page">
             <header class="page-header">
                 <button class="back-to-top-button" onclick="showPage('home')">
                     <span class="back-arrow">←</span> トップへ
@@ -254,28 +395,111 @@
             </header>
 
             <main class="page-content">
-                <div class="info-card large">
-                    <div class="bicycle-info">
-                        <div class="info-row">
-                            <span class="info-label">貸出場所</span>
-                            <span class="info-value" id="bicycle-location">読み込み中...</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="info-label">貸出時間</span>
-                            <span class="info-value" id="bicycle-hours">読み込み中...</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="info-label">料金</span>
-                            <span class="info-value" id="bicycle-price">読み込み中...</span>
+                
+                <div class="facility-card-modern">
+                    <div class="facility-modern-header">
+                        <span class="material-icons-outlined facility-modern-icon">directions_bike</span>
+                        <h3>RealStreamMini（電動アシスト付）</h3>
+                    </div>
+                    
+                    <div class="bicycle-hero">
+                        <img src="images/bicycle.jpg" alt="レンタサイクル" class="bicycle-img">
+                        <div class="bicycle-badge">坂道もラクラク♪</div>
+                        <div class="bicycle-description-overlay">
+                            <h4 class="bicycle-model">RealStreamMini</h4>
+                            <p class="bicycle-feature">ブリヂストン製 電動アシスト自転車</p>
                         </div>
                     </div>
-                    <div class="apply-section">
-                        <p class="apply-text">
-                            ご利用の際は、お手元の「フロント」ボタンを押して<br>
-                            お申し込みください。
-                        </p>
+
+                    <div class="bicycle-info-grid">
+                        <div class="bicycle-info-box highlight">
+                            <span class="info-label">1時間以内</span>
+                            <span class="info-price-free">無料</span>
+                        </div>
+                        <div class="bicycle-info-box">
+                            <span class="info-label">1時間以上</span>
+                            <span class="info-price">1,000円</span>
+                            <span class="info-tax">（税別）</span>
+                        </div>
+                        <div class="bicycle-info-box time-box">
+                            <span class="info-label">貸出時間</span>
+                            <span class="info-time">7:00 〜 21:00</span>
+                        </div>
+                    </div>
+                    
+                    <p style="text-align: center; margin-top: 30px; color: #5D5245; line-height: 2;">
+    ご利用の際は、<strong>「フロント」</strong>にてお申し込みください。<br>
+    <span style="font-size: 13px; color: #888;">※貸出許可書へのご記入をお願いしております。</span><br>
+    <span style="font-size: 13px; color: #E53935; font-weight: bold;">※飲酒の際はご利用いただけません。</span>
+</p>
+                </div>
+
+                <div class="bicycle-rules-section">
+                    <button class="rules-toggle-btn" onclick="toggleBicycleRules()">
+                        <span>利用心得・交通ルール・罰則について</span>
+                        <span class="material-icons-outlined" id="rules-icon">expand_more</span>
+                    </button>
+
+                    <div id="bicycle-rules-body" class="bicycle-rules-body">
+                        
+                        <div class="rules-content">
+                            <h4>【利用心得】</h4>
+                            <ol class="rules-list">
+                                <li>利用する前にレンタサイクルに異常がないことを確認すること。</li>
+                                <li>レンタサイクルを適正に管理し、かつ、使用すること。</li>
+                                <li>パンク、鍵の紛失、破損又は盗難された場合の賠償は全て利用者が負担すること。</li>
+                                <li>事故における責任は、全て利用者責任とし、きぬ川不動瀧は一切その責を負わないことに同意すること。</li>
+                                <li>利用時間内にレンタサイクルを返却することができなくなった場合は、速やかに当宿に連絡すること。</li>
+                                <li>交通法規を遵守すること。</li>
+                                <li>レンタサイクル及びその利用の権利を譲渡又は、転貸しないこと。</li>
+                                <li>貸し出し時間内にレンタサイクルを返却し、レンタサイクルの点検を受けること。</li>
+                                <li>その他レンタサイクルの管理に支障を及ぼす行為を一切行わないこと。</li>
+                                <li>事故又は盗難が発生した場合は速やかに『今市警察署藤原交番』に届け出を行い、きぬ川不動瀧へ連絡すること。</li>
+                            </ol>
+
+                            <div class="divider-dotted"></div>
+
+                            <h4>【違反行為と罰則】</h4>
+                            <p style="font-size: 12px; color: #E53935; margin-bottom: 10px;">※交通ルールを守り、安全運転をお願いいたします。</p>
+                            
+                            <table class="penalty-table">
+                                <thead>
+                                    <tr>
+                                        <th>違反行為</th>
+                                        <th>罰則内容</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ながらスマホ運転</td>
+                                        <td>6か月以下の懲役または10万円以下の罰金<br>（危険を生じさせた場合：1年以下の懲役または30万円以下の罰金）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>酒気帯び運転</td>
+                                        <td>3年以下の懲役または50万円以下の罰金</td>
+                                    </tr>
+                                    <tr>
+                                        <td>傘差し運転</td>
+                                        <td>5万円以下の罰金</td>
+                                    </tr>
+                                    <tr>
+                                        <td>イヤホンなど使用</td>
+                                        <td>5万円以下の罰金</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2人乗り</td>
+                                        <td>5万円以下の罰金（例外を除く）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>並進運転</td>
+                                        <td>2万円以下の罰金または科料</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+
             </main>
 
             <footer class="page-footer">
@@ -435,20 +659,28 @@
             </footer>
         </div>
 
-        <!-- ===== 季節のご案内 ===== -->
         <div id="page-seasonal" class="page">
             <header class="page-header">
                 <button class="back-to-top-button" onclick="showPage('home')">
                     <span class="back-arrow">←</span> トップへ
                 </button>
-                <h2 class="page-title">季節のご案内</h2>
+                <h2 class="page-title">季節のイベントご案内</h2>
+                <p class="subtitle">鬼怒川温泉の旬な情報をお届けします</p>
             </header>
 
-            <main class="page-content">
-                <div id="seasonal-events" class="seasonal-container">
-                    <!-- JavaScriptで動的に生成 -->
-                    <p class="loading-text">読み込み中...</p>
+            <main class="page-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 50vh;">
+                
+                <div class="no-event-container">
+                    <span class="material-icons-outlined no-event-icon-font">calendar_month</span>
+                    
+                    <h3 class="no-event-title">現在、開催中のイベントはございません</h3>
+                    
+                    <div class="no-event-divider"></div> <p class="no-event-text">
+                        次回の季節のイベントが決まり次第、<br>
+                        こちらでご案内させていただきます。
+                    </p>
                 </div>
+
             </main>
 
             <footer class="page-footer">
@@ -513,7 +745,7 @@
 
                 <div class="emergency-contact">
                     <p class="emergency-contact-text">
-                        緊急の際は、すぐにお手元の「フロント」ボタンを押してお知らせください。<br>
+                        緊急の際は、電話の「フロント」ボタンを押してお知らせください。<br>
                         スタッフが迅速に対応いたします。
                     </p>
                 </div>

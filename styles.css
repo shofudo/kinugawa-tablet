@@ -1595,3 +1595,912 @@ body {
     color: #666;
     list-style: none;
 }
+/* ===========================
+   館内図（フロアガイド）のデザイン
+   =========================== */
+
+/* 階ごとのリスト枠 */
+.floor-guide-text {
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px dashed #DCC095;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* 各階の行 */
+.floor-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.floor-row:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* 階数バッジ（3Fなどを目立たせる） */
+.floor-badge {
+    background-color: #4A7C7E; /* ブランドカラーの緑 */
+    color: white;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    margin-right: 15px;
+    min-width: 50px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 階の説明文 */
+.floor-desc {
+    font-size: 14px;
+    color: #5D5245;
+    line-height: 1.6;
+}
+/* ===========================
+   館内設備ページ：高級化アレンジ
+   =========================== */
+
+/* ① フロアガイドの「階数バッジ」をシックに */
+.floor-badge {
+    background-color: #5D5245; /* 落ち着いた焦げ茶色 */
+    border: 1px solid #C9A063; /* 金色の細い枠線 */
+    color: #fff;
+    font-family: 'Noto Serif JP', serif; /* 明朝体 */
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15); /* ほんのり影 */
+}
+
+/* ② フロアリストの線を「金色の点線」に */
+.floor-row {
+    border-bottom: 1px dotted #C9A063; /* 金色の点線 */
+    padding: 12px 5px; /* 上下の余白を少し広げてゆったりと */
+}
+
+/* ③ 注意書きや手順のボックスを「メッセージカード風」に */
+/* 製氷機の注意書き & コーヒーの手順枠 */
+.notice-box-modern,
+.facility-card-modern div[style*="border: 1px dashed"] {
+    background-color: #FFFAF0 !important; /* ほんのり温かいクリーム色 */
+    border: none !important; /* 一旦線を消して... */
+    border-left: 4px solid #C9A063 !important; /* 左側に金のラインを入れる */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* 浮き上がらせる */
+    padding: 25px !important;
+    border-radius: 4px !important;
+}
+
+/* 見出しのアイコンを少し大きく、色を調整 */
+.facility-modern-icon {
+    font-size: 32px;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1)); /* アイコンに影 */
+}
+
+/* 見出し文字のデザイン */
+.facility-card-modern h3 {
+    border-bottom: none; /* 下線がある場合は消す */
+    position: relative;
+}
+
+/* 各カード全体をもう少しふんわりさせる */
+.facility-card-modern {
+    box-shadow: 0 5px 20px rgba(74, 58, 38, 0.08); /* 影を柔らかく広げる */
+    border: 1px solid rgba(201, 160, 99, 0.2); /* 枠線を薄いゴールドに */
+}
+/* ===========================
+   館内設備アイコン：絵文字から上品なアイコンへ
+   =========================== */
+
+/* 以前の絵文字用の設定を上書きして、アイコンフォント用に変更 */
+.facility-modern-icon {
+    font-size: 32px;       /* アイコンの大きさ */
+    color: #C9A063;        /* 文字と同じ金色に */
+    margin-right: 12px;    /* タイトルとの隙間 */
+    vertical-align: middle;
+    
+    /* 絵文字用のフィルターは削除して、上品な影をつけ直す */
+    filter: drop-shadow(1px 1px 0px rgba(0,0,0,0.1));
+    
+    /* アイコンの位置調整 */
+    display: inline-flex;
+    align-items: center;
+}
+
+/* ヘッダーの並びも微調整 */
+.facility-modern-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #DCC095; /* 下の点線 */
+    padding-bottom: 15px;
+}
+/* ===========================
+   館内図：横並びレイアウト（iPad最適化）
+   =========================== */
+.floor-map-layout {
+    display: flex;       /* 横並びにする魔法 */
+    gap: 30px;          /* 画像と文字の間隔を広めに */
+    align-items: center; /* 上下中央揃え */
+}
+
+.floor-map-left {
+    width: 45%; /* 左側（画像）の幅 */
+}
+
+.floor-map-right {
+    width: 55%; /* 右側（文字）の幅 */
+}
+
+/* 文字リストの中身を少し調整 */
+.floor-guide-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: none !important; /* 横並びの時は影を消してスッキリさせる */
+    border: 1px dashed #DCC095 !important; /* 枠線は残す */
+    background-color: #FFFAF6;
+}
+
+/* スマホなどの狭い画面では、自動的に縦並びに戻す設定 */
+@media screen and (max-width: 768px) {
+    .floor-map-layout {
+        flex-direction: column; /* 縦並びに戻す */
+        gap: 15px;
+    }
+    .floor-map-left, 
+    .floor-map-right {
+        width: 100%; /* 幅いっぱいにする */
+    }
+}
+/* ===========================
+   レンタサイクルページのデザイン
+   =========================== */
+
+/* 自転車の写真エリア */
+.bicycle-hero {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    border: 1px solid #eee;
+}
+
+.bicycle-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 写真全体が見えるようにする */
+    padding: 10px;
+}
+
+/* 「坂道もラクラク」バッジ */
+.bicycle-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #C9A063;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 料金・時間のグリッド表示 */
+.bicycle-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2列 */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* 個別の情報ボックス */
+.bicycle-info-box {
+    background-color: #FFFAF6;
+    border: 1px solid #DCC095;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 「無料」の箱だけ特別に目立たせる */
+.bicycle-info-box.highlight {
+    background-color: #FFF3E0; /* 背景を少し濃く */
+    border: 2px solid #E65100; /* 枠をオレンジに */
+    transform: scale(1.02); /* 少し大きく */
+    box-shadow: 0 4px 10px rgba(230, 81, 0, 0.15);
+}
+
+/* 時間の箱は横長にする */
+.bicycle-info-box.time-box {
+    grid-column: 1 / -1; /* 左右ぶち抜き */
+    flex-direction: row;
+    gap: 15px;
+}
+
+.info-label {
+    font-size: 12px;
+    color: #5D5245;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.info-price-free {
+    font-size: 24px;
+    color: #E65100; /* オレンジ色 */
+    font-weight: bold;
+}
+
+.info-price {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.info-tax {
+    font-size: 10px;
+    color: #888;
+}
+
+.info-time {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4A7C7E;
+}
+
+/* === 折りたたみルール部分 === */
+.bicycle-rules-section {
+    margin-top: 30px;
+}
+
+/* 開閉ボタン */
+.rules-toggle-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #5D5245;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.rules-toggle-btn:hover {
+    background-color: #4A3A26;
+}
+
+/* 中身（最初は隠す） */
+.bicycle-rules-body {
+    display: none; /* 最初は非表示 */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 20px;
+}
+
+/* ルールリスト */
+.rules-list {
+    padding-left: 20px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.rules-list li {
+    margin-bottom: 8px;
+}
+
+/* 罰則テーブル */
+.penalty-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.penalty-table th,
+.penalty-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.penalty-table th {
+    background-color: #f0f0f0;
+    color: #333;
+    width: 35%;
+}
+/* ===========================
+   レンタサイクル：高級感アップの魔法
+   =========================== */
+
+/* ① 「無料」の箱を、チラシ風から「高級なオファー」風に */
+.bicycle-info-box.highlight {
+    background: linear-gradient(to bottom, #FFFBF0, #FFF0D6); /* ほんのりゴールドのグラデーション */
+    border: 1px solid #C9A063; /* 枠を上品な金色に */
+    box-shadow: 0 4px 15px rgba(201, 160, 99, 0.2); /* 金色の光る影 */
+    transform: scale(1); /* 大きさは他と同じに戻して品よく */
+    position: relative;
+}
+
+/* 「無料」の文字を赤ではなく、深みのある色に */
+.info-price-free {
+    color: #C62828; /* 落ち着いた赤（えんじ色） */
+    font-family: 'Noto Serif JP', serif; /* 明朝体にして高級感を */
+    letter-spacing: 2px;
+    text-shadow: 0 1px 0 rgba(255,255,255,1);
+}
+
+/* ② 「利用心得」の黒いボタンを、白くて上品なバーに変更 */
+.rules-toggle-btn {
+    background-color: #fff; /* 背景を白に */
+    color: #5D5245; /* 文字は焦げ茶 */
+    border: 1px solid #DCC095; /* 薄い金色の枠 */
+    border-left: 5px solid #5D5245; /* 左にアクセントの帯 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-top: 40px; /* 上に少し余白をあける */
+}
+
+.rules-toggle-btn:hover {
+    background-color: #FFFAF6; /* ホバー時は薄いクリーム色 */
+    border-color: #C9A063;
+    color: #C9A063;
+}
+
+/* ③ 自転車のスペック（電動アシストなど）を分かりやすく */
+.facility-modern-header h3 {
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 1px;
+}
+
+/* ④ 写真エリアを少しリッチに */
+.bicycle-hero {
+    border: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* ふんわり浮かせる */
+}
+
+.bicycle-badge {
+    background-color: #5D5245; /* バッジを落ち着いた色に */
+    font-family: 'Noto Serif JP', serif;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+/* ===========================
+   レンタサイクル：写真の影と情報、料金・時間ボックスの洗練
+   =========================== */
+
+/* ① 自転車の写真にリアルな影 */
+.bicycle-hero {
+    position: relative; /* オーバーレイのために必要 */
+    width: 100%;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden; /* 角丸からはみ出ないように */
+    margin-bottom: 25px;
+    
+    /* より立体的な影に変更 */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+    border: none; /* 枠線はもう不要 */
+}
+
+/* 写真下のオーバーレイ説明 */
+.bicycle-description-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0)); /* 下からグラデーション */
+    padding: 20px 25px 10px; /* 余白を調整 */
+    color: white;
+    text-align: left;
+}
+
+.bicycle-model {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.5px;
+}
+
+.bicycle-feature {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* ② 料金・時間ボックスをさらに上品に */
+.bicycle-info-box {
+    background-color: #FFFAF6; /* 柔らかいクリーム色 */
+    border: 1px solid #DCC095; /* 細い金色の枠 */
+    border-radius: 12px; /* 少し丸みを強く */
+    padding: 20px; /* 内側の余白を広げる */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* 影を柔らかく */
+    transition: all 0.2s ease;
+}
+
+.bicycle-info-box:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* ホバーで少し影を濃く */
+    transform: translateY(-2px); /* 少し浮き上がる */
+}
+
+/* 「無料」の箱は特別感を維持 */
+.bicycle-info-box.highlight {
+    background: linear-gradient(to bottom, #FFFBF0, #FFF0D6); /* ほんのりゴールドのグラデーション */
+    border: 1px solid #C9A063; /* 枠を上品な金色に */
+    box-shadow: 0 8px 20px rgba(201, 160, 99, 0.2); /* 金色の光る影 */
+}
+
+/* 料金・時間の文字サイズを調整して読みやすく */
+.info-label {
+    font-size: 13px;
+    color: #8A7B66;
+    margin-bottom: 8px;
+}
+
+.info-price-free {
+    font-size: 28px; /* さらに大きく、目に飛び込むように */
+    letter-spacing: 2px;
+}
+
+.info-price {
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.info-time {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+/* ===========================
+   季節のご案内：チラシギャラリースタイル
+   =========================== */
+
+/* チラシを並べるグリッド */
+.flyer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 画面幅に合わせて自動で並べる */
+    gap: 40px; /* チラシ同士の間隔 */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* 個別のチラシカード */
+.flyer-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* 影をつけて浮かせる */
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.flyer-card:hover {
+    transform: translateY(-5px); /* ホバーで少し浮く */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* 画像の枠 */
+.flyer-image-container {
+    width: 100%;
+    height: 450px; /* 縦長に見える高さを確保 */
+    background-color: #f9f9f9;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid #eee;
+}
+
+/* 画像本体 */
+.flyer-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 枠いっぱいに表示（文字が切れる場合は contain に変えてください） */
+    object-position: top; /* 上の方を優先して表示 */
+    cursor: zoom-in; /* 虫眼鏡カーソル */
+    transition: opacity 0.3s;
+}
+
+.flyer-img:hover {
+    opacity: 0.9;
+}
+
+/* 下のキャプション（タイトル） */
+.flyer-caption {
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #5D5245;
+    background-color: #FFFAF6;
+    font-family: 'Noto Serif JP', serif;
+    border-top: 3px solid #C9A063; /* 上に金色のライン */
+}
+
+/* 拡大時のスタイル調整（念のため再定義） */
+.manual-image.enlarged {
+    object-fit: contain !important; /* 拡大時は全体を必ず見せる */
+    background-color: rgba(0,0,0,0.85);
+}
+/* ===========================
+   季節のご案内：イベントなし（準備中）のデザイン
+   =========================== */
+
+.no-event-container {
+    background-color: #fff;
+    border: 1px solid #E8E6E1;
+    border-radius: 15px;
+    padding: 50px;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    margin: 20px auto;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.no-event-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+    opacity: 0.6; /* 少し薄くして上品に */
+}
+
+.no-event-title {
+    font-size: 20px;
+    color: #5D5245;
+    margin-bottom: 20px;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.no-event-text {
+    font-size: 15px;
+    color: #888;
+    line-height: 1.8;
+}
+/* ===========================
+   ダイヤルバスのデザイン（シンプル版・復旧）
+   =========================== */
+
+/* カード全体 */
+.bus-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* 導入部分 */
+.bus-intro {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #5D5245;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.bus-icon-main {
+    font-size: 48px;
+    color: #4A7C7E; /* 緑色で爽やかに */
+    margin-bottom: 15px;
+}
+
+/* 予約アラート（重要！） */
+.bus-alert-box {
+    background-color: #FFF8F8; /* 薄い赤背景 */
+    border: 2px solid #E57373; /* 赤枠で注意喚起 */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.alert-title {
+    color: #C62828;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.alert-text {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.alert-divider {
+    height: 1px;
+    background-color: #E57373;
+    opacity: 0.3;
+    margin: 15px 0;
+}
+
+.alert-schedule {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 15px;
+}
+
+/* ルートと料金 */
+.bus-route-section {
+    background-color: #FFFAF6; /* クリーム色 */
+    border: 1px solid #DCC095;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.route-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    color: #5D5245;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.route-arrow {
+    color: #C9A063;
+    font-size: 14px;
+}
+
+.price-item strong {
+    font-size: 22px;
+    color: #C9A063;
+    margin-left: 5px;
+}
+
+/* 時刻表 */
+.bus-timetable-section {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.timetable-title {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.timetable-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.time-box {
+    background-color: #5D5245; /* 濃い茶色 */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace; /* 数字を見やすく */
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* 電話アクションエリア */
+.bus-action-area {
+    text-align: center;
+    margin-top: 20px;
+}
+/* ===========================
+   ダイヤルバス：視認性アップの修正
+   =========================== */
+
+/* ① 「完全予約制」のタイトルを大きく */
+.alert-title {
+    font-size: 22px; /* 18pxから大きく */
+    background-color: #ffebee; /* 背景を少し濃い赤に */
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 予約締切時間（前日・当日）も大きくハッキリと */
+.alert-schedule {
+    font-size: 18px; /* 15pxから大きく */
+    font-weight: bold;
+    color: #D32F2F; /* 濃い赤文字に */
+}
+
+/* ② 「300円」を特大サイズに */
+.price-item strong {
+    font-size: 42px; /* 22pxから倍近く大きく！ */
+    color: #E53935;  /* 赤色で強調 */
+    margin: 0 5px;
+    vertical-align: sub; /* 位置の微調整 */
+    text-shadow: 1px 1px 0px rgba(255,255,255,1); /* 白い縁取り */
+}
+
+/* 「片道料金」というラベルも少し大きく */
+.price-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #5D5245;
+}
+/* ===========================
+   館内図：基本情報ミックス版のデザイン
+   =========================== */
+
+/* 1Fだけ少し目立たせる */
+.floor-row-highlight {
+    background-color: #fff;
+    border: 2px solid #E8E6E1; /* 枠線で囲む */
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0; /* 上下に隙間 */
+    display: block !important; /* フレックス解除して縦積みに */
+}
+
+/* ミックス情報の枠 */
+.floor-mixed-info {
+    background-color: #FFFAF6; /* クリーム色 */
+    border-radius: 6px;
+    padding: 12px;
+    display: flex; /* 横並び */
+    gap: 15px;
+    margin-left: 50px; /* バッジ(1F)の下に合わせる */
+}
+
+/* 個別の情報ブロック */
+.mixed-item {
+    flex: 1;
+}
+
+/* ラベル（食事処など） */
+.mixed-label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #5D5245;
+    display: block;
+    margin-bottom: 5px;
+    border-bottom: 1px dotted #C9A063;
+    padding-bottom: 3px;
+}
+
+.icon-tiny {
+    font-size: 14px;
+    vertical-align: text-top;
+    color: #C9A063;
+}
+
+/* 時間の行 */
+.mixed-time-row {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+}
+
+/* 朝夕のタグ */
+.time-tag {
+    font-size: 10px;
+    color: white;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-right: 5px;
+    min-width: 35px;
+    text-align: center;
+}
+
+.time-tag.evening { background-color: #5D5245; } /* 夕食は茶色 */
+.time-tag.morning { background-color: #8A7B66; } /* 朝食は薄茶 */
+
+/* チェックアウト時間 */
+.checkout-big {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4A7C7E;
+    font-family: 'Courier New', monospace;
+}
+
+/* 真ん中の区切り線 */
+.mixed-divider {
+    width: 1px;
+    background-color: #DCC095;
+    opacity: 0.5;
+}
+
+/* スマホ表示の調整 */
+@media screen and (max-width: 768px) {
+    .floor-mixed-info {
+        flex-direction: column; /* 縦積みに */
+        margin-left: 0;
+    }
+    .mixed-divider {
+        width: 100%;
+        height: 1px;
+        margin: 5px 0;
+    }
+}
+/* ===========================
+   チェックアウト別枠 & 1F整理のデザイン
+   =========================== */
+
+/* チェックアウト専用ボックス（上部） */
+.checkout-top-box {
+    background-color: #fff;
+    border: 2px solid #C9A063; /* 金色のしっかりした枠 */
+    border-radius: 8px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between; /* 左右に配置 */
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(201, 160, 99, 0.15);
+    margin-bottom: 20px; /* 下のフロアガイドとの隙間 */
+}
+
+.checkout-icon-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkout-icon-top {
+    font-size: 28px;
+    color: #C9A063;
+}
+
+.checkout-label-top {
+    font-size: 16px;
+    font-weight: bold;
+    color: #5D5245;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.checkout-time-top {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4A7C7E; /* 緑色で強調 */
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+}
+
+/* 1Fの情報（食事のみ版） */
+.floor-mixed-info-single {
+    background-color: #FFFAF6;
+    border-radius: 6px;
+    padding: 12px 15px;
+    margin-left: 50px;
+    border-left: 3px solid #C9A063; /* 左にアクセントライン */
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+    .floor-mixed-info-single {
+        margin-left: 0;
+    }
+    .checkout-top-box {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+}

@@ -88,11 +88,7 @@ function populateFacilitiesPage() {
 // レンタサイクルページ
 // ===========================
 function populateBicyclePage() {
-    if (!configData || !configData.bicycle) return;
-    
-    document.getElementById('bicycle-location').textContent = configData.bicycle.location;
-    document.getElementById('bicycle-hours').textContent = configData.bicycle.hours;
-    document.getElementById('bicycle-price').textContent = configData.bicycle.price;
+    // レンタサイクルページはHTMLに直接書いたので、何もしなくてOKです！
 }
 
 // ===========================
@@ -241,38 +237,7 @@ function populateBathPage() {
 // 季節のご案内ページ
 // ===========================
 function populateSeasonalPage() {
-    if (!configData || !configData.seasonal) return;
-    
-    const container = document.getElementById('seasonal-events');
-    container.innerHTML = '';
-    
-    if (configData.seasonal.length === 0) {
-        container.innerHTML = '<p class="loading-text">現在、季節のイベントはございません。</p>';
-        return;
-    }
-    
-    configData.seasonal.forEach(event => {
-        const eventDiv = document.createElement('div');
-        eventDiv.className = 'seasonal-event';
-        
-        // 画像がある場合のみ画像セクションを追加
-        const imageHTML = event.image ? `
-            <div class="seasonal-image">
-                <img src="${event.image}" alt="${event.title}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 400%22%3E%3Crect fill=%22%23E8E6E1%22 width=%22300%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2220%22%3E画像なし%3C/text%3E%3C/svg%3E'">
-            </div>
-        ` : '';
-        
-        eventDiv.innerHTML = `
-            ${imageHTML}
-            <div class="seasonal-content">
-                <h3 class="seasonal-title">${event.title}</h3>
-                <p class="seasonal-period">${event.period}</p>
-                <p class="seasonal-description">${event.description}</p>
-            </div>
-        `;
-        
-        container.appendChild(eventDiv);
-    });
+    // チラシ画像を直接貼る運用に変えたので、ここは何もしなくてOKです！
 }
 
 // ===========================
@@ -473,5 +438,20 @@ function switchTermsTab(tabName) {
     } else {
         tabs[1].classList.add('active');
         document.getElementById('terms-content-rules').style.display = 'block';
+    }
+}
+// ===========================
+// レンタサイクル：ルールの開閉
+// ===========================
+function toggleBicycleRules() {
+    const body = document.getElementById('bicycle-rules-body');
+    const icon = document.getElementById('rules-icon');
+    
+    if (body.style.display === 'block') {
+        body.style.display = 'none';
+        icon.textContent = 'expand_more'; // 下向き矢印に戻す
+    } else {
+        body.style.display = 'block';
+        icon.textContent = 'expand_less'; // 上向き矢印にする
     }
 }
