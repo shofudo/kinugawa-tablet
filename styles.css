@@ -201,26 +201,57 @@ body {
 }
 
 /* ===========================
-   緊急時ボタン（固定表示）
+   緊急時ボタン（文字だけ・デカ文字版）
    =========================== */
 .emergency-fab {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #E53935 0%, #C62828 100%);
-    border: none;
-    border-radius: 50%;
+    width: auto;       /* 幅は文字に合わせて自動 */
+    min-width: 120px;  /* 文字が大きいので少し幅広に */
+    height: 60px;      /* 高さも少し大きくして押しやすく */
+    padding: 0 25px;   /* 左右にたっぷりと余白 */
+    
+    background-color: rgba(220, 50, 50, 0.85); /* 透明感のある赤 */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* 白い枠線 */
+    border-radius: 30px; /* 丸みを少し大きく */
+    
     color: white;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(229, 57, 53, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 1000;
+    
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+}
+
+/* ホバーした時の動き */
+.emergency-fab:hover {
+    background-color: rgba(220, 50, 50, 1); /* 濃くはっきりさせる */
+    transform: scale(1.05); /* 全体が少し大きくなる */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 「！」アイコンは今回完全に隠します */
+.emergency-icon {
+    display: none; 
+}
+
+/* 「緊急時」の文字を大きく目立たせる */
+.emergency-text {
+    display: block !important;
+    font-size: 20px;      /* 文字サイズを大きく（15px→20px） */
+    font-weight: bold;
+    letter-spacing: 2px;  /* 文字の間隔を広げて読みやすく */
+    margin: 0;
+    line-height: 1;       /* 高さの中央にビシッと合わせる */
+}
+
+/* ボタン内のテキストは消す（アイコンだけにするため） */
+.emergency-fab span:last-child {
+    display: none;
 }
 
 .emergency-fab:hover {
@@ -1259,15 +1290,24 @@ body {
     border-bottom: none;
 }
 
+/* 項目名（左側）をバッジ風にする */
 .spec-label {
     width: 80px;
-    font-weight: bold;
-    color: #555;
+    font-weight: 500;
+    color: #fff; /* 文字を白に */
+    background-color: #9fb7a8; /* 優しい抹茶色で背景を塗る */
     font-family: 'Noto Serif JP', serif;
     flex-shrink: 0;
     text-align: center;
-    border-right: 1px solid #eee;
+    border-radius: 20px; /* 角を丸くしてカプセル型に */
+    padding: 2px 0;     /* 上下の余白 */
     margin-right: 20px;
+    font-size: 13px;    /* 文字を少し小さく上品に */
+    display: flex;      /* 真ん中に文字を置くためのおまじない */
+    align-items: center;
+    justify-content: center;
+    border-right: none; /* 以前の縦線は消す */
+    height: fit-content; /* 高さを文字に合わせる */
 }
 
 .spec-value {
@@ -1277,13 +1317,20 @@ body {
     color: #333;
 }
 
-/* ③ お風呂の写真カード（横並び用に幅を調整） */
+/* ③ お風呂の写真カード（影をつけて高級感アップ！） */
 .bath-photo-card {
-    width: 48%;  /* 画面の約半分の幅にする */
+    width: 48%;
     position: relative;
-    border-radius: 12px;
+    border-radius: 8px; /* 丸みを少し上品に */
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    /* ↓これが影をつける魔法です */
+    box-shadow: 0 10px 20px rgba(74, 124, 126, 0.15); 
+    transition: transform 0.3s ease; /* 触ったときに動く準備 */
+}
+
+/* 触ると少し浮き上がる仕掛け */
+.bath-photo-card:active {
+    transform: translateY(-3px);
 }
 
 .bath-image-area {
@@ -1333,20 +1380,25 @@ body {
     letter-spacing: 3px;
 }
 
-/* 男女別の見出し */
+/* 男女別の見出し（ゴージャス版） */
 .bath-gender-title {
     text-align: center;
-    font-size: 22px;
-    color: #4A3A26;
-    margin: 20px 0 20px;
+    font-size: 24px; /* 文字を少し大きく */
+    color: #5D5245;  /* 濃い茶色で引き締める */
+    margin: 40px 0 25px; /* 上の隙間を広げてゆったりさせる */
     font-family: 'Noto Serif JP', serif;
+    font-weight: 500;
+    letter-spacing: 2px; /* 文字の間隔を広げて優雅に */
 }
 
+/* 波線の色を調整 */
 .bath-gender-title::before,
 .bath-gender-title::after {
-    content: '〜';
-    color: #C9A063;
-    margin: 0 10px;
+    content: '✦'; /* 波線(〜)の代わりにキラキラ(✦)や菱形(◆)も素敵です */
+    color: #C9A063; /* ゴールド */
+    font-size: 14px; /* 飾りは少し小さく */
+    margin: 0 15px; /* 隙間をあける */
+    vertical-align: middle;
 }
 
 /* スマホで見たときは縦並びに戻す（念のため） */
@@ -1358,4 +1410,188 @@ body {
         width: 100%; /* 幅いっぱいにする */
         margin-bottom: 20px;
     }
+}
+/* ===========================
+   約款・規約ボタンとモーダル
+   =========================== */
+
+/* 1. 左下の固定ボタン */
+.terms-fab {
+    position: fixed;
+    bottom: 30px;
+    left: 30px; /* 左側に配置 */
+    width: 70px;
+    height: 70px;
+    background-color: #5D5245; /* 落ち着いたチャコールグレー */
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.terms-fab:hover {
+    transform: scale(1.1);
+    background-color: #4A3A26;
+}
+
+.terms-fab .material-icons-outlined {
+    font-size: 28px;
+    margin-bottom: 2px;
+}
+
+.terms-text {
+    font-size: 10px;
+    font-weight: 500;
+}
+
+/* 2. モーダル全体 */
+.terms-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2000; /* 緊急ボタンよりさらに上 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.terms-modal-content {
+    background: #fff;
+    width: 85%;
+    height: 85%;
+    max-width: 900px;
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* 3. タブ（切り替えスイッチ） */
+.terms-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #E0E0E0;
+    padding-bottom: 10px;
+}
+
+.terms-tab {
+    padding: 12px 25px;
+    background: #F5F5F5;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    font-family: 'Noto Serif JP', serif;
+    transition: all 0.3s;
+}
+
+.terms-tab.active {
+    background: #4A7C7E; /* アクティブな時はブランドカラー */
+    color: white;
+    box-shadow: 0 4px 10px rgba(74, 124, 126, 0.3);
+}
+
+/* 4. 中身のスクロールエリア */
+.terms-body {
+    flex: 1;
+    overflow-y: auto; /* ここだけスクロールさせる */
+    padding-right: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #FCFCFC;
+}
+
+.terms-text-content h3 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 30px;
+    font-family: 'Noto Serif JP', serif;
+    border-bottom: 1px double #ccc;
+    padding-bottom: 15px;
+}
+
+.terms-preable {
+    font-weight: bold;
+    color: #666;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.terms-article {
+    margin-bottom: 20px;
+}
+
+.terms-article h4 {
+    font-size: 16px;
+    color: #4A7C7E;
+    margin-bottom: 8px;
+    border-left: 4px solid #4A7C7E;
+    padding-left: 10px;
+}
+
+.terms-article p, 
+.terms-article li {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.terms-article ol {
+    padding-left: 25px;
+    margin-top: 5px;
+}
+
+.terms-list-disc {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+/* 5. テーブル（キャンセル料など） */
+.terms-table-container {
+    margin-top: 30px;
+    overflow-x: auto;
+}
+
+.terms-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.terms-table th, 
+.terms-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.terms-table th {
+    background-color: #eee;
+    font-weight: bold;
+}
+
+.terms-notes {
+    font-size: 12px;
+    color: #666;
+    list-style: none;
 }

@@ -442,3 +442,36 @@ function toggleAmenityModal() {
         }
     }
 }
+// ===========================
+// 約款・規約モーダルの制御
+// ===========================
+function toggleTermsModal() {
+    const modal = document.getElementById('terms-modal');
+    if (modal) {
+        if (modal.style.display === 'none' || modal.style.display === '') {
+            modal.style.display = 'flex'; // 表示する
+        } else {
+            modal.style.display = 'none'; // 隠す
+        }
+    }
+}
+
+function switchTermsTab(tabName) {
+    // すべてのタブボタンから active を外す
+    const tabs = document.querySelectorAll('.terms-tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    
+    // すべての内容を隠す
+    document.getElementById('terms-content-contract').style.display = 'none';
+    document.getElementById('terms-content-rules').style.display = 'none';
+    
+    // 選ばれたタブを active にする
+    // クリックされたボタンを特定するのは難しいので、文字列で判断してクラスを付け直す簡易的な方法
+    if (tabName === 'contract') {
+        tabs[0].classList.add('active');
+        document.getElementById('terms-content-contract').style.display = 'block';
+    } else {
+        tabs[1].classList.add('active');
+        document.getElementById('terms-content-rules').style.display = 'block';
+    }
+}
