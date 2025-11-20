@@ -2568,3 +2568,81 @@ background-image: url('images/top_bg.jpg');
     font-weight: 600;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
+/* ===========================
+   トップページのアイコンを高級なゴールドにする設定
+   =========================== */
+
+/* アイコンの色と大きさを変更 */
+#page-home .card-icon {
+    color: #A08D65; /* 画像のような落ち着いたゴールドベージュ */
+    margin-bottom: 15px;
+}
+
+/* アイコンフォントのサイズ調整 */
+#page-home .card-icon span {
+    font-size: 52px; /* アイコンを少し大きく見やすく */
+    display: block;
+    line-height: 1;
+}
+
+/* ボタンの文字を「明朝体」にして高級感を出す */
+#page-home .card-title {
+    color: #4A3A26; /* 濃い茶色で読みやすく */
+    font-family: 'Noto Serif JP', serif; /* 明朝体 */
+    font-size: 16px;
+    letter-spacing: 1px; /* 文字の間隔を少し広げる */
+    font-weight: 600;
+}
+/* ===========================
+   トップページのロゴと文字を一体化させる魔法
+   =========================== */
+
+/* 1. 「客室インフォメーション」をロゴに負けない上品な文字にする */
+#page-home .page-title {
+    /* ゴシック体をやめて、筆文字と相性のいい「明朝体」にします */
+    font-family: 'Noto Serif JP', serif;
+    
+    /* 色を真っ黒ではなく、アイコンに合う「濃い墨茶色」にします */
+    color: #4A3A26;
+    
+    /* 文字の間隔を広げて、ゆったりした高級感を出します */
+    letter-spacing: 0.2em;
+    
+    /* 文字の太さと大きさのバランスを整えます */
+    font-weight: 600;
+    font-size: 24px;
+    
+    /* ロゴとの距離を近づけて「セット感」を出します */
+    margin-top: 5px;
+    margin-bottom: 10px;
+    
+    /* 背景写真に負けないよう、文字の周りにほんのり白い光を灯します */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+/* 2. 「ごゆっくり〜」の文字も優しくする */
+#page-home .subtitle {
+    font-family: 'Noto Serif JP', serif; /* これも明朝体に */
+    color: #6D5D4B; /* タイトルより少し淡い色で優しく */
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    
+    /* 上の文字との距離を縮めます */
+    margin-top: 0;
+}
+
+/* 3. ロゴ画像自体も少し雰囲気を合わせる */
+#page-home .logo-container img {
+    /* ロゴの下にうっすら白い影をつけて、背景写真から少し浮き上がらせます */
+    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.6));
+    
+    /* ロゴの下の隙間を減らして、文字と仲良くさせます */
+    margin-bottom: 5px;
+}
+
+/* 4. ロゴと文字のエリア全体の位置調整 */
+#page-home .page-header {
+    /* ボタンとの距離を少し縮めて、画面全体を引き締めます */
+    margin-bottom: 30px;
+}
