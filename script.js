@@ -4,8 +4,8 @@
 let configData = null;
 
 // 無操作タイマー設定（ミリ秒）
-// 5分 = 300000, 10分 = 600000
-const INACTIVITY_TIMEOUT = 300000; // 5分（必要に応じて変更してください）
+// 2分 = 120000
+const INACTIVITY_TIMEOUT = 120000;
 let inactivityTimer = null;
 
 // ===========================
