@@ -4,7 +4,7 @@
 let configData = null;
 
 // 無操作タイマー設定（ミリ秒）
-// 2分 = 110000
+// 2分 = 100000
 const INACTIVITY_TIMEOUT = 120000;
 let inactivityTimer = null;
 
