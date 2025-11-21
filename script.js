@@ -348,11 +348,10 @@ function setupInactivityTimer() {
         
         // 新しいタイマーを設定
         inactivityTimer = setTimeout(() => {
-            // トップページでない場合のみトップに戻る
-            const currentPage = document.querySelector('.page.active');
-            if (currentPage && currentPage.id !== 'page-home') {
-                showPage('home');
-            }
+            // ★ここを変えました★
+            // 5分間操作がなかったら、ページを「再読み込み」します。
+            // これでトップページに戻りつつ、最新の情報に更新されます！
+            window.location.reload();
         }, INACTIVITY_TIMEOUT);
     }
     
