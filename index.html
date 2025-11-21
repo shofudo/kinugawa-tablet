@@ -75,6 +75,13 @@
                             </div>
                             <div class="card-title">ルームサービス</div>
                         </button>
+
+                        <button class="menu-card" onclick="showPage('coffee')">
+                            <div class="card-icon">
+                                <span class="material-icons-outlined">coffee_maker</span>
+                            </div>
+                            <div class="card-title">コーヒーの使い方</div>
+                        </button>
                     </div>
 
                     <div class="menu-section">
@@ -278,19 +285,36 @@
                         </p>
                     </div>
                 </div>
+            </main>
 
-                <div class="facility-card-modern">
+            <footer class="page-footer">
+                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+            </footer>
+        </div>
+        <div id="page-coffee" class="page">
+            <header class="page-header">
+                <button class="back-to-top-button" onclick="showPage('home')">
+                    <span class="back-arrow">←</span> トップへ
+                </button>
+                <h2 class="page-title">コーヒーメーカーの使い方</h2>
+                <p class="subtitle">香り高い一杯をお楽しみください</p>
+            </header>
+
+            <main class="page-content">
+                
+                <div class="facility-card-modern" style="margin-top: 0;">
                     <div class="facility-modern-header">
-<span class="material-icons-outlined facility-modern-icon">coffee_maker</span>                        <h3>コーヒーメーカー</h3>
+                        <span class="material-icons-outlined facility-modern-icon">coffee_maker</span>
+                        <h3>専用カプセルマシンの使い方</h3>
                     </div>
 
-                    <img src="images/coffee-manual.jpg" class="manual-image" alt="コーヒーメーカーの使い方" onclick="this.classList.toggle('enlarged')">
-                    
-                    <p style="text-align: center; font-size: 12px; color: #8A7B66; margin-top: -10px; margin-bottom: 20px; font-family: 'Noto Serif JP', serif;">
+                    <p style="text-align: center; font-size: 14px; color: #8A7B66; margin-bottom: 10px; font-family: 'Noto Serif JP', serif;">
                         ※画像をタップすると拡大します
                     </p>
+                    
+                    <img src="images/coffee-manual.jpg" class="manual-image" alt="コーヒーメーカーの使い方" onclick="this.classList.toggle('enlarged')">
 
-                    <div style="background-color: #FFFAF6; border: 4px double #DCC095; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(74, 58, 38, 0.08);">
+                    <div style="background-color: #FFFAF6; border: 4px double #DCC095; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(74, 58, 38, 0.08); margin-top: 30px;">
                         
                         <div style="text-align: center; margin-bottom: 20px; border-bottom: 1px dotted #C9A063; padding-bottom: 15px;">
                             <span class="material-icons-outlined" style="color: #C9A063; vertical-align: middle; font-size: 24px; margin-right: 5px;">restaurant_menu</span>
@@ -307,7 +331,7 @@
                                 </li>
                                 <li style="margin-top: 15px;">
                                     カプセルをセットします<br>
-                                    <span style="color: #E53935; font-weight: bold; background-color: #FFF0F0; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 5px;">
+                                    <span style="color: #E53935; font-weight: bold; background-color: #FFF0F0; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-top: 5px;">
                                         ⚠️ 下の「透明な受け皿」を必ず外してください
                                     </span>
                                 </li>
@@ -317,20 +341,17 @@
 
                         <div style="background-color: #fff; border-radius: 8px; padding: 15px; margin-top: 25px; text-align: center; border: 1px solid #E8E6E1;">
                             <p style="font-size: 15px; color: #5D5245; font-family: 'Noto Serif JP', serif; margin: 0;">
-                                <span style="color: #C9A063; font-weight: bold;">☕ カプセルの追加</span><br>
+                                <span style="color: #C9A063; font-weight: bold;">☕ カプセルの追加について</span><br>
                                 <span style="font-size: 14px;">追加は <strong>1個 200円</strong> で承っております。<br>
                                 ご希望の際はフロントまでお知らせください。</span>
                             </p>
                         </div>
                     </div>
                     
-                    <p class="facility-note" style="margin-top: 15px; text-align: center;">※熱湯が出ますので、やけどにご注意ください。</p>
+                    <p class="facility-note" style="margin-top: 20px; text-align: center;">※熱湯が出ますので、やけどにご注意ください。</p>
                 </div>
-
-                <div class="contact-message">
-                    ご不明な点は、お手元の「フロント」ボタンを押してお知らせください。
-                </div>
-            </main>
+                
+                <div style="height: 50px;"></div> </main>
 
             <footer class="page-footer">
                 <button class="back-button" onclick="showPage('home')">トップに戻る</button>
