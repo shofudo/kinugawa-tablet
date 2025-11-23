@@ -2504,380 +2504,182 @@ body {
         text-align: center;
     }
 }
-/* 1. トップページ（#page-home）だけに背景画像を設定 */
+/* ===========================
+   ここから新しいデザインです（トップページ専用）
+   =========================== */
+
+/* 1. 背景の写真をセット！ */
 #page-home {
-    /* お預かりした写真を背景にします */
-background-image: url('images/top_bg.jpg');    
-    /* 写真の大きさの設定：画面いっぱいに綺麗に広げる */
+    background-image: url('images/top_bg.jpg');    
     background-size: cover;
     background-position: center;
-    
-    /* 文字が読みやすいように、写真の上にうっすら「白い霧」をかけます */
-    /* これがないと、黒いロゴが見えなくなってしまうのを防ぎます */
+    background-attachment: fixed; /* スクロールしても背景が動かないカッコいい設定 */
     position: relative;
 }
 
-/* 1. 白い霧（フィルター）の設定 */
+/* 2. 写真の上に薄い黒い膜を張る（文字を見やすくするため） */
 #page-home::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* ★変更点：白(255)ではなく黒(0)を30%重ねて、ボタンを浮き上がらせます */
-    background-color: rgba(0, 0, 0, 0.3);
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.25); /* ほんのり暗くする */
     z-index: 0;
 }
 
-/* 2. 文字やボタンが霧の下に隠れないように浮き上がらせる */
+/* 3. 中身が隠れないように手前に表示 */
 #page-home .page-header,
 #page-home .page-content {
     position: relative;
     z-index: 1;
 }
 
-/* 3. メニューボタンを「すりガラス」のようにオシャレにする */
-#page-home .menu-card {
-    /* 背景を少し透けさせる（透明度90%の白） */
-    background-color: rgba(255, 255, 255, 0.9);
-    
-    /* 枠線をなくして、ふんわりした影をつける */
-    border: none;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    
-    /* 文字の色を少し濃くして読みやすく */
-    color: #4A3A26;
-}
-
-/* ボタンにマウスを乗せたとき（指で触れたとき）の動き */
-#page-home .menu-card:active {
-    transform: scale(0.98); /* 押した感じが出るように少し縮む */
-    background-color: rgba(255, 255, 255, 1); /* 真っ白になる */
-}
-
-/* 4. ロゴ周りの調整 */
-#page-home .logo-text {
-    /* ロゴの文字を少しクッキリさせる */
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-}
-
-#page-home .subtitle {
-    /* サブタイトル（ごゆっくり〜）を少し濃い色に */
-    color: #333;
-    font-weight: 600;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-}
-/* ===========================
-   トップページのアイコンを高級なゴールドにする設定
-   =========================== */
-
-/* アイコンの色と大きさを変更 */
-#page-home .card-icon {
-    color: #A08D65; /* 画像のような落ち着いたゴールドベージュ */
-    margin-bottom: 15px;
-}
-
-/* アイコンフォントのサイズ調整 */
-#page-home .card-icon span {
-    font-size: 52px; /* アイコンを少し大きく見やすく */
-    display: block;
-    line-height: 1;
-}
-
-/* ボタンの文字を「明朝体」にして高級感を出す */
-#page-home .card-title {
-    color: #4A3A26; /* 濃い茶色で読みやすく */
-    font-family: 'Noto Serif JP', serif; /* 明朝体 */
-    font-size: 16px;
-    letter-spacing: 1px; /* 文字の間隔を少し広げる */
-    font-weight: 600;
-}
-/* 1. ヘッダーの箱（コンテナ）のデザイン */
+/* 4. 邪魔だった「白い箱」を消して透明にする！ */
 #page-home .page-header {
-    /* 背景：ボタン(0.8)より不透明度を上げて(0.95)、一番手前に見せる */
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: transparent; /* 透明になれ！ */
+    border: none;                  /* 枠線も消えろ！ */
+    box-shadow: none;              /* 影もいらない！ */
+    backdrop-filter: none;         
     
-    /* 形状：ボタン（丸角）と差別化するため、横長で角をシャープに */
-    width: 85%;             /* 画面幅に対して広めに */
-    max-width: 90000px;       /* PCでも間延びしない最大幅 */
-    margin: 30px auto 40px; /* 上に50pxの余白（緑を見せる）、下に40px（ボタンと離す） */
-    padding: 10px 0;        /* 内側の余白を増やしてゆったりと */
-    border-radius: 4px;     /* ほぼ直角に近い、上品な角丸 */
-    
-    /* 装飾：細い金色の枠線で「看板」らしさを出す */
-    border: 2px solid #C9A063;
-    
-    /* 影：ボタンとは違う、ふわっと広がる柔らかい影で浮遊感を出す */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    
-    /* すりガラス効果（念のため） */
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    width: 100%;
+    margin: 90px auto 50px; /* 上に隙間をあけて景色を見せる */
+    padding: 0;
+    text-align: center;
 }
 
-/* 2. 日本語タイトル「客室インフォメーション」 */
+/* 5. 日本語タイトル「客室インフォメーション」をカッコよく */
 #page-home .page-title {
-    font-family: 'Noto Serif JP', serif;
-    
-    /* 色：濃い茶色で視認性重視 */
-    color: #4A3A26;
-    
-    /* サイズ：ご要望通り大きく・太くして「見出し感」を強調 */
-    font-size: 32px;
-    font-weight: 700; /* しっかり太く */
-    
-    /* 余白調整 */
+    font-family: 'Noto Serif JP', serif; /* 明朝体（筆文字っぽいフォント） */
+    color: #FFFFFF;                      /* 真っ白にする */
+    font-size: 36px;                     /* デカくする！ */
+    font-weight: 700;                    /* 太くする！ */
+    letter-spacing: 0.25em;              /* 文字の間隔を広げて高級に */
+    margin-bottom: 12px;
     margin-top: 0;
-    margin-bottom: 15px; /* 下の英語との距離 */
-    letter-spacing: 0.15em;
+    line-height: 1.2;
+
+    /* 文字に影をつけて、背景がどんな色でも読めるようにする */
+    text-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.6),   
+        0 0 20px rgba(0, 0, 0, 0.4);     
     
-    /* 影はなし（背景が白いので不要） */
-    text-shadow: none;
+    /* ふわっと浮き上がるアニメーション */
+    animation: fadeInUp 1.4s ease-out both;
 }
 
-/* 3. 英語サブタイトル「GUEST INFORMATION」 */
-#page-home .subtitle {
+/* 6. 英語タイトル「GUEST INFORMATION」をオシャレに */
+#page-home .page-title-en {
     font-family: 'Noto Serif JP', serif;
-    
-    /* 色：ブランドカラー（ゴールド）でアクセントに */
-    color: #C9A063;
-    
-    /* サイズと間隔：小さく、広く */
-    font-size: 20px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase; /* 強制的に大文字に */
-    font-weight: 50;
-    
-    /* 装飾：上に細いラインを入れて階層を分ける */
-    display: inline-block; /* 線の長さを文字に合わせるため */
-    border-top: 1px solid #C9A063;
-    padding-top: 10px;     /* 線と文字の間隔 */
-    margin-top: 5px;
-    
-    /* 影なし */
-    text-shadow: none;
-}
-
-/* 1. 「客室インフォメーション」を背景負けしない白文字にする */
-#page-home .page-title {
-    /* ゴシック体をやめて、筆文字と相性のいい「明朝体」にします */
-    font-family: 'Noto Serif JP', serif;
-    
-    /* ★変更点：文字を白くして視認性アップ */
-    color: #ffffff;
-    
-    /* 文字の間隔を広げて、ゆったりした高級感を出します */
-    letter-spacing: 0.2em;
-    
-    /* 文字の太さと大きさのバランスを整えます */
-    font-weight: 600;
-    font-size: 28px; /* 少し大きくしました */
-    
-    /* ロゴとの距離を近づけて「セット感」を出します */
-    margin-top: 60px;
-    margin-bottom: 15px;
-    
-    /* ★変更点：背景が暗くなるので、白い光ではなく「黒い影」で浮き上がらせます */
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-    
-    position: relative;
-}
-
-/* 2. 「ごゆっくり〜 (Guest Information)」の文字も白くする */
-#page-home .subtitle {
-    font-family: 'Noto Serif JP', serif;
-    
-    /* ★変更点：真っ白より少し落ち着いた白で優しく */
-    color: #dddddd; 
-    
-    font-size: 15px;
-    letter-spacing: 0.1em;
+    color: #E6C885;            /* 金色（シャンパンゴールド） */
+    font-size: 14px;
     font-weight: 500;
+    text-transform: uppercase; /* 全部大文字にする */
+    letter-spacing: 0.35em;    /* 間隔をかなり広げる */
+    display: block;
     
-    /* 上の文字との距離を縮めます */
-    margin-top: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
     
-    /* ★変更点：こちらも黒い影を追加 */
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    
-    position: relative;
+    /* 日本語より少し遅れて出てくる */
+    animation: fadeInUp 1.4s ease-out 0.3s both;
 }
 
-/* 3. ロゴ画像自体も少し雰囲気を合わせる */
-#page-home .logo-container img {
-    /* ロゴの下にうっすら白い影をつけて、背景写真から少し浮き上がらせます */
-    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.6));
-    
-    /* ロゴの下の隙間を減らして、文字と仲良くさせます */
-    margin-bottom: 5px;
+/* アニメーションの動きの正体（下からふわっと） */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;                  /* 最初は透明 */
+        transform: translateY(20px); /* 少し下にある */
+    }
+    to {
+        opacity: 1;                  /* 見えるようになる */
+        transform: translateY(0);    /* 元の場所に戻る */
+    }
 }
 
-/* 4. ロゴと文字のエリア全体の位置調整 */
-#page-home .page-header {
-    /* ボタンとの距離を少し縮めて、画面全体を引き締めます */
-    margin-bottom: 30px;
-}
-/* ===========================
-   視認性アップ＆レイアウト調整の魔法（最終仕上げ）
-   =========================== */
-
-/* 1. タイトル文字を「絶対に読める」ように強化 */
-#page-home .page-title {
-    /* 文字色をさらに濃くしてコントラストをつける */
-    color: #3A2F1F;
-    
-    /* 「白い光」を何重にも重ねて、文字の周りを白く縁取る */
-    /* これで背景がどんな色でもクッキリ見えます */
-    text-shadow: 
-        0 0 10px rgba(255,255,255, 1),
-        0 0 20px rgba(255,255,255, 0.8),
-        2px 2px 0px rgba(255,255,255, 0.5);
-        
-    /* 少し位置を下げて、景色を見せるスペースを作る */
-    margin-top: 60px;
-    margin-bottom: 15px;
-    
-    font-size: 28px; /* 少し大きく */
+/* 7. メニューボタンのデザイン */
+#page-home .menu-card {
+    /* 背景を少し透けさせる */
+    background-color: rgba(255, 255, 255, 0.92);
+    border: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* 影をつけて浮かせる */
+    border-radius: 12px;
+    transition: transform 0.2s ease, background-color 0.2s;
 }
 
-#page-home .subtitle {
-    /* サブタイトルも同様に読みやすく */
-    color: #5D5245;
+/* ボタンを押したとき */
+#page-home .menu-card:active {
+    transform: scale(0.96); /* 少し凹む */
+    background-color: #fff;
+}
+
+/* アイコンの色（落ち着いた金色） */
+#page-home .card-icon {
+    color: #A08D65;
+    margin-bottom: 12px;
+}
+#page-home .card-icon span {
+    font-size: 48px;
+}
+
+/* ボタンの文字 */
+#page-home .card-title {
+    color: #4A3A26;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    letter-spacing: 0.05em;
     font-weight: 600;
-    text-shadow: 
-        0 0 8px rgba(255,255,255, 1),
-        0 0 15px rgba(255,255,255, 0.8);
 }
 
-/* 2. 下に移動したロゴのデザイン */
+/* 下にあるロゴ */
 .bottom-logo-container {
     text-align: center;
-    margin-top: 40px; /* メニューとの間に隙間をあける */
-    margin-bottom: 20px;
-    opacity: 0.9; /* 少しだけ透けさせて上品に */
+    margin-top: 60px;
+    margin-bottom: 30px;
 }
-
 .bottom-logo-container img {
-    width: 180px; /* ロゴの大きさ調整 */
+    width: 160px;
     height: auto;
-    /* ロゴも背景に埋もれないように少し影をつける */
-    filter: drop-shadow(0 2px 5px rgba(255,255,255, 0.8));
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
 
-/* 3. 画面全体のバランス調整 */
-#page-home .page-content {
-    /* ロゴが下に来たので、下側の余白をたっぷり確保 */
-    padding-bottom: 120px;
-}
-/* ===========================
-   英語タイトル（Guest Information）のデザイン
-   =========================== */
-
-#page-home .page-title-en {
-    /* フォントを明朝体にして上品に */
-    font-family: 'Noto Serif JP', serif;
-    
-    /* 色は茶色系で統一 */
-    color: #6D5D4B;
-    
-    /* サイズは小さめに */
-    font-size: 14px;
-    
-    /* 全部大文字で表示（カッコよくなります） */
-    text-transform: uppercase;
-    
-    /* 文字の間隔を広げてゆったりさせる */
-    letter-spacing: 0.2em;
-    
-    /* 上の日本語との距離を縮めて「セット」に見せる */
-    margin-top: -10px;
-    margin-bottom: 15px;
-    
-    /* 背景に負けないように白い光で縁取り */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
-    
-    /* 文字の太さ */
-    font-weight: 500;
-}
-/* ===========================
-   レンタサイクル：貸出時間の視認性アップ
-   =========================== */
-
-/* 時間の入っている箱（濃い茶色の部分）の設定 */
-.bicycle-info-box.time-box {
-    /* 背景色は今の濃い茶色(#5D5245)を維持しつつ、文字が見やすいように調整 */
-    background-color: #5D5245 !important; 
-    border: 1px solid #5D5245; /* 枠線も背景と同じ色に */
-    
-    /* 中身を真ん中に揃える */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px; /* 「貸出時間」と「7:00...」の間隔 */
-}
-
-/* 「貸出時間」というラベル文字 */
-.bicycle-info-box.time-box .info-label {
-    color: #DCC095 !important; /* 上品なゴールドベージュに変更 */
-    font-size: 16px; /* 文字サイズをアップ */
-    font-weight: normal;
-    font-family: 'Noto Serif JP', serif; /* 明朝体にして高級感を */
-    margin-bottom: 0; /* 余計な隙間を消す */
-}
-
-/* 「7:00 〜 21:00」の時間文字 */
-.bicycle-info-box.time-box .info-time {
-    color: #ffffff !important; /* 真っ白にして、最強の読みやすさに！ */
-    font-size: 32px !important; /* サイズを倍くらい大きく！ */
-    font-family: 'Courier New', monospace; /* 数字が読みやすいフォント */
-    font-weight: bold;
-    letter-spacing: 3px; /* 数字同士の間隔を広げてゆったりと */
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5); /* 文字に影をつけて浮き上がらせる */
-}
-/* ===========================
-   館内図・基本情報のレイアウト改善（iPad対応）
-   =========================== */
-
-/* 1. 「チェックアウト」などの単語が途中で切れないようにする */
-.checkout-label-top,
-.floor-badge {
-    white-space: nowrap; /* 「改行しないで！」という命令 */
-}
-
-/* 2. 長い文章（1Fの説明など）の改行を自然にする */
-.floor-desc {
-    line-height: 1.6;
-    /* 単語の途中（駐、車場など）で不自然に切れないようにする */
-    word-break: keep-all; 
-    overflow-wrap: break-word;
-}
-
-/* 3. iPadなどで画面が狭いときは、地図と文字を「縦並び」にして広々見せる */
-@media screen and (max-width: 1100px) {
-    /* 横並びの設定を解除して、縦積みにする */
+/* 8. スマホやiPad用の調整（画面が狭いとき用） */
+@media screen and (min-width: 769px) {
+    /* iPadを横にしたときなど、画面が広いときは横並びにする */
     .floor-map-layout {
-        flex-direction: column; /* 縦に並べる */
-        align-items: center;    /* 真ん中に揃える */
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
     }
-
-    /* 地図（左側だったもの）の設定 */
     .floor-map-left {
-        width: 100%;           /* 幅をいっぱいに使う */
-        max-width: 600px;      /* でも大きくなりすぎないように */
-        margin: 0 auto 30px;   /* 中央寄せ & 下に隙間をあける */
+        width: 45%;
+        flex-shrink: 0;
     }
-
-    /* 文字リスト（右側だったもの）の設定 */
     .floor-map-right {
-        width: 100%;           /* 幅をいっぱいに使う */
-        max-width: 700px;      /* 読みやすい幅に制限 */
+        width: 55%;
     }
-    
-    /* チェックアウトの箱も微調整 */
-    .checkout-top-box {
-        padding: 20px;         /* 余白を増やしてゆったり */
-        justify-content: space-between;
-        flex-wrap: wrap;       /* 必要なら折り返す */
+    .manual-image {
+        width: 100%;
+        max-width: none;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
+}
+
+@media screen and (max-width: 768px) {
+    /* スマホのときは文字を少し小さく */
+    #page-home .page-title {
+        font-size: 28px; 
+        margin-top: 60px;
+    }
+    .floor-map-layout {
+        flex-direction: column;
+    }
+    .floor-map-left, .floor-map-right {
+        width: 100%;
+    }
+}
+
+/* 日本語が変なところで改行されないようにするおまじない */
+.floor-desc, 
+.bicycle-model, 
+.page-title {
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
