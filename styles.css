@@ -2517,7 +2517,7 @@ background-image: url('images/top_bg.jpg');
     position: relative;
 }
 
-/* 白い霧（フィルター）の設定 */
+/* 1. 白い霧（フィルター）の設定 */
 #page-home::before {
     content: '';
     position: absolute;
@@ -2525,9 +2525,9 @@ background-image: url('images/top_bg.jpg');
     left: 0;
     width: 100%;
     height: 100%;
-    /* 白色の薄い膜（透明度40%）を張ります */
-    background-color: rgba(255, 255, 255, 0.4);
-    z-index: 0; /* 写真より手前、文字より奥 */
+    /* ★変更点：白(255)ではなく黒(0)を30%重ねて、ボタンを浮き上がらせます */
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 0;
 }
 
 /* 2. 文字やボタンが霧の下に隠れないように浮き上がらせる */
@@ -2593,43 +2593,115 @@ background-image: url('images/top_bg.jpg');
     letter-spacing: 1px; /* 文字の間隔を少し広げる */
     font-weight: 600;
 }
-/* ===========================
-   トップページのロゴと文字を一体化させる魔法
-   =========================== */
+/* 1. ヘッダーの箱（コンテナ）のデザイン */
+#page-home .page-header {
+    /* 背景：ボタン(0.8)より不透明度を上げて(0.95)、一番手前に見せる */
+    background-color: rgba(255, 255, 255, 0.2);
+    
+    /* 形状：ボタン（丸角）と差別化するため、横長で角をシャープに */
+    width: 85%;             /* 画面幅に対して広めに */
+    max-width: 90000px;       /* PCでも間延びしない最大幅 */
+    margin: 30px auto 40px; /* 上に50pxの余白（緑を見せる）、下に40px（ボタンと離す） */
+    padding: 10px 0;        /* 内側の余白を増やしてゆったりと */
+    border-radius: 4px;     /* ほぼ直角に近い、上品な角丸 */
+    
+    /* 装飾：細い金色の枠線で「看板」らしさを出す */
+    border: 2px solid #C9A063;
+    
+    /* 影：ボタンとは違う、ふわっと広がる柔らかい影で浮遊感を出す */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    
+    /* すりガラス効果（念のため） */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
 
-/* 1. 「客室インフォメーション」をロゴに負けない上品な文字にする */
+/* 2. 日本語タイトル「客室インフォメーション」 */
+#page-home .page-title {
+    font-family: 'Noto Serif JP', serif;
+    
+    /* 色：濃い茶色で視認性重視 */
+    color: #4A3A26;
+    
+    /* サイズ：ご要望通り大きく・太くして「見出し感」を強調 */
+    font-size: 32px;
+    font-weight: 700; /* しっかり太く */
+    
+    /* 余白調整 */
+    margin-top: 0;
+    margin-bottom: 15px; /* 下の英語との距離 */
+    letter-spacing: 0.15em;
+    
+    /* 影はなし（背景が白いので不要） */
+    text-shadow: none;
+}
+
+/* 3. 英語サブタイトル「GUEST INFORMATION」 */
+#page-home .subtitle {
+    font-family: 'Noto Serif JP', serif;
+    
+    /* 色：ブランドカラー（ゴールド）でアクセントに */
+    color: #C9A063;
+    
+    /* サイズと間隔：小さく、広く */
+    font-size: 20px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase; /* 強制的に大文字に */
+    font-weight: 50;
+    
+    /* 装飾：上に細いラインを入れて階層を分ける */
+    display: inline-block; /* 線の長さを文字に合わせるため */
+    border-top: 1px solid #C9A063;
+    padding-top: 10px;     /* 線と文字の間隔 */
+    margin-top: 5px;
+    
+    /* 影なし */
+    text-shadow: none;
+}
+
+/* 1. 「客室インフォメーション」を背景負けしない白文字にする */
 #page-home .page-title {
     /* ゴシック体をやめて、筆文字と相性のいい「明朝体」にします */
     font-family: 'Noto Serif JP', serif;
     
-    /* 色を真っ黒ではなく、アイコンに合う「濃い墨茶色」にします */
-    color: #4A3A26;
+    /* ★変更点：文字を白くして視認性アップ */
+    color: #ffffff;
     
     /* 文字の間隔を広げて、ゆったりした高級感を出します */
     letter-spacing: 0.2em;
     
     /* 文字の太さと大きさのバランスを整えます */
     font-weight: 600;
-    font-size: 24px;
+    font-size: 28px; /* 少し大きくしました */
     
     /* ロゴとの距離を近づけて「セット感」を出します */
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin-top: 60px;
+    margin-bottom: 15px;
     
-    /* 背景写真に負けないよう、文字の周りにほんのり白い光を灯します */
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    /* ★変更点：背景が暗くなるので、白い光ではなく「黒い影」で浮き上がらせます */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    
+    position: relative;
 }
 
-/* 2. 「ごゆっくり〜」の文字も優しくする */
+/* 2. 「ごゆっくり〜 (Guest Information)」の文字も白くする */
 #page-home .subtitle {
-    font-family: 'Noto Serif JP', serif; /* これも明朝体に */
-    color: #6D5D4B; /* タイトルより少し淡い色で優しく */
+    font-family: 'Noto Serif JP', serif;
+    
+    /* ★変更点：真っ白より少し落ち着いた白で優しく */
+    color: #dddddd; 
+    
     font-size: 15px;
     letter-spacing: 0.1em;
     font-weight: 500;
     
     /* 上の文字との距離を縮めます */
     margin-top: 0;
+    
+    /* ★変更点：こちらも黒い影を追加 */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    
+    position: relative;
 }
 
 /* 3. ロゴ画像自体も少し雰囲気を合わせる */
