@@ -454,3 +454,46 @@ function toggleBicycleRules() {
         icon.textContent = 'expand_less'; // 上向き矢印にする
     }
 }
+// ===========================
+// 朝食ページ：アコーディオン開閉
+// ===========================
+function toggleAccordion() {
+    const btn = document.querySelector('.accordion-btn');
+    const content = document.getElementById('acc-content');
+    
+    // ボタンの見た目を切り替え
+    btn.classList.toggle('active');
+    
+    // 中身の開閉（クラスの付け外し）
+    content.classList.toggle('open');
+    
+    // 高さを操作してアニメーションさせる
+    if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+    } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+    }
+}
+// ===========================
+// もっと追加モーダル（ポップアップ）の動き
+// ===========================
+function showMoreOptionsModal() {
+    const modal = document.getElementById('more-options-modal');
+    if (modal) {
+        modal.classList.add('show');
+    }
+}
+
+function hideMoreOptionsModal() {
+    const modal = document.getElementById('more-options-modal');
+    if (modal) {
+        modal.classList.remove('show');
+    }
+}
+
+// キーボードのESCキーを押しても閉じるようにする
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        hideMoreOptionsModal();
+    }
+});

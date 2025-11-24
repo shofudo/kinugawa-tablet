@@ -82,6 +82,12 @@
                             </div>
                             <div class="card-title">コーヒーメーカー使い方</div>
                         </button>
+
+<button class="menu-card special-guide" onclick="showPage('breakfast')">                            <div class="card-icon">
+                                <span class="material-icons-outlined">restaurant</span>
+                            </div>
+                            <div class="card-title">朝食のご案内</div>
+                        </button>
                     </div>
 
                     <div class="menu-section">
@@ -765,6 +771,157 @@
             </footer>
         </div>
 
+        <div id="page-breakfast" class="page breakfast-wrapper">
+            <header class="breakfast-header">
+                <button class="back-to-top-button" onclick="showPage('home')" style="background-color: #8B7355; top: 20px; left: 20px;">
+                    <span class="back-arrow">←</span> トップ
+                </button>
+                <h1 class="breakfast-page-title">朝食のご案内</h1>
+            </header>
+
+            <div class="accordion-section">
+                <button class="accordion-btn" onclick="toggleAccordion()">
+                    <span class="acc-title">
+                        <span class="material-icons-outlined" style="color: #C9A063; font-size: 22px;">menu_book</span>
+                        当宿の朝ごはんについて
+                    </span>
+                    <span class="acc-icon" id="acc-icon">▼</span>
+                </button>
+                <div class="accordion-content" id="acc-content">
+                    <div class="acc-inner-text">
+                        <p>宿の朝ごはんには、普段の朝ご飯以上についついたくさん食べてしまう不思議な魅力があります。</p>
+                        <p>当館では、皆様に少しでも魅力的な朝ご飯を召し上がっていただきたいと思い、お一人様ごとに、通常の朝ご飯の内容にお好きなセットを選んでいただいた「自分好みの朝ご飯」を召し上がっていただきます。</p>
+                        <p>是非とも朝のご朝食を思い描きながらお考えになっていただければと思います。</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="breakfast-main-area">
+                <div class="breakfast-main-card">
+                    <img src="images/breakfast-main.jpg" onerror="this.src='https://placehold.co/700x400/e8ddd0/8b7355?text=基本の朝食'" alt="基本の朝食全体" class="breakfast-main-img">
+                    <div class="breakfast-main-text">
+                        <h2>基本の朝食</h2>
+                        <p>ご飯・味噌汁・焼き魚・小鉢色々・野菜サラダ など</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="new-flow-container">
+                <div class="speech-bubble-box">
+                    <p>この下から、お好きなものを<br><strong>無料で1つ追加</strong>していただけます。</p>
+                    <div class="speech-triangle"></div>
+                </div>
+
+                <div class="pulsing-icon-area">
+                    <div class="big-plus-icon">
+                        <span class="plus-symbol">＋1品</span>
+                    </div>
+                </div>
+
+                <div class="selection-section">
+                    <h3 class="selection-heading">この中から1つだけお選びください</h3>
+                    
+                    <p class="selection-notes">
+                        <span class="note-item">※ お一人様ずつ無料で1つお選びいただけます</span>
+                    </p>
+
+                    <div class="important-notice">
+                        <span class="notice-icon"></span>
+                        <span class="notice-text">夕食時にスタッフがお伺いいたします</span>
+                    </div>
+                </div>
+
+            <section class="breakfast-sets-area">
+                <article class="bf-set-card set-yuki">
+                    <div class="bf-card-img-box">
+                        <img src="images/set-yuki.jpg" onerror="this.src='https://placehold.co/280x220/7BAFD4/ffffff?text=雪'" alt="雪セット">
+                        <span class="card-tag tag-yuki">朝の定番</span>
+                    </div>
+                    <div class="bf-card-title-box">
+                        <span class="bf-card-name">雪</span>
+                    </div>
+                    <div class="bf-card-content">
+                        <ul>
+                            <li><span class="bullet">●</span> 納豆</li>
+                            <li><span class="bullet">●</span> 大吟醸もろみ醤油</li>
+                            <li><span class="bullet">●</span> 焼海苔</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="bf-set-card set-tsuki">
+                    <div class="bf-card-img-box">
+                        <img src="images/set-tsuki.jpg" onerror="this.src='https://placehold.co/280x220/F4C35C/ffffff?text=月'" alt="月セット">
+                        <span class="card-tag tag-tsuki">たまごかけご飯</span>
+                    </div>
+                    <div class="bf-card-title-box">
+                        <span class="bf-card-name">月</span>
+                    </div>
+                    <div class="bf-card-content">
+                        <ul>
+                            <li><span class="bullet">●</span> 那須御養卵</li>
+                            <li><span class="bullet">●</span> 大吟醸もろみ醤油</li>
+                            <li><span class="bullet">●</span> 焼海苔</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="bf-set-card set-hana">
+                    <div class="bf-card-img-box">
+                        <img src="images/set-hana.jpg" onerror="this.src='https://placehold.co/280x220/98D4A8/ffffff?text=花'" alt="花セット">
+                        <span class="card-tag tag-hana">食前に</span>
+                    </div>
+                    <div class="bf-card-title-box">
+                        <span class="bf-card-name">花</span>
+                    </div>
+                    <div class="bf-card-content">
+                        <ul>
+                            <li><span class="bullet">●</span> 生絞りミカンジュース</li>
+                            <li><span class="bullet">●</span> ヨーグルトとアロエ</li>
+                            <li class="small-note">(自家製ジャム添え)</li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <footer class="breakfast-footer">
+                <div class="footer-options">
+                    <button class="more-options-btn" onclick="showMoreOptionsModal()">
+                        <span class="btn-icon"></span>
+                        もっと追加したい方へ
+                    </button>
+                </div>
+            </footer>
+
+            <div id="more-options-modal" class="modal-overlay" onclick="hideMoreOptionsModal()">
+                <div class="modal-content" onclick="event.stopPropagation()">
+                    <button class="modal-close-btn" onclick="hideMoreOptionsModal()">✕</button>
+                    <h3 class="modal-title">追加メニュー</h3>
+                    <div class="modal-body">
+                        <div class="price-item">
+                            <span class="item-name">那須御養卵</span>
+                            <span class="item-price">330円</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="item-name">納豆</span>
+                            <span class="item-price">330円</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="item-name">みかんジュース</span>
+                            <span class="item-price">330円</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="item-name">ヨーグルト</span>
+                            <span class="item-price">330円</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="item-name">焼海苔</span>
+                            <span class="item-price">110円</span>
+                        </div>
+                    </div>
+                    <p class="modal-note">※ 追加料金は別途かかります</p>
+                </div>
+            </div></div></div>
         <!-- ===== 緊急時のご案内 ===== -->
         <div id="page-emergency" class="page">
             <header class="page-header emergency-header">
