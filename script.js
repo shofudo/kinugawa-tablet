@@ -336,27 +336,18 @@ function showPage(pageId) {
 }
 
 // ===========================
-// 無操作タイマー設定（修正版）
+// 無操作タイマー設定（賢い更新機能付き）
 // ===========================
 function setupInactivityTimer() {
-    // タイマーをリセットする関数
     function resetTimer() {
-        // 既存のタイマーをクリア
         if (inactivityTimer) {
             clearTimeout(inactivityTimer);
         }
         
-        // 新しいタイマーを設定
-        inactivityTimer = setTimeout(() => {
-            // ★ここが更生させたポイントです！★
-            
-            // 1. 通信が発生する「再読み込み」はもうしません
-            // window.location.reload();  <-- 犯人は削除しました
-            
-            // 2. 代わりに「画面をトップに切り替える」だけにします（通信量0！）
+        inactivityTimer = setTimeout(async () => {
+            // 1. まずトップページに戻すなどの「お片付け」を先にやります
             showPage('home');
             
-            // 3. もしポップアップが開いていたら閉じます（お片付け）
             const amenityModal = document.getElementById('amenity-modal');
             if (amenityModal) amenityModal.style.display = 'none';
 
@@ -366,21 +357,41 @@ function setupInactivityTimer() {
             const moreOptionsModal = document.getElementById('more-options-modal');
             if (moreOptionsModal) moreOptionsModal.classList.remove('show');
 
-            // 4. トップページを一番上までスクロールしておきます
             const homePage = document.getElementById('page-home');
             if (homePage) homePage.scrollTo(0, 0);
+
+            // 2. ここから「賢いチェック」スタート！
+            // サーバー上の最新の設定ファイル(config.json)だけを見に行きます
+            try {
+                const timestamp = new Date().getTime();
+                const response = await fetch(`config.json?t=${timestamp}`);
+                
+                if (response.ok) {
+                    const newConfig = await response.json();
+                    
+                    // 今持っているデータ(configData)と、新しいデータ(newConfig)を比べっこします
+                    // JSON.stringifyを使って、中身が全く同じか文字として比較します
+                    if (JSON.stringify(configData) !== JSON.stringify(newConfig)) {
+                        console.log('新しいデータが見つかりました。リロードします。');
+                        // ★中身が違うときだけ、ここでリロードします！★
+                        window.location.reload();
+                    } else {
+                        console.log('データは最新です。リロードしません。');
+                    }
+                }
+            } catch (error) {
+                console.error('更新チェックに失敗しましたが、動作は続行します', error);
+            }
 
         }, INACTIVITY_TIMEOUT);
     }
     
-    // 各種イベントでタイマーをリセット
     const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
     
     events.forEach(event => {
         document.addEventListener(event, resetTimer, true);
     });
     
-    // 初回タイマー設定
     resetTimer();
 }
 
