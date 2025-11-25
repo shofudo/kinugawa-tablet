@@ -3380,3 +3380,408 @@ body {
     height: 6px;
     background: linear-gradient(90deg, #C9A063, #F4C35C);
 }
+/* ========================================
+   グレードアップページ（修正版：統合カードデザイン）
+   ======================================== */
+
+/* --- 1. ページ全体の背景 --- */
+#premium-breakfast {
+    background: linear-gradient(180deg, #E8F4F5 0%, #F0F8F9 50%, #FAFCFC 100%);
+    min-height: 100vh;
+    padding-bottom: 50px;
+    animation: fadeIn 0.5s ease;
+}
+
+/* --- 2. ページタイトル --- */
+.premium-page-title {
+    text-align: center;
+    padding: 30px 20px 20px;
+    background: linear-gradient(180deg, #E8F4F5 0%, transparent 100%);
+}
+
+.premium-title-main {
+    font-size: 32px;
+    color: #4A7C7E;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 500;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.premium-title-sub {
+    font-size: 14px;
+    color: #6B5D4F;
+    font-family: 'Georgia', serif;
+    letter-spacing: 3px;
+    font-style: italic;
+    margin: 0;
+}
+
+/* --- 3. 切り替えボタン（ゴールド） --- */
+.premium-toggle-button-simple {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: rgba(255,255,255,0.8);
+    color: #C9A063;
+    border: 2px solid #C9A063;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans JP', sans-serif;
+    z-index: 100;
+}
+
+.premium-toggle-button-simple:hover {
+    background: #C9A063;
+    color: white;
+}
+
+/* --- 4. 統合版・案内カード（ここが今回のメイン変更点） --- */
+.premium-combined-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(74, 124, 126, 0.1);
+    border: 1px solid #D0E8EA;
+    max-width: 800px;
+    margin: 20px auto 40px;
+    overflow: hidden;
+}
+
+/* 上部：予約警告エリア */
+.combined-header-warning {
+    background-color: #4A7C7E; /* テーマカラーの緑 */
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.warning-icon {
+    font-size: 32px;
+    opacity: 0.9;
+}
+
+.warning-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.warning-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.warning-desc {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* 中身：本文エリア */
+.combined-body {
+    padding: 30px 25px;
+    text-align: center;
+}
+
+.combined-title {
+    font-size: 22px;
+    color: #4A7C7E;
+    font-family: 'Noto Serif JP', serif;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+.combined-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #C9A063;
+    margin: 10px auto 0;
+}
+
+/* 説明文 */
+.desc-lead {
+    font-size: 15px;
+    color: #5D5245;
+    line-height: 2;
+    margin-bottom: 25px;
+}
+
+.desc-lead strong {
+    color: #C9A063;
+    font-size: 18px;
+    font-family: 'Noto Serif JP', serif;
+}
+
+/* 視認性を高めた図解ボックス */
+.visual-choice-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: #F0F8F9;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px dashed #4A7C7E;
+}
+
+.v-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.v-icon {
+    font-size: 24px;
+    color: #4A7C7E;
+    margin-bottom: 5px;
+}
+
+.v-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #5D5245;
+}
+
+.v-plus {
+    font-size: 20px;
+    color: #C9A063;
+    font-weight: bold;
+}
+
+.desc-sub {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* 下部：スタッフ案内（目立つ枠） */
+.combined-staff-note {
+    background-color: #FFF8E1; /* 薄い黄色・ゴールド系 */
+    border: 2px solid #FFE082;
+    color: #F57F17;
+    padding: 15px 20px;
+    border-radius: 50px; /* 角丸を強く */
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(255, 160, 0, 0.1);
+}
+
+.note-text strong {
+    border-bottom: 1px solid #F57F17;
+}
+
+/* --- 5. 写真付き選択カード（既存のまま維持） --- */
+.premium-choice-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.choice-card-with-image {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(74, 124, 126, 0.15);
+    border: 2px solid #D0E8EA;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.choice-card-with-image:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(74, 124, 126, 0.25);
+    border-color: #5A9EA0;
+}
+
+.choice-image-area {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.choice-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.choice-card-with-image:hover .choice-image {
+    transform: scale(1.05);
+}
+
+.choice-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(74, 124, 126, 0.9);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    backdrop-filter: blur(5px);
+}
+
+.choice-text-area {
+    padding: 25px 30px;
+    flex: 1;
+}
+
+.choice-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #E8F4F5;
+}
+
+.choice-icon-simple {
+    font-size: 28px;
+    color: #4A7C7E;
+}
+
+.choice-title {
+    font-size: 20px;
+    color: #4A7C7E;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 600;
+    margin: 0;
+}
+
+.egg-description {
+    background: linear-gradient(135deg, #F0F8F9, #FAFCFC);
+    border-left: 3px solid #5A9EA0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.egg-description p {
+    font-size: 13px;
+    color: #6B5D4F;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.choice-list-simple {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.choice-list-simple li {
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #F0F8F9 0%, transparent 100%);
+    border-left: 3px solid #5A9EA0;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #5D5245;
+    transition: all 0.2s ease;
+}
+
+/* --- 6. フッター --- */
+.premium-footer-simple {
+    background: linear-gradient(135deg, #D0E8EA, #E8F4F5);
+    border-top: 2px solid #5A9EA0;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footer-message {
+    font-size: 18px;
+    color: #4A7C7E;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.footer-sub {
+    font-size: 14px;
+    color: #6B5D4F;
+}
+
+/* --- 7. スマホ用調整 --- */
+@media screen and (max-width: 768px) {
+    .combined-header-warning {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+    .visual-choice-box {
+        gap: 10px;
+        padding: 15px;
+    }
+    .v-item {
+        padding: 8px 10px;
+    }
+    .v-text {
+        font-size: 12px;
+    }
+    .premium-choice-section {
+        grid-template-columns: 1fr;
+    }
+}
+/* ========================================
+   追加：至福の朝ごはんタイトルデザイン
+   ======================================== */
+.premium-header-logo {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 25px; /* カードとの隙間 */
+}
+
+.logo-jp {
+    font-family: 'Noto Serif JP', serif; /* 明朝体 */
+    font-size: 34px;
+    color: #53878A; /* 画像のような落ち着いた青緑色 */
+    font-weight: 500;
+    margin-bottom: 5px;
+    letter-spacing: 0.1em; /* 文字の間隔を少し広げる */
+}
+
+.logo-en {
+    font-family: 'Georgia', 'Times New Roman', serif; /* 上品な英字フォント */
+    font-size: 16px;
+    color: #8B7355; /* 落ち着いたゴールド/ブラウン */
+    font-style: italic; /* 斜体 */
+    letter-spacing: 0.15em; /* 文字間隔を広げて高級感 */
+    margin: 0;
+    font-weight: 600;
+}
+
+/* スマホでの微調整 */
+@media screen and (max-width: 768px) {
+    .logo-jp {
+        font-size: 28px;
+    }
+    .logo-en {
+        font-size: 14px;
+    }
+}

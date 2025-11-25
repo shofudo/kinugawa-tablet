@@ -497,3 +497,46 @@ document.addEventListener('keydown', function(e) {
         hideMoreOptionsModal();
     }
 });
+// ===========================
+// 朝食ページ切り替え機能（ここから追加）
+// ===========================
+
+// 今、グレードアップ画面が出ているかどうかを覚えておく変数
+let isPremiumBreakfastShown = false;
+
+function togglePremiumBreakfast() {
+    const standardBreakfast = document.getElementById('standard-breakfast'); // 通常
+    const premiumBreakfast = document.getElementById('premium-breakfast');   // グレードアップ
+    const toggleText = document.getElementById('toggle-text');             // ボタンの文字
+    const pageTitle = document.getElementById('breakfast-page-title');     // ページのタイトル
+    
+    // もし画面が見つからなかったら何もしない（エラー防止）
+    if (!standardBreakfast || !premiumBreakfast) {
+        console.error('朝食ページ要素が見つかりません');
+        return;
+    }
+    
+    // 状態を反転させる（OFFならONへ、ONならOFFへ）
+    isPremiumBreakfastShown = !isPremiumBreakfastShown;
+    
+    if (isPremiumBreakfastShown) {
+        // ★ グレードアップページを表示する時
+        standardBreakfast.style.display = 'none';  // 通常を隠す
+        premiumBreakfast.style.display = 'block';  // グレードアップを表示
+        toggleText.textContent = '通常の朝食';      // ボタンの文字を変える
+        
+        // ページの一番上に戻る（スムーズに）
+        const pageContainer = document.getElementById('page-breakfast');
+        if(pageContainer) pageContainer.scrollTo({ top: 0, behavior: 'smooth' });
+
+    } else {
+        // ★ 通常ページに戻す時
+        standardBreakfast.style.display = 'block'; // 通常を表示
+        premiumBreakfast.style.display = 'none';   // グレードアップを隠す
+        toggleText.textContent = '至福の朝ごはん';  // ボタンの文字を戻す
+        
+        // ページの一番上に戻る（スムーズに）
+        const pageContainer = document.getElementById('page-breakfast');
+        if(pageContainer) pageContainer.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
