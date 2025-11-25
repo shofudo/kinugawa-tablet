@@ -4,8 +4,8 @@
 let configData = null;
 
 // 無操作タイマー設定（ミリ秒）
-// 2分 = 100000
-const INACTIVITY_TIMEOUT = 120000;
+// 1分30秒に変更（タブレットが寝る前にリセットするため）
+const INACTIVITY_TIMEOUT = 90000;
 let inactivityTimer = null;
 
 // ===========================
