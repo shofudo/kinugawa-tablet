@@ -336,7 +336,7 @@ function showPage(pageId) {
 }
 
 // ===========================
-// 無操作タイマー設定
+// 無操作タイマー設定（修正版）
 // ===========================
 function setupInactivityTimer() {
     // タイマーをリセットする関数
@@ -348,10 +348,28 @@ function setupInactivityTimer() {
         
         // 新しいタイマーを設定
         inactivityTimer = setTimeout(() => {
-            // ★ここを変えました★
-            // 5分間操作がなかったら、ページを「再読み込み」します。
-            // これでトップページに戻りつつ、最新の情報に更新されます！
-            window.location.reload();
+            // ★ここが更生させたポイントです！★
+            
+            // 1. 通信が発生する「再読み込み」はもうしません
+            // window.location.reload();  <-- 犯人は削除しました
+            
+            // 2. 代わりに「画面をトップに切り替える」だけにします（通信量0！）
+            showPage('home');
+            
+            // 3. もしポップアップが開いていたら閉じます（お片付け）
+            const amenityModal = document.getElementById('amenity-modal');
+            if (amenityModal) amenityModal.style.display = 'none';
+
+            const termsModal = document.getElementById('terms-modal');
+            if (termsModal) termsModal.style.display = 'none';
+            
+            const moreOptionsModal = document.getElementById('more-options-modal');
+            if (moreOptionsModal) moreOptionsModal.classList.remove('show');
+
+            // 4. トップページを一番上までスクロールしておきます
+            const homePage = document.getElementById('page-home');
+            if (homePage) homePage.scrollTo(0, 0);
+
         }, INACTIVITY_TIMEOUT);
     }
     
