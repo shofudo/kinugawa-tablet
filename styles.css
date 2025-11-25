@@ -3327,106 +3327,86 @@ body {
     }
 }
 
-/* ========== 10. レスポンシブ対応 ========== */
-@media screen and (max-width: 768px) {
-    .speech-bubble-box p { font-size: 16px; }
-    .speech-bubble-box strong { font-size: 20px; }
-    .pulsing-icon-area { width: 70px; height: 70px; }
-    
-    .selection-heading {
-        font-size: 20px;
-        white-space: normal;
-        width: 100%;
-    }
-    
-    .important-notice {
-        padding: 10px 20px;
-        max-width: 95%;
-    }
-    
-    .notice-text {
-        font-size: 15px;
-    }
-}
-/* =========================================
-   【追加修正】トップページの「朝食のご案内」特別デザイン
-   ========================================= */
-.menu-card.special-guide {
-    background-color: #FFFAF0; /* ほんのりクリーム色 */
-    border: 3px solid #C9A063; /* 金色のしっかりした枠 */
-    border-radius: 30px;
+/* ============================================
+   🔵 至福の朝ごはん - 上品な青色デザイン（修正版）
+   
+   【やること】
+   前回追加したCSSを削除して、
+   このファイルの中身をstyles.cssの一番下に貼り付けてください
+   ============================================ */
+
+/* --- 1. 背景を上品な青色に --- */
+#premium-breakfast {
+    background: linear-gradient(180deg, 
+        #E8F0F6 0%,     /* 淡い水色 */
+        #D4E5F0 30%,    /* 薄い藍色 */
+        #E0EBF3 70%,    /* 明るい青 */
+        #EDF3F8 100%);  /* 白に近い青 */
+    min-height: 100vh;
+    padding-bottom: 50px;
     position: relative;
-    overflow: hidden;
 }
 
-/* アイコンの色もゴールドに */
-.menu-card.special-guide .card-icon {
-    color: #C9A063;
-}
-
-/* タイトル文字を少し強調 */
-.menu-card.special-guide .card-title {
-    color: #c4674a; /* 濃い茶色 */
-    font-weight: bold;
-}
-
-/* 左上に「RECOMMEND」みたいな帯をつける（おまけ） */
-.menu-card.special-guide::before {
-    content: "";
+/* 和柄の背景パターン（青海波風） */
+#premium-breakfast::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(90deg, #C9A063, #F4C35C);
-}
-/* ========================================
-   グレードアップページ（修正版：統合カードデザイン）
-   ======================================== */
-
-/* --- 1. ページ全体の背景 --- */
-#premium-breakfast {
-    background: linear-gradient(180deg, #E8F4F5 0%, #F0F8F9 50%, #FAFCFC 100%);
-    min-height: 100vh;
-    padding-bottom: 50px;
-    animation: fadeIn 0.5s ease;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(ellipse at 50% 0%, rgba(70, 100, 140, 0.04) 0%, transparent 70%);
+    background-size: 80px 40px;
+    pointer-events: none;
 }
 
-/* --- 2. ページタイトル --- */
-.premium-page-title {
+/* --- 2. タイトル部分 --- */
+.premium-header-logo {
     text-align: center;
-    padding: 30px 20px 20px;
-    background: linear-gradient(180deg, #E8F4F5 0%, transparent 100%);
+    margin-top: 20px;
+    margin-bottom: 30px;
+    position: relative;
 }
 
-.premium-title-main {
-    font-size: 32px;
-    color: #4A7C7E;
+.logo-jp {
     font-family: 'Noto Serif JP', serif;
-    font-weight: 500;
-    margin-bottom: 5px;
-    letter-spacing: 2px;
+    font-size: 38px;
+    color: #2C5282;  /* 深い藍色 */
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.premium-title-sub {
-    font-size: 14px;
-    color: #6B5D4F;
+.logo-en {
     font-family: 'Georgia', serif;
-    letter-spacing: 3px;
+    font-size: 14px;
+    color: #8B6914;  /* 金茶色（アクセント） */
     font-style: italic;
-    margin: 0;
+    letter-spacing: 0.2em;
+    margin-top: 5px;
 }
 
-/* --- 3. 切り替えボタン（ゴールド） --- */
+/* タイトルの下に和風の飾り線 */
+.premium-header-logo::after {
+    content: '✿ ━━━ ✿';
+    display: block;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #C9A063;
+    letter-spacing: 3px;
+}
+
+/* --- 3. 切り替えボタン（素敵なデザイン） --- */
 .premium-toggle-button-simple {
     position: absolute;
     right: 20px;
     top: 20px;
-    background: rgba(255,255,255,0.8);
-    color: #C9A063;
+    background: linear-gradient(135deg, #FFFDF5 0%, #FFF8E7 100%);
+    color: #8B6914;
     border: 2px solid #C9A063;
-    padding: 8px 15px;
-    border-radius: 25px;
+    padding: 10px 20px;
+    border-radius: 8px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -3434,161 +3414,216 @@ body {
     align-items: center;
     gap: 8px;
     transition: all 0.3s ease;
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Noto Serif JP', serif;
     z-index: 100;
-}
-
-.premium-toggle-button-simple:hover {
-    background: #C9A063;
-    color: white;
-}
-
-/* --- 4. 統合版・案内カード（ここが今回のメイン変更点） --- */
-.premium-combined-card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(74, 124, 126, 0.1);
-    border: 1px solid #D0E8EA;
-    max-width: 800px;
-    margin: 20px auto 40px;
+    box-shadow: 0 3px 10px rgba(201, 160, 99, 0.2);
+    position: relative;
     overflow: hidden;
 }
 
-/* 上部：予約警告エリア */
-.combined-header-warning {
-    background-color: #4A7C7E; /* テーマカラーの緑 */
+/* ボタンの左右に装飾 */
+.premium-toggle-button-simple::before {
+    content: '❀';
+    margin-right: 5px;
+    font-size: 12px;
+    color: #C9A063;
+}
+
+.premium-toggle-button-simple::after {
+    content: '❀';
+    margin-left: 5px;
+    font-size: 12px;
+    color: #C9A063;
+}
+
+.premium-toggle-button-simple:hover {
+    background: linear-gradient(135deg, #C9A063 0%, #B8924F 100%);
     color: white;
-    padding: 15px 25px;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(201, 160, 99, 0.35);
+}
+
+.premium-toggle-button-simple:hover::before,
+.premium-toggle-button-simple:hover::after {
+    color: white;
+}
+
+/* --- 4. メインカード --- */
+.premium-combined-card {
+    background: linear-gradient(180deg, #FFFFFF 0%, #FAFCFF 100%);
+    border-radius: 12px;
+    box-shadow: 
+        0 8px 30px rgba(44, 82, 130, 0.1),
+        inset 0 0 0 1px rgba(44, 82, 130, 0.1);
+    border: none;
+    max-width: 800px;
+    margin: 20px auto 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* カードの左端に和風の縦線 */
+.premium-combined-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, 
+        #2C5282 0%,   /* 藍色 */
+        #C9A063 50%,  /* 金色 */
+        #2C5282 100%); /* 藍色 */
+}
+
+/* --- 5. 予約警告部分 --- */
+.combined-header-warning {
+    background: linear-gradient(135deg, #3D6B99 0%, #2C5282 100%);  /* 藍色 */
+    color: white;
+    padding: 18px 25px;
     display: flex;
     align-items: center;
     gap: 15px;
+    position: relative;
 }
 
-.warning-icon {
-    font-size: 32px;
-    opacity: 0.9;
+/* 右端に和柄っぽい装飾 */
+.combined-header-warning::after {
+    content: '🎐';
+    position: absolute;
+    right: 20px;
+    font-size: 24px;
+    opacity: 0.6;
 }
 
-.warning-text-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.warning-title {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 2px;
-}
-
-.warning-desc {
-    font-size: 13px;
-    opacity: 0.9;
-}
-
-/* 中身：本文エリア */
+/* --- 6. 本文エリア --- */
 .combined-body {
-    padding: 30px 25px;
+    padding: 35px 30px;
     text-align: center;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
 }
 
 .combined-title {
-    font-size: 22px;
-    color: #4A7C7E;
+    font-size: 24px;
+    color: #2C5282;  /* 藍色 */
     font-family: 'Noto Serif JP', serif;
-    margin-bottom: 25px;
-    position: relative;
-    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 0.1em;
 }
 
 .combined-title::after {
     content: '';
     display: block;
-    width: 40px;
+    width: 60px;
     height: 2px;
-    background: #C9A063;
-    margin: 10px auto 0;
+    background: linear-gradient(90deg, transparent, #C9A063, transparent);
+    margin: 12px auto 0;
 }
 
 /* 説明文 */
 .desc-lead {
     font-size: 15px;
-    color: #5D5245;
-    line-height: 2;
-    margin-bottom: 25px;
+    color: #3D4F5F;
+    line-height: 2.2;
 }
 
 .desc-lead strong {
-    color: #C9A063;
-    font-size: 18px;
+    color: #8B6914;  /* 金茶色 */
+    font-size: 20px;
     font-family: 'Noto Serif JP', serif;
+    border-bottom: 2px dotted #C9A063;
+    padding-bottom: 2px;
 }
 
-/* 視認性を高めた図解ボックス */
+/* --- 7. 選択ボックス --- */
 .visual-choice-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    background-color: #F0F8F9;
-    padding: 20px;
-    border-radius: 12px;
+    gap: 20px;
+    background: linear-gradient(135deg, #F0F5FA 0%, #E8F0F6 100%);
+    padding: 25px;
+    border-radius: 10px;
     margin-bottom: 25px;
-    border: 1px dashed #4A7C7E;
+    border: 2px solid #C5D5E5;
+    position: relative;
+}
+
+/* 角に和風の飾り */
+.visual-choice-box::before {
+    content: '┏';
+    position: absolute;
+    top: 5px;
+    left: 8px;
+    color: #2C5282;
+    font-size: 18px;
+}
+
+.visual-choice-box::after {
+    content: '┛';
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+    color: #2C5282;
+    font-size: 18px;
 }
 
 .v-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: white;
-    padding: 10px 20px;
+    background: #FFFFFF;
+    padding: 15px 25px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #B8CCE0;
+    box-shadow: 0 3px 10px rgba(44, 82, 130, 0.08);
 }
 
 .v-icon {
-    font-size: 24px;
-    color: #4A7C7E;
-    margin-bottom: 5px;
+    font-size: 26px;
+    color: #2C5282;  /* 藍色 */
+    margin-bottom: 8px;
 }
 
 .v-text {
     font-size: 14px;
-    font-weight: bold;
-    color: #5D5245;
+    font-weight: 600;
+    color: #3D4F5F;
+    font-family: 'Noto Serif JP', serif;
 }
 
 .v-plus {
-    font-size: 20px;
-    color: #C9A063;
+    font-size: 24px;
+    color: #C9A063;  /* 金色 */
     font-weight: bold;
 }
 
-.desc-sub {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 30px;
-}
-
-/* 下部：スタッフ案内（目立つ枠） */
+/* --- 8. スタッフ案内 --- */
 .combined-staff-note {
-    background-color: #FFF8E1; /* 薄い黄色・ゴールド系 */
-    border: 2px solid #FFE082;
-    color: #F57F17;
-    padding: 15px 20px;
-    border-radius: 50px; /* 角丸を強く */
+    background: linear-gradient(135deg, #FFF8E7, #FFFBF0);
+    border: 2px solid #C9A063;
+    color: #8B6914;
+    padding: 15px 25px;
+    border-radius: 8px;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-weight: bold;
-    box-shadow: 0 3px 10px rgba(255, 160, 0, 0.1);
+    gap: 12px;
+    font-weight: 600;
+    box-shadow: 0 3px 12px rgba(201, 160, 99, 0.15);
+    position: relative;
+}
+
+.combined-staff-note::before {
+    content: '✿';
+    color: #C9A063;
 }
 
 .note-text strong {
-    border-bottom: 1px solid #F57F17;
+    color: #8B4513;
+    border-bottom: none;
 }
 
-/* --- 5. 写真付き選択カード（既存のまま維持） --- */
+/* --- 9. 選択カード --- */
 .premium-choice-section {
     max-width: 900px;
     margin: 40px auto;
@@ -3599,57 +3634,49 @@ body {
 }
 
 .choice-card-with-image {
-    background: white;
-    border-radius: 20px;
+    background: #FFFFFF;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 6px 20px rgba(74, 124, 126, 0.15);
-    border: 2px solid #D0E8EA;
+    box-shadow: 0 8px 30px rgba(44, 82, 130, 0.12);
+    border: 1px solid #C5D5E5;
     transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
+    position: relative;
+}
+
+/* カードの上端に藍色と金のライン */
+.choice-card-with-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2C5282, #C9A063, #2C5282);
+    z-index: 10;
 }
 
 .choice-card-with-image:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(74, 124, 126, 0.25);
-    border-color: #5A9EA0;
-}
-
-.choice-image-area {
-    position: relative;
-    height: 220px;
-    overflow: hidden;
-    background-color: #eee;
-}
-
-.choice-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.choice-card-with-image:hover .choice-image {
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(44, 82, 130, 0.18);
+    border-color: #2C5282;
 }
 
 .choice-badge {
     position: absolute;
     top: 15px;
     left: 15px;
-    background: rgba(74, 124, 126, 0.9);
+    background: rgba(44, 82, 130, 0.95);  /* 藍色 */
     color: white;
-    padding: 6px 15px;
-    border-radius: 20px;
+    padding: 8px 18px;
+    border-radius: 6px;
     font-size: 12px;
     font-weight: bold;
-    letter-spacing: 1px;
-    backdrop-filter: blur(5px);
+    letter-spacing: 2px;
 }
 
 .choice-text-area {
     padding: 25px 30px;
-    flex: 1;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
 }
 
 .choice-header {
@@ -3658,25 +3685,25 @@ body {
     gap: 12px;
     margin-bottom: 20px;
     padding-bottom: 15px;
-    border-bottom: 2px solid #E8F4F5;
+    border-bottom: 2px solid #E0EBF3;
 }
 
 .choice-icon-simple {
     font-size: 28px;
-    color: #4A7C7E;
+    color: #2C5282;
 }
 
 .choice-title {
     font-size: 20px;
-    color: #4A7C7E;
+    color: #2C5282;
     font-family: 'Noto Serif JP', serif;
     font-weight: 600;
-    margin: 0;
 }
 
+/* 卵の説明ボックス */
 .egg-description {
-    background: linear-gradient(135deg, #F0F8F9, #FAFCFC);
-    border-left: 3px solid #5A9EA0;
+    background: linear-gradient(135deg, #F0F5FA, #FFFFFF);
+    border-left: 3px solid #C9A063;
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 20px;
@@ -3684,11 +3711,11 @@ body {
 
 .egg-description p {
     font-size: 13px;
-    color: #6B5D4F;
-    line-height: 1.8;
-    margin: 0;
+    color: #3D4F5F;
+    line-height: 1.9;
 }
 
+/* メニューリスト */
 .choice-list-simple {
     list-style: none;
     padding: 0;
@@ -3696,92 +3723,150 @@ body {
 }
 
 .choice-list-simple li {
-    padding: 10px 15px;
+    padding: 12px 18px;
     margin-bottom: 8px;
-    background: linear-gradient(90deg, #F0F8F9 0%, transparent 100%);
-    border-left: 3px solid #5A9EA0;
+    background: linear-gradient(90deg, #F0F5FA 0%, transparent 100%);
+    border-left: 3px solid #2C5282;
     border-radius: 4px;
     font-size: 15px;
-    color: #5D5245;
-    transition: all 0.2s ease;
+    color: #3D4F5F;
+    font-family: 'Noto Serif JP', serif;
 }
 
-/* --- 6. フッター --- */
+/* --- 10. フッター --- */
 .premium-footer-simple {
-    background: linear-gradient(135deg, #D0E8EA, #E8F4F5);
-    border-top: 2px solid #5A9EA0;
-    padding: 30px 20px;
+    background: linear-gradient(135deg, #D4E5F0, #E8F0F6);
+    border-top: 3px solid;
+    border-image: linear-gradient(90deg, #2C5282, #C9A063, #2C5282) 1;
+    padding: 35px 20px;
     text-align: center;
     margin-top: 60px;
+    position: relative;
 }
 
 .footer-message {
-    font-size: 18px;
-    color: #4A7C7E;
-    font-weight: bold;
-    margin-bottom: 8px;
+    font-size: 17px;
+    color: #2C5282;
+    font-weight: 600;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.05em;
 }
 
 .footer-sub {
     font-size: 14px;
-    color: #6B5D4F;
+    color: #8B6914;
+    margin-top: 8px;
 }
 
-/* --- 7. スマホ用調整 --- */
+/* --- 11. スマホ用調整 --- */
 @media screen and (max-width: 768px) {
-    .combined-header-warning {
-        flex-direction: column;
-        text-align: center;
-        gap: 5px;
+    .logo-jp {
+        font-size: 30px;
     }
-    .visual-choice-box {
-        gap: 10px;
-        padding: 15px;
-    }
-    .v-item {
-        padding: 8px 10px;
-    }
-    .v-text {
+    
+    .logo-en {
         font-size: 12px;
     }
+    
     .premium-choice-section {
         grid-template-columns: 1fr;
     }
-}
-/* ========================================
-   追加：至福の朝ごはんタイトルデザイン
-   ======================================== */
-.premium-header-logo {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 25px; /* カードとの隙間 */
-}
-
-.logo-jp {
-    font-family: 'Noto Serif JP', serif; /* 明朝体 */
-    font-size: 34px;
-    color: #53878A; /* 画像のような落ち着いた青緑色 */
-    font-weight: 500;
-    margin-bottom: 5px;
-    letter-spacing: 0.1em; /* 文字の間隔を少し広げる */
-}
-
-.logo-en {
-    font-family: 'Georgia', 'Times New Roman', serif; /* 上品な英字フォント */
-    font-size: 16px;
-    color: #8B7355; /* 落ち着いたゴールド/ブラウン */
-    font-style: italic; /* 斜体 */
-    letter-spacing: 0.15em; /* 文字間隔を広げて高級感 */
-    margin: 0;
-    font-weight: 600;
-}
-
-/* スマホでの微調整 */
-@media screen and (max-width: 768px) {
-    .logo-jp {
-        font-size: 28px;
+    
+    .visual-choice-box {
+        flex-direction: row;
+        gap: 10px;
+        padding: 15px;
     }
-    .logo-en {
-        font-size: 14px;
+    
+    .v-item {
+        padding: 10px 15px;
     }
+    
+    .combined-header-warning {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .combined-header-warning::after {
+        display: none;
+    }
+    
+    .premium-toggle-button-simple {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    
+    .premium-toggle-button-simple::before,
+    .premium-toggle-button-simple::after {
+        display: none;
+    }
+}
+/* ============================================
+   🔧 修正パッチ（3つの修正）
+   
+   【やること】
+   このファイルの中身を styles.css の一番下に
+   追加でペーストしてください（前回のは消さないでOK）
+   ============================================ */
+
+/* --- 修正1: 切り替えボタンをもっと右に --- */
+.premium-toggle-button-simple {
+    right: -330px !important;  /* 20px → 40px に変更 */
+}
+
+/* --- 修正2: 風鈴マーク（🎐）を消す --- */
+.combined-header-warning::after {
+    display: none !important;
+}
+
+/* --- 修正3: 「ご宿泊の3日前までに〜」を小さく＆色変更 --- */
+.warning-desc {
+    font-size: 12px !important;      /* 少し小さく */
+    color: rgba(255, 255, 255, 0.85) !important;  /* 少し薄い白 */
+    font-weight: normal !important;   /* 太字をやめる */
+    letter-spacing: 0.5px;
+}
+
+/* 「事前予約限定プラン」はそのまま目立たせる */
+.warning-title {
+    font-size: 16px !important;
+    font-weight: bold !important;
+    color: #FFFFFF !important;
+    letter-spacing: 3px;
+}
+/* ============================================
+   🔧 修正パッチ2（タイトル中央配置）
+   
+   【やること】
+   このファイルの中身を styles.css の一番下に
+   追加でペーストしてください
+   ============================================ */
+
+/* --- 「朝食のご案内」を完全に中央に配置 --- */
+.breakfast-page-title {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+}
+/* ============================================
+   🔧 修正パッチ3（桜アイコンを消す）
+   
+   【やること】
+   このファイルの中身を styles.css の一番下に
+   追加でペーストしてください
+   ============================================ */
+
+/* --- 切り替えボタンの桜（❀）を消す --- */
+.premium-toggle-button-simple::before {
+    display: none !important;
+}
+
+.premium-toggle-button-simple::after {
+    display: none !important;
+}
+
+/* --- 「ご注文は〜」の桜（✿）を消す --- */
+.combined-staff-note::before {
+    display: none !important;
 }
