@@ -31,91 +31,202 @@
         "title": "瓶ビール",
         "subtitle": "Bottle Beer",
         "items": [
-          "Nikko Belgian Beer Deux（ニッコー ベルジャン ビール デュクス）330ml　1000円",
-          "プレミアムモルツ（Premium Malt）500ml　1100円",
-          "アサヒスーパードライ（Asahi Super Dry）500ml　1000円",
-          "キリン一番搾り（Kirin Ichiban Shibori）500ml　1000円",
-          "ドライゼロ（Non-Alcoholic Beer）334ml　400円（ノンアルコールビール）"
+          {
+            "ja": "ニッコー ベルジャン ビール デュクス (330ml) 1000円",
+            "en": "Nikko Belgian Beer Deux (330ml) 1000 yen"
+          },
+          {
+            "ja": "プレミアムモルツ (500ml) 1100円",
+            "en": "Premium Malt (500ml) 1100 yen"
+          },
+          {
+            "ja": "アサヒスーパードライ (500ml) 1000円",
+            "en": "Asahi Super Dry (500ml) 1000 yen"
+          },
+          {
+            "ja": "キリン一番搾り (500ml) 1000円",
+            "en": "Kirin Ichiban Shibori (500ml) 1000 yen"
+          },
+          {
+            "ja": "ドライゼロ (334ml) 400円 (ノンアルコールビール)",
+            "en": "Dry Zero (Non-Alcoholic Beer) 334ml 400 yen"
+          }
         ]
       },
       {
         "title": "スパークリングワイン",
         "subtitle": "Sparkling Wine",
         "items": [
-          "Veuve du Vernay Brut（ヴーヴ・デュ・ヴェルネイ ブリュット） 1000円" 
+          {
+            "ja": "ヴーヴ・デュ・ヴェルネイ ブリュット 1000円",
+            "en": "Veuve du Vernay Brut 1000 yen"
+          }
         ]
       },
       {
         "title": "純米吟醸酒",
         "subtitle": "Junmai Ginjo Sake",
         "items": [
-          "鳳凰美田（ほうおう びでん）［栃木県 小山市］カラフェ 330ml　1800円",
-          "忠愛（ちゅうあい）［栃木県 矢板市］カラフェ 330ml　1800円"
+          {
+            "ja": "鳳凰美田（ほうおう びでん）[栃木県 小山市] カラフェ 330ml 1800円",
+            "en": "Hououbiden (鳳凰美田) [Oyama, Tochigi] Carafe 330ml 1800 yen"
+          },
+          {
+            "ja": "忠愛（ちゅうあい）[栃木県 矢板市] カラフェ 330ml 1800円",
+            "en": "Chuai (忠愛) [Yaita, Tochigi] Carafe 330ml 1800 yen"
+          }
         ]
       },
       {
         "title": "冷酒",
         "subtitle": "Cold Sake",
         "items": [
-          "惣誉（そうほまれ）［辛口］300ml　1300円",
-          "澤姫（さわひめ）［すっきり］300ml　1300円",
-          "四季桜（しきざくら）［辛口］180ml　800円",
-          "四季桜（しきざくら）［甘口］180ml　800円",
-          "大那（だいな）超辛口 +10［辛口］180ml　900円"
+          {
+            "ja": "惣誉（そうほまれ）[辛口] 300ml 1300円",
+            "en": "So-homare (惣誉) [Dry] 300ml 1300 yen"
+          },
+          {
+            "ja": "澤姫（さわひめ）[すっきり] 300ml 1300円",
+            "en": "Sawahime (澤姫) [Crisp] 300ml 1300 yen"
+          },
+          {
+            "ja": "四季桜（しきざくら）[辛口] 180ml 800円",
+            "en": "Shikizakura (四季桜) [Dry] 180ml 800 yen"
+          },
+          {
+            "ja": "四季桜（しきざくら）[甘口] 180ml 800円",
+            "en": "Shikizakura (四季桜) [Sweet] 180ml 800 yen"
+          },
+          {
+            "ja": "大那（だいな）超辛口 +10 [辛口] 180ml 900円",
+            "en": "Daina (大那) Super Dry +10 180ml 900 yen"
+          }
         ]
       },
       {
         "title":"果実酒",
         "subtitle": "Fruit Liqueur",
         "items": [
-          "鳳凰美田 ゆず酒（Yuzu Liqueur）",
-          "鳳凰美田 完熟もも酒（Peach Liqueur）",
-          "鳳凰美田 熟成秘蔵梅酒（Plum Wine）",
-          "飲み方：ロック、サワー、水割り など　各 800円"
+          {
+            "ja": "鳳凰美田 ゆず酒",
+            "en": "Hououbiden Yuzu Liqueur"
+          },
+          {
+            "ja": "鳳凰美田 完熟もも酒",
+            "en": "Hououbiden Peach Liqueur"
+          },
+          {
+            "ja": "鳳凰美田 熟成秘蔵梅酒",
+            "en": "Hououbiden Plum Wine (Umeshu)"
+          },
+          {
+            "ja": "飲み方：ロック、サワー、水割り など　各 800円",
+            "en": "Style: On the rocks, with soda, or with water.  800 yen each"
+          }
         ]
       },
       {
         "title":"ワイン",
-        "subtitle": "Japanese Wine（栃木県産ワイン）",
+        "subtitle": "Japanese Wine (Tochigi)",
         "items": [
-          "Cfa Backyard Winery（シーエフエー・バックヤードワイナリー）［栃木県 足利市］",
-          "種類：赤（RED）／白（WHITE）／ロゼ（ROSE）／オレンジ（ORANGE）",
-          "デカンタ（Decanter）400ml　2800円",
-          "グラス（Glass）　900円"
+          {
+            "ja": "Cfa Backyard Winery [栃木県 足利市]",
+            "en": "Cfa Backyard Winery [Ashikaga, Tochigi]"
+          },
+          {
+            "ja": "種類：赤 / 白 / ロゼ / オレンジ",
+            "en": "Type: Red / White / Rosé / Orange"
+          },
+          {
+            "ja": "デカンタ (400ml) 2800円",
+            "en": "Decanter (400ml) 2800 yen"
+          },
+          {
+            "ja": "グラス 900円",
+            "en": "Glass 900 yen"
+          }
         ]
       },
       {
         "title": "サワー・カクテル",
         "subtitle": "Sours & Cocktails",
         "items": [
-          "レモンサワー（Lemon Sour）900円",
-          "カシスみかん（Cassis Orange）900円"
+          {
+            "ja": "レモンサワー 900円",
+            "en": "Lemon Sour 900 yen"
+          },
+          {
+            "ja": "カシスみかん 900円",
+            "en": "Cassis Orange 900 yen"
+          }
         ]
       },
       {
         "title": "焼酎",
         "subtitle": "Shochu",
         "items": [
-          "天使の誘惑（芋）Tenshi no Yuwaku　グラス 1300円",
-          "佐藤 黒（芋）Sato Kuro　グラス 1300円",
-          "吉四六（麦）Kitchomu　グラス 1300円",
-          "富乃宝山（芋）Tomi no Houzan　グラス 1100円",
-          "黒霧島（芋）Kurokirishima　グラス 900円"
+          {
+            "ja": "天使の誘惑 (芋) グラス 1300円",
+            "en": "Tenshi no Yuwaku (Potato) Glass 1300 yen"
+          },
+          {
+            "ja": "佐藤 黒 (芋) グラス 1300円",
+            "en": "Sato Kuro (Potato) Glass 1300 yen"
+          },
+          {
+            "ja": "吉四六 (麦) グラス 1300円",
+            "en": "Kitchomu (Barley) Glass 1300 yen"
+          },
+          {
+            "ja": "富乃宝山 (芋) グラス 1100円",
+            "en": "Tomi no Houzan (Potato) Glass 1100 yen"
+          },
+          {
+            "ja": "黒霧島 (芋) グラス 900円",
+            "en": "Kurokirishima (Potato) Glass 900 yen"
+          }
         ]
       },
       {
         "title": "ジュース・ソフトドリンク",
         "subtitle": "Juice & Soft Drink",
         "items": [
-          "しまなみ みかんジュース（Japanese Orange Juice）500円",
-          "COCOファームワイナリー ぶどうジュース（Grape Juice）600円",
-          "三ツ矢サイダー（Mitsuya Cider）300円",
-          "ジンジャーエール（Ginger Ale）300円",
-          "コカ・コーラ（Coca-Cola）300円",
-          "ウーロン茶（Oolong Tea）300円",
-          "トマトジュース（Tomato Juice）300円",
-          "にんじんジュース（Carrot Juice）300円",
-          "炭酸水（Sparkling Water）300円　※常温でご用意しております。氷が必要な場合はお申し付けください。"
+          {
+            "ja": "しまなみ みかんジュース 500円",
+            "en": "Shimanami Mandarin Orange Juice 500 yen"
+          },
+          {
+            "ja": "COCOファームワイナリー ぶどうジュース 600円",
+            "en": "COCO Farm Winery Grape Juice 600 yen"
+          },
+          {
+            "ja": "三ツ矢サイダー 300円",
+            "en": "Mitsuya Cider 300 yen"
+          },
+          {
+            "ja": "ジンジャーエール 300円",
+            "en": "Ginger Ale 300 yen"
+          },
+          {
+            "ja": "コカ・コーラ 300円",
+            "en": "Coca-Cola 300 yen"
+          },
+          {
+            "ja": "ウーロン茶 300円",
+            "en": "Oolong Tea 300 yen"
+          },
+          {
+            "ja": "トマトジュース 300円",
+            "en": "Tomato Juice 300 yen"
+          },
+          {
+            "ja": "にんじんジュース 300円",
+            "en": "Carrot Juice 300 yen"
+          },
+          {
+            "ja": "炭酸水 300円 ※常温でご用意しております。氷が必要な場合はお申し付けください。",
+            "en": "Sparkling Water 300 yen *Served at room temperature. Please ask if you need ice."
+          }
         ]
       }
     ],

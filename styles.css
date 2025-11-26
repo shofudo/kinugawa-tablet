@@ -3969,3 +3969,61 @@ body {
     letter-spacing: 2px;
     text-shadow: none !important; /* 変な影があれば消す */
 }
+/* ===========================
+   言語切り替えボタン
+   =========================== */
+.lang-switch-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #C9A063;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bold;
+    color: #5D5245;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    z-index: 100; /* 他のものより手前に */
+}
+
+.lang-switch-btn:hover {
+    background-color: #C9A063;
+    color: white;
+}
+
+/* スマホの時は少し小さく */
+@media screen and (max-width: 768px) {
+    .lang-switch-btn {
+        top: 15px;
+        right: 15px;
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+/* === 緊急時ページの強制表示パッチ === */
+#page-emergency {
+    background-color: #F7F5F2; /* 背景色を確保 */
+    z-index: 999; /* 他の要素より手前に表示 */
+}
+
+.emergency-header {
+    background: linear-gradient(135deg, #E53935 0%, #C62828 100%) !important;
+    display: block !important;
+    width: auto !important;
+}
+
+.emergency-card {
+    display: block !important;
+    background: white;
+    color: #333 !important;
+}
+
+.emergency-card h3 {
+    color: #333 !important;
+}

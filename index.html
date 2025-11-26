@@ -30,103 +30,129 @@
 
     <!-- 緊急時ボタン（全ページ固定表示） -->
     <button id="emergency-button" class="emergency-fab" onclick="showPage('emergency')">
-        <span class="emergency-icon">!</span>
-        <span class="emergency-text">緊急時</span>
-    </button>
+    <span class="emergency-icon">!</span>
+    <span class="emergency-text" id="fab-emergency-text">緊急時</span>
+</button>
 
     <!-- メインコンテナ -->
     <div id="app-container">
         
         <!-- ===== トップページ ===== -->
         <div id="page-home" class="page active">
-            <header class="page-header">
-                
-                <h2 class="page-title">客室インフォメーション</h2>
-                <p class="page-title-en">Guest Information</p>
-            </header>
+    <header class="page-header">
+        <button id="lang-switch-btn" class="lang-switch-btn" onclick="toggleLanguage()">
+            <span class="material-icons-outlined">language</span>
+            <span id="lang-text">English</span>
+        </button>
+        <h2 class="page-title" id="home-title">客室インフォメーション</h2>
+        <p class="page-title-en">Guest Information</p>
+    </header>
 
             <main class="page-content">
                 <div class="menu-grid">
-                    <div class="menu-section">
-                        <button class="menu-card" onclick="showPage('wifi')">
-                            <div class="card-icon">
-                                <span class="material-icons-outlined">wifi</span>
-                            </div>
-                            <div class="card-title">Wi-Fi</div>
-                        </button>
+    <div class="menu-section">
+        <button class="menu-card" onclick="showPage('wifi')">
+            <div class="card-icon"><span class="material-icons-outlined">wifi</span></div>
+            <div class="card-title" id="menu-text-wifi">Wi-Fi</div>
+        </button>
 
-                        <button class="menu-card" onclick="showPage('facilities')">
-                            <div class="card-icon">
-                                <span class="material-icons-outlined">storefront</span>
-                            </div>
-                            <div class="card-title">館内設備</div>
-                        </button>
+        <button class="menu-card" onclick="showPage('facilities')">
+            <div class="card-icon"><span class="material-icons-outlined">storefront</span></div>
+            <div class="card-title" id="menu-text-facilities">館内設備</div>
+        </button>
 
-                        <button class="menu-card" onclick="showPage('bath')">
-                            <div class="card-icon">
-                                <span class="material-icons-outlined">hot_tub</span>
-                            </div>
-                            <div class="card-title">浴場施設</div>
-                        </button>
+        <button class="menu-card" onclick="showPage('bath')">
+            <div class="card-icon"><span class="material-icons-outlined">hot_tub</span></div>
+            <div class="card-title" id="menu-text-bath">浴場施設</div>
+        </button>
 
-                        <button class="menu-card" onclick="showPage('drinks')">
-                            <div class="card-icon">
-                                <span class="material-icons-outlined">room_service</span>
-                            </div>
-                            <div class="card-title">ルームサービス</div>
-                        </button>
+        <button class="menu-card" onclick="showPage('drinks')">
+            <div class="card-icon"><span class="material-icons-outlined">room_service</span></div>
+            <div class="card-title" id="menu-text-drinks">ルームサービス</div>
+        </button>
 
-                        <button class="menu-card" onclick="showPage('coffee')">
-                            <div class="card-icon">
-                                <span class="material-icons-outlined">coffee_maker</span>
-                            </div>
-                            <div class="card-title">コーヒーメーカー使い方</div>
-                        </button>
+        <button class="menu-card" onclick="showPage('coffee')">
+            <div class="card-icon"><span class="material-icons-outlined">coffee_maker</span></div>
+            <div class="card-title" id="menu-text-coffee">コーヒーメーカー使い方</div>
+        </button>
 
-<button class="menu-card special-guide" onclick="showPage('breakfast')">                            <div class="card-icon">
-                                <span class="material-icons-outlined">restaurant</span>
-                            </div>
-                            <div class="card-title">朝食のご案内</div>
-                        </button>
-                    </div>
+        <button class="menu-card special-guide" onclick="showPage('breakfast')">
+            <div class="card-icon"><span class="material-icons-outlined">restaurant</span></div>
+            <div class="card-title" id="menu-text-breakfast">朝食のご案内</div>
+        </button>
+    </div>
 
-                    <div class="menu-section">
-                        <button class="menu-card" onclick="showPage('bicycle')">
-                            <div class="card-icon">
-                                <span class="material-icons-outlined">pedal_bike</span>
-                            </div>
-                            <div class="card-title">レンタサイクル</div>
-                        </button>
+    <div class="menu-section">
+        <button class="menu-card" onclick="showPage('bicycle')">
+            <div class="card-icon"><span class="material-icons-outlined">pedal_bike</span></div>
+            <div class="card-title" id="menu-text-bicycle">レンタサイクル</div>
+        </button>
 
-                        <button class="menu-card" onclick="showPage('seasonal')">
-                            <div class="card-icon">
-                                <span class="material-icons-outlined">calendar_month</span>
-                            </div>
-                            <div class="card-title">季節のご案内</div>
-                        </button>
+        <button class="menu-card" onclick="showPage('seasonal')">
+            <div class="card-icon"><span class="material-icons-outlined">calendar_month</span></div>
+            <div class="card-title" id="menu-text-seasonal">季節のご案内</div>
+        </button>
 
-                        <button class="menu-card" onclick="showPage('bus')">
-                            <div class="card-icon">
-                                <span class="material-icons-outlined">directions_bus</span>
-                            </div>
-                            <div class="card-title">ダイヤルバス</div>
-                        </button>  
-                    </div>
-                </div>
+        <button class="menu-card" onclick="showPage('bus')">
+            <div class="card-icon"><span class="material-icons-outlined">directions_bus</span></div>
+            <div class="card-title" id="menu-text-bus">ダイヤルバス</div>
+        </button>  
+    </div>
+</div>
                 <div class="bottom-logo-container">
                 <img src="images/logo.png" alt="きぬ川不動瀧">
             </div>
             </main>
         </div>
 
+            <!-- ===== 緊急時のご案内 ===== -->
+        <div id="page-emergency" class="page">
+            <header class="page-header emergency-header">
+                <button class="back-to-top-button emergency-back" onclick="showPage('home')">
+                    <span class="back-arrow">←</span> <span id="emer-back-text">トップへ</span>
+                </button>
+                <h2 class="page-title" id="emer-title">緊急時のご案内</h2>
+            </header>
+        
+            <main class="page-content">
+                <div class="emergency-card alert">
+                    <div class="emergency-icon-large">⚠️</div>
+                    <h3 id="emer-alert-text">まずは落ち着いて行動してください</h3>
+                </div>
+        
+                <div class="emergency-card" id="emergency-fire">
+                    <h3 id="emer-fire-title">🔥 火災の場合</h3>
+                    </div>
+        
+                <div class="emergency-card" id="emergency-earthquake">
+                    <h3 id="emer-quake-title">🏠 地震の場合</h3>
+                    </div>
+        
+                <div class="emergency-card" id="emergency-illness">
+                    <h3 id="emer-illness-title">🏥 急病・けがの場合</h3>
+                    </div>
+        
+                <div class="emergency-contact">
+                    <p class="emergency-contact-text" id="emer-contact-text">
+                        緊急の際は、電話の「フロント」ボタンを押してお知らせください。<br>
+                        スタッフが迅速に対応いたします。
+                    </p>
+                </div>
+            </main>
+        
+            <footer class="page-footer">
+                <button class="back-button" onclick="showPage('home')" id="emer-footer-back">トップに戻る</button>
+            </footer>
+        </div>
+
         <!-- ===== Wi-Fiのご案内 ===== -->
         <div id="page-wifi" class="page">
-            <header class="page-header">
-                <button class="back-to-top-button" onclick="showPage('home')">
-                    <span class="back-arrow">←</span> トップへ
-                </button>
-                <h2 class="page-title">Wi-Fiのご案内</h2>
-            </header>
+    <header class="page-header">
+        <button class="back-to-top-button" onclick="showPage('home')">
+<span class="back-arrow">←</span> <span id="wifi-back-text">トップへ</span>
+        </button>
+        <h2 class="page-title" id="wifi-title">Wi-Fiのご案内</h2>
+    </header>
 
             <main class="page-content" style="display: flex; flex-direction: column; justify-content: center; min-height: 60vh;">
                 
@@ -152,13 +178,13 @@
                         <div style="margin-bottom: 25px; border-bottom: 2px solid #E0D8C8; padding-bottom: 15px; display: flex; align-items: center; gap: 15px;">
                             <img src="images/wifi-logo.png" alt="Wi-Fi Logo" style="height: 70px; width: auto; opacity: 0.8;">
                             
-                            <span style="font-family: 'Noto Serif JP', serif; font-size: 25px; color: #8A7B66; letter-spacing: 1px; font-weight: bold;">
+                            <span id="wifi-service-text" style="font-family: 'Noto Serif JP', serif; font-size: 25px; color: #8A7B66; letter-spacing: 1px; font-weight: bold;">
                                 無料接続サービス
                             </span>
                         </div>
 
                         <div style="margin-bottom: 30px;">
-                            <p style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: #8A7B66; margin-bottom: 5px; letter-spacing: 1px;">
+                            <p id="wifi-ssid-label" style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: #8A7B66; margin-bottom: 5px; letter-spacing: 1px;">
                                 ネットワーク名（SSID）
                             </p>
                             <p style="font-family: 'Courier New', monospace; font-size: 36px; font-weight: bold; color: #4A3A26; margin: 0; letter-spacing: 2px;">
@@ -167,7 +193,7 @@
                         </div>
 
                         <div>
-                            <p style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: #8A7B66; margin-bottom: 5px; letter-spacing: 1px;">
+                            <p id="wifi-password-label" style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: #8A7B66; margin-bottom: 5px; letter-spacing: 1px;">
                                 パスワード
                             </p>
                             <p style="font-family: 'Courier New', monospace; font-size: 36px; font-weight: bold; color: #4A3A26; margin: 0; letter-spacing: 2px;">
@@ -178,24 +204,23 @@
                     </div>
                 </div>
 
-                <p style="text-align: center; font-size: 13px; color: #8A7B66; margin-top: 25px; font-family: 'Noto Serif JP', serif;">
+                <p id="wifi-note-text" style="text-align: center; font-size: 13px; color: #8A7B66; margin-top: 25px; font-family: 'Noto Serif JP', serif;">
                     ※接続できない場合は、フロントまでお知らせください。
                 </p>
 
             </main>
 
             <footer class="page-footer">
-                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
-            </footer>
+    <button class="back-button" onclick="showPage('home')" id="wifi-footer-back">トップに戻る</button>
+</footer>
         </div>
 
-        <!-- ===== 館内設備のご案内 ===== -->
-        <div id="page-facilities" class="page">
+       <div id="page-facilities" class="page">
             <header class="page-header">
                 <button class="back-to-top-button" onclick="showPage('home')">
-                    <span class="back-arrow">←</span> トップへ
+                    <span class="back-arrow">←</span> <span id="fac-back-text">トップへ</span>
                 </button>
-                <h2 class="page-title">館内設備のご案内</h2>
+                <h2 class="page-title" id="fac-title">館内設備のご案内</h2>
             </header>
 
             <main class="page-content">
@@ -203,13 +228,13 @@
                <div class="facility-card-modern">
                     <div class="facility-modern-header">
                         <span class="material-icons-outlined facility-modern-icon">map</span>
-                        <h3>館内図・基本情報</h3>
+                        <h3 id="fac-map-title">館内図・基本情報</h3>
                     </div>
 
                     <div class="floor-map-layout">
                         
                         <div class="floor-map-left">
-                            <p style="text-align: center; font-size: 12px; color: #8A7B66; margin-bottom: 5px;">
+                            <p style="text-align: center; font-size: 12px; color: #8A7B66; margin-bottom: 5px;" id="fac-tap-hint">
                                 ※画像をタップすると拡大します
                             </p>
                             <img src="images/floor_map2.jpg" class="manual-image" alt="館内図" onclick="this.classList.toggle('enlarged')" style="margin-bottom: 0;">
@@ -220,12 +245,12 @@
                             <div class="checkout-top-box" style="justify-content: flex-start;">
                                 <div class="checkout-icon-area">
                                     <span class="material-icons-outlined checkout-icon-top">luggage</span>
-                                    <span class="checkout-label-top">チェックアウト</span>
+                                    <span class="checkout-label-top" id="fac-checkout-label">チェックアウト</span>
                                 </div>
                                 
                                 <div style="text-align: left; margin-left: 60px; position: relative; top: 12px;">
                                     <span class="checkout-time-top" style="line-height: 1; display: block;">10:00</span>
-                                    <p style="font-size: 11px; color: #E53935; margin: 2px 0 0 0; font-family: 'Noto Serif JP', serif;">
+                                    <p style="font-size: 11px; color: #E53935; margin: 2px 0 0 0; font-family: 'Noto Serif JP', serif;" id="fac-checkout-note">
                                         ※時間の延長は承っておりません
                                     </p>
                                 </div>
@@ -235,34 +260,34 @@
                                 
                                 <div class="floor-row">
                                     <span class="floor-badge">3F</span>
-                                    <span class="floor-desc">客室（やまぶき）</span>
+                                    <span class="floor-desc" id="floor-3f">客室（やまぶき）</span>
                                 </div>
 
                                 <div class="floor-row">
                                     <span class="floor-badge">2F</span>
-                                    <span class="floor-desc">客室（なでしこ・つばき・やしお・さくら・ふじ・さつき・きすげ・ゆり・はぎ）</span>
+                                    <span class="floor-desc" id="floor-2f">客室（なでしこ・つばき・やしお・さくら・ふじ・さつき・きすげ・ゆり・はぎ）</span>
                                 </div>
 
                                 <div class="floor-row floor-row-highlight">
                                     <div style="display: flex; align-items: center; margin-bottom: 10px;">
                                         <span class="floor-badge">1F</span>
-                                        <span class="floor-desc">フロント・ロビー・お食事処・駐車場</span>
+                                        <span class="floor-desc" id="floor-1f">フロント・ロビー・お食事処・駐車場</span>
                                     </div>
                                     
                                     <div class="floor-mixed-info-single">
-                                        <span class="mixed-label"><span class="material-icons-outlined icon-tiny">restaurant</span> お食事処「野の花」</span>
+                                        <span class="mixed-label" id="floor-dining-name"><span class="material-icons-outlined icon-tiny">restaurant</span> お食事処「野の花」</span>
                                         <div class="mixed-time-row">
-                                            <span class="time-tag evening">夕食</span> 18:00〜20:30
+                                            <span class="time-tag evening" id="tag-dinner">夕食</span> 18:00〜20:30
                                         </div>
                                         <div class="mixed-time-row">
-                                            <span class="time-tag morning">朝食</span> 08:00〜09:30
+                                            <span class="time-tag morning" id="tag-breakfast">朝食</span> 08:00〜09:30
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="floor-row">
                                     <span class="floor-badge">B1F</span>
-                                    <span class="floor-desc">大浴場・露天風呂・お休み処</span>
+                                    <span class="floor-desc" id="floor-b1">大浴場・露天風呂・お休み処</span>
                                 </div>
 
                             </div>
@@ -273,18 +298,19 @@
 
                 <div class="facility-card-modern">
                     <div class="facility-modern-header">
-<span class="material-icons-outlined facility-modern-icon">ac_unit</span>                        <h3>製氷機</h3>
+                        <span class="material-icons-outlined facility-modern-icon">ac_unit</span>
+                        <h3 id="fac-ice-title">製氷機</h3>
                     </div>
                     
-                    <p style="font-family: 'Noto Serif JP', serif; color: #4A3A26; margin-bottom: 15px;">
+                    <p style="font-family: 'Noto Serif JP', serif; color: #4A3A26; margin-bottom: 15px;" id="fac-ice-loc">
                         設置場所: 地下1階
                     </p>
 
                     <div class="notice-box-modern">
-                        <p style="text-align: center; margin-bottom: 10px; font-weight: bold; color: #C9A063;">
+                        <p style="text-align: center; margin-bottom: 10px; font-weight: bold; color: #C9A063;" id="fac-ice-usage-title">
                             ◆ ご利用について ◆
                         </p>
-                        <p>
+                        <p id="fac-ice-usage-text">
                             氷をご利用の際は、
                             <strong>お部屋のアイスペール（氷入れ）</strong>をお持ちになり、<br>
                             地下1階までお越しくださいませ。
@@ -294,16 +320,17 @@
             </main>
 
             <footer class="page-footer">
-                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+                <button class="back-button" onclick="showPage('home')" id="fac-footer-back">トップに戻る</button>
             </footer>
         </div>
+
         <div id="page-coffee" class="page">
             <header class="page-header">
                 <button class="back-to-top-button" onclick="showPage('home')">
-                    <span class="back-arrow">←</span> トップへ
+                    <span class="back-arrow">←</span> <span id="coffee-back-text">トップへ</span>
                 </button>
-                <h2 class="page-title">コーヒーメーカーの使い方</h2>
-                <p class="subtitle">香り高い一杯をお楽しみください</p>
+                <h2 class="page-title" id="coffee-title">コーヒーメーカーの使い方</h2>
+                <p class="subtitle" id="coffee-subtitle">香り高い一杯をお楽しみください</p>
             </header>
 
             <main class="page-content">
@@ -311,10 +338,10 @@
                 <div class="facility-card-modern" style="margin-top: 0;">
                     <div class="facility-modern-header">
                         <span class="material-icons-outlined facility-modern-icon">coffee_maker</span>
-                        <h3>専用カプセルマシンの使い方</h3>
+                        <h3 id="coffee-machine-title">専用カプセルマシンの使い方</h3>
                     </div>
 
-                    <p style="text-align: center; font-size: 14px; color: #8A7B66; margin-bottom: 10px; font-family: 'Noto Serif JP', serif;">
+                    <p style="text-align: center; font-size: 14px; color: #8A7B66; margin-bottom: 10px; font-family: 'Noto Serif JP', serif;" id="coffee-tap-hint">
                         ※画像をタップすると拡大します
                     </p>
                     
@@ -324,7 +351,7 @@
                         
                         <div style="text-align: center; margin-bottom: 20px; border-bottom: 1px dotted #C9A063; padding-bottom: 15px;">
                             <span class="material-icons-outlined" style="color: #C9A063; vertical-align: middle; font-size: 24px; margin-right: 5px;">restaurant_menu</span>
-                            <span style="font-size: 18px; font-weight: bold; color: #4A3A26; font-family: 'Noto Serif JP', serif;">
+                            <span style="font-size: 18px; font-weight: bold; color: #4A3A26; font-family: 'Noto Serif JP', serif;" id="coffee-step-title">
                                 おいしい淹れ方
                             </span>
                         </div>
@@ -332,44 +359,44 @@
                         <div style="padding: 0 15px;">
                             <ol style="line-height: 2.2; color: #5D5245; font-family: 'Noto Serif JP', serif; font-weight: 500;">
                                 <li>
-                                    電源を入れます<br>
-                                    <span style="font-size: 13px; color: #8A7B66;">（※タンクにはすでにお水が入っております）</span>
+                                    <span id="coffee-step-1">電源を入れます</span><br>
+                                    <span style="font-size: 13px; color: #8A7B66;" id="coffee-step-1-note">（※タンクにはすでにお水が入っております）</span>
                                 </li>
                                 <li style="margin-top: 15px;">
-                                    カプセルをセットします<br>
-                                    <span style="color: #E53935; font-weight: bold; background-color: #FFF0F0; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-top: 5px;">
+                                    <span id="coffee-step-2">カプセルをセットします</span><br>
+                                    <span style="color: #E53935; font-weight: bold; background-color: #FFF0F0; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-top: 5px;" id="coffee-step-2-warn">
                                         ⚠️ 下の「透明な受け皿」を必ず外してください
                                     </span>
                                 </li>
-                                <li style="margin-top: 15px;">湯量を合わせて、抽出ボタンを押します</li>
+                                <li style="margin-top: 15px;"><span id="coffee-step-3">湯量を合わせて、抽出ボタンを押します</span></li>
                             </ol>
                         </div>
 
                         <div style="background-color: #fff; border-radius: 8px; padding: 15px; margin-top: 25px; text-align: center; border: 1px solid #E8E6E1;">
                             <p style="font-size: 15px; color: #5D5245; font-family: 'Noto Serif JP', serif; margin: 0;">
-                                <span style="color: #C9A063; font-weight: bold;">☕ カプセルの追加について</span><br>
-                                <span style="font-size: 14px;">追加は <strong>1個 200円</strong> で承っております。<br>
+                                <span style="color: #C9A063; font-weight: bold;" id="coffee-extra-title">☕ カプセルの追加について</span><br>
+                                <span style="font-size: 14px;" id="coffee-extra-text">追加は <strong>1個 200円</strong> で承っております。<br>
                                 ご希望の際はフロントまでお知らせください。</span>
                             </p>
                         </div>
                     </div>
                     
-                    <p class="facility-note" style="margin-top: 20px; text-align: center;">※熱湯が出ますので、やけどにご注意ください。</p>
+                    <p class="facility-note" style="margin-top: 20px; text-align: center;" id="coffee-caution">※熱湯が出ますので、やけどにご注意ください。</p>
                 </div>
                 
                 <div style="height: 50px;"></div> </main>
 
             <footer class="page-footer">
-                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+                <button class="back-button" onclick="showPage('home')" id="coffee-footer-back">トップに戻る</button>
             </footer>
         </div>
 <div id="page-bus" class="page">
             <header class="page-header">
                 <button class="back-to-top-button" onclick="showPage('home')">
-                    <span class="back-arrow">←</span> トップへ
+                    <span class="back-arrow">←</span> <span id="bus-back-text">トップへ</span>
                 </button>
-                <h2 class="page-title">ダイヤルバスのご案内</h2>
-                <p class="subtitle">鬼怒川温泉駅へのアクセス</p>
+                <h2 class="page-title" id="bus-title">ダイヤルバスのご案内</h2>
+                <p class="subtitle" id="bus-subtitle">鬼怒川温泉駅へのアクセス</p>
             </header>
 
             <main class="page-content">
@@ -378,36 +405,30 @@
                     
                     <div class="bus-intro">
                         <span class="material-icons-outlined bus-icon-main">directions_bus</span>
-                        <p>
+                        <p id="bus-intro-text">
                             当館玄関前から、鬼怒川温泉駅や<br>
                             周辺の観光施設を巡回するバスにご乗車いただけます。
                         </p>
                     </div>
 
                     <div class="bus-timetable-section">
-                        <h4 class="timetable-title" style="color: #C9A063; font-weight: bold; font-family: 'Noto Serif JP', serif;">▼ 出発時刻</h4>
+                        <h4 class="timetable-title" style="color: #C9A063; font-weight: bold; font-family: 'Noto Serif JP', serif;" id="bus-time-label">▼ 出発時刻</h4>
                         <div class="timetable-grid">
-                            <div class="time-box">
-                                <span class="time-value">09:25</span>
-                            </div>
-                            <div class="time-box">
-                                <span class="time-value">09:45</span>
-                            </div>
-                            <div class="time-box">
-                                <span class="time-value">10:05</span>
-                            </div>
+                            <div class="time-box"><span class="time-value">09:25</span></div>
+                            <div class="time-box"><span class="time-value">09:45</span></div>
+                            <div class="time-box"><span class="time-value">10:05</span></div>
                         </div>
                     </div>
 
                     <div class="bus-alert-box">
-                        <h4 class="alert-title">⚠️ 完全予約制です</h4>
-                        <p class="alert-text">
+                        <h4 class="alert-title" id="bus-alert-title">⚠️ 完全予約制です</h4>
+                        <p class="alert-text" id="bus-alert-text">
                             お席に限りがございます。<br>
                             満席になり次第、受付終了となりますので<br>
                             <strong>お早めのご予約</strong>をおすすめいたします。
                         </p>
                         <div class="alert-divider"></div>
-                        <ul class="alert-schedule">
+                        <ul class="alert-schedule" id="bus-alert-list">
                             <li><strong>前日</strong>：17:30 まで受付</li>
                             <li><strong>当日</strong>：08:30 から受付</li>
                         </ul>
@@ -415,12 +436,12 @@
 
                     <div class="bus-route-section">
                         <div class="route-visual">
-                            <span class="route-point">きぬ川不動瀧</span>
+                            <span class="route-point">Fudotaki</span>
                             <span class="route-arrow">▶</span>
-                            <span class="route-point">鬼怒川温泉駅</span>
+                            <span class="route-point">Station</span>
                         </div>
                         <div class="bus-price-box">
-                            <span class="price-label">片道料金</span>
+                            <span class="price-label" id="bus-price-label">片道料金</span>
                             <div class="price-row">
                                 <span class="price-item"><strong>300円</strong></span>
                             </div>
@@ -428,7 +449,7 @@
                     </div>
 
                     <div class="bus-action-area">
-                        <p class="action-guide" style="font-size: 18px; font-weight: bold; color: #5D5245; border-top: 1px dashed #ccc; padding-top: 20px;">
+                        <p class="action-guide" style="font-size: 18px; font-weight: bold; color: #5D5245; border-top: 1px dashed #ccc; padding-top: 20px;" id="bus-contact-text">
                             <span class="material-icons-outlined" style="vertical-align: middle; margin-right: 5px; color: #C9A063;">phone_in_talk</span>
                             ご予約の際は、フロントまでご連絡ください。
                         </p>
@@ -439,7 +460,7 @@
             </main>
 
             <footer class="page-footer">
-                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+                <button class="back-button" onclick="showPage('home')" id="bus-footer-back">トップに戻る</button>
             </footer>
         </div>
 
@@ -447,9 +468,9 @@
        <div id="page-bicycle" class="page">
             <header class="page-header">
                 <button class="back-to-top-button" onclick="showPage('home')">
-                    <span class="back-arrow">←</span> トップへ
+                    <span class="back-arrow">←</span> <span id="cyc-back-text">トップへ</span>
                 </button>
-                <h2 class="page-title">レンタサイクルのご案内</h2>
+                <h2 class="page-title" id="cyc-title">レンタサイクルのご案内</h2>
             </header>
 
             <main class="page-content">
@@ -457,49 +478,48 @@
                 <div class="facility-card-modern">
                     <div class="facility-modern-header">
                         <span class="material-icons-outlined facility-modern-icon">directions_bike</span>
-                        <h3>RealStreamMini（電動アシスト付）</h3>
+                        <h3>RealStreamMini</h3>
                     </div>
                     
                     <div class="bicycle-hero">
                         <img src="images/bicycle.jpg" alt="レンタサイクル" class="bicycle-img">
-                        <div class="bicycle-badge">坂道もラクラク♪</div>
+                        <div class="bicycle-badge" id="cyc-badge">坂道もラクラク♪</div>
                         <div class="bicycle-description-overlay">
                             <h4 class="bicycle-model">RealStreamMini</h4>
-                            <p class="bicycle-feature">ブリヂストン製 電動アシスト自転車</p>
+                            <p class="bicycle-feature" id="cyc-feature">ブリヂストン製 電動アシスト自転車</p>
                         </div>
                     </div>
 
                     <div class="bicycle-info-grid">
                         <div class="bicycle-info-box highlight">
-                            <span class="info-label">1時間以内</span>
-                            <span class="info-price-free">無料</span>
+                            <span class="info-label" id="cyc-label-free">1時間以内</span>
+                            <span class="info-price-free" id="cyc-price-free">無料</span>
                         </div>
                         <div class="bicycle-info-box">
-                            <span class="info-label">1時間以上</span>
+                            <span class="info-label" id="cyc-label-paid">1時間以上</span>
                             <span class="info-price">1,000円</span>
                             <span class="info-tax">（税別）</span>
                         </div>
                         <div class="bicycle-info-box time-box">
-                            <span class="info-label">貸出時間</span>
+                            <span class="info-label" id="cyc-label-time">貸出時間</span>
                             <span class="info-time">7:00 〜 21:00</span>
                         </div>
                     </div>
                     
-                    <p style="text-align: center; margin-top: 30px; color: #5D5245; line-height: 2;">
-    ご利用の際は、<strong>「フロント」</strong>にてお申し込みください。<br>
-    <span style="font-size: 13px; color: #888;">※貸出許可書へのご記入をお願いしております。</span><br>
-    <span style="font-size: 13px; color: #E53935; font-weight: bold;">※飲酒の際はご利用いただけません。</span>
-</p>
+                    <p style="text-align: center; margin-top: 30px; color: #5D5245; line-height: 2;" id="cyc-note-text">
+                        ご利用の際は、<strong>「フロント」</strong>にてお申し込みください。<br>
+                        <span style="font-size: 13px; color: #888;">※貸出許可書へのご記入をお願いしております。</span><br>
+                        <span style="font-size: 13px; color: #E53935; font-weight: bold;">※飲酒の際はご利用いただけません。</span>
+                    </p>
                 </div>
 
                 <div class="bicycle-rules-section">
                     <button class="rules-toggle-btn" onclick="toggleBicycleRules()">
-                        <span>利用心得・交通ルール・罰則について</span>
+                        <span id="cyc-rules-btn">利用心得・交通ルール・罰則について</span>
                         <span class="material-icons-outlined" id="rules-icon">expand_more</span>
                     </button>
 
                     <div id="bicycle-rules-body" class="bicycle-rules-body">
-                        
                         <div class="rules-content">
                             <h4>【利用心得】</h4>
                             <ol class="rules-list">
@@ -514,44 +534,18 @@
                                 <li>その他レンタサイクルの管理に支障を及ぼす行為を一切行わないこと。</li>
                                 <li>事故又は盗難が発生した場合は速やかに『今市警察署藤原交番』に届け出を行い、きぬ川不動瀧へ連絡すること。</li>
                             </ol>
-
                             <div class="divider-dotted"></div>
-
                             <h4>【違反行為と罰則】</h4>
                             <p style="font-size: 12px; color: #E53935; margin-bottom: 10px;">※交通ルールを守り、安全運転をお願いいたします。</p>
-                            
                             <table class="penalty-table">
-                                <thead>
-                                    <tr>
-                                        <th>違反行為</th>
-                                        <th>罰則内容</th>
-                                    </tr>
-                                </thead>
+                                <thead><tr><th>違反行為</th><th>罰則内容</th></tr></thead>
                                 <tbody>
-                                    <tr>
-                                        <td>ながらスマホ運転</td>
-                                        <td>6か月以下の懲役または10万円以下の罰金<br>（危険を生じさせた場合：1年以下の懲役または30万円以下の罰金）</td>
-                                    </tr>
-                                    <tr>
-                                        <td>酒気帯び運転</td>
-                                        <td>3年以下の懲役または50万円以下の罰金</td>
-                                    </tr>
-                                    <tr>
-                                        <td>傘差し運転</td>
-                                        <td>5万円以下の罰金</td>
-                                    </tr>
-                                    <tr>
-                                        <td>イヤホンなど使用</td>
-                                        <td>5万円以下の罰金</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2人乗り</td>
-                                        <td>5万円以下の罰金（例外を除く）</td>
-                                    </tr>
-                                    <tr>
-                                        <td>並進運転</td>
-                                        <td>2万円以下の罰金または科料</td>
-                                    </tr>
+                                    <tr><td>ながらスマホ運転</td><td>厳罰あり</td></tr>
+                                    <tr><td>酒気帯び運転</td><td>厳罰あり</td></tr>
+                                    <tr><td>傘差し運転</td><td>罰金あり</td></tr>
+                                    <tr><td>イヤホンなど使用</td><td>罰金あり</td></tr>
+                                    <tr><td>2人乗り</td><td>罰金あり</td></tr>
+                                    <tr><td>並進運転</td><td>罰金あり</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -561,7 +555,7 @@
             </main>
 
             <footer class="page-footer">
-                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+                <button class="back-button" onclick="showPage('home')" id="cyc-footer-back">トップに戻る</button>
             </footer>
         </div>
 
@@ -569,46 +563,47 @@
         <div id="page-drinks" class="page">
             <header class="page-header">
                 <button class="back-to-top-button" onclick="showPage('home')">
-                    <span class="back-arrow">←</span> トップへ
+                    <span class="back-arrow">←</span> <span id="drinks-back-text">トップへ</span>
                 </button>
-                <h2 class="page-title">ルームサービス</h2>
+                <h2 class="page-title" id="drinks-title">ルームサービス</h2>
             </header>
 
             <main class="page-content">
                 <div class="info-card large">
-<div class="drinks-intro">
-  <p class="drinks-lead" id="drinks-lead">読み込み中...</p>
-</div>
-<div class="drinks-bottom-notes">
-  <div class="drinks-bottom-row">
-    <span class="drinks-bottom-icon icon-phone"></span>
-    <span class="drinks-bottom-text">
-      ご注文の際は、お部屋の電話にございます「フロント」ボタンを押してお知らせください。
-    </span>
-  </div>
+                    <div class="drinks-intro">
+                      <p class="drinks-lead" id="drinks-lead">読み込み中...</p>
+                    </div>
+                    
+                    <div class="drinks-bottom-notes">
+                      <div class="drinks-bottom-row">
+                        <span class="drinks-bottom-icon icon-phone"></span>
+                        <span class="drinks-bottom-text" id="drinks-phone-guide">
+                          ご注文の際は、お部屋の電話にございます「フロント」ボタンを押してお知らせください。
+                        </span>
+                      </div>
+                    
+                      <div class="drinks-bottom-row drinks-bottom-row-last">
+                        <span class="drinks-bottom-icon icon-clock"></span>
+                        <span class="drinks-bottom-text">
+                          <strong id="drinks-lo-text">ラストオーダー：<span id="drinks-last-order">21:00</span></strong>
+                        </span>
+                      </div>
+                      
+                      <div class="amenity-button-container">
+                        <button class="amenity-btn" onclick="toggleAmenityModal()">
+                            <span class="material-icons-outlined">shopping_bag</span>
+                            <span id="drinks-amenity-btn">有料アメニティ・その他料金表</span>
+                        </button>
+                      </div>
+                    </div>
 
-  <div class="drinks-bottom-row drinks-bottom-row-last">
-    <span class="drinks-bottom-icon icon-clock"></span>
-    <span class="drinks-bottom-text">
-      <strong>ラストオーダー：<span id="drinks-last-order">21:00</span></strong>
-    </span>
-  </div>
-  <div class="amenity-button-container">
-    <button class="amenity-btn" onclick="toggleAmenityModal()">
-        <span class="material-icons-outlined">shopping_bag</span>
-        有料アメニティ・その他料金表
-    </button>
-</div>
-</div>
-<div class="drinks-sections" id="drinks-sections">
-  <!-- JavaScriptでカテゴリごとのカードが入ります -->
-</div>
-                
- </div> 
+                    <div class="drinks-sections" id="drinks-sections">
+                      </div>
+                </div> 
             </main>
 
             <footer class="page-footer">
-                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+                <button class="back-button" onclick="showPage('home')" id="drinks-footer-back">トップに戻る</button>
             </footer>
         </div>
 
@@ -616,31 +611,31 @@
         <div id="page-bath" class="page">
             <header class="page-header">
                 <button class="back-to-top-button" onclick="showPage('home')">
-                    <span class="back-arrow">←</span> トップへ
+                    <span class="back-arrow">←</span> <span id="bath-back-text">トップへ</span>
                 </button>
-                <h2 class="page-title">お風呂のご案内</h2>
+                <h2 class="page-title" id="bath-title">お風呂のご案内</h2>
             </header>
 
             <main class="page-content">
                 
                 <div class="onsen-spec-container">
                     <div class="onsen-spec-row">
-                        <div class="spec-label">場所</div>
-                        <div class="spec-value">地下1階（男女別・入替なし）</div>
+                        <div class="spec-label" id="spec-place-label">場所</div>
+                        <div class="spec-value" id="spec-place-value">地下1階（男女別・入替なし）</div>
                     </div>
                     <div class="onsen-spec-row">
-                        <div class="spec-label">泉質</div>
-                        <div class="spec-value">アルカリ性単純温泉（無色透明）</div>
+                        <div class="spec-label" id="spec-type-label">泉質</div>
+                        <div class="spec-value" id="spec-type-value">アルカリ性単純温泉（無色透明）</div>
                     </div>
                     <div class="onsen-spec-row">
-                        <div class="spec-label">効能</div>
-                        <div class="spec-value">
+                        <div class="spec-label" id="spec-effect-label">効能</div>
+                        <div class="spec-value" id="spec-effect-value">
                             神経痛、くじき、筋肉痛、慢性消化器病、関節痛、痔病、五十肩、冷え性、うちみ、病後回復期、運動麻痺、疲労回復、関節のこわばり、健康増進
                         </div>
                     </div>
                 </div>
 
-                <h3 class="bath-gender-title">女性のお風呂</h3>
+                <h3 class="bath-gender-title" id="bath-women-title">女性のお風呂</h3>
 
                 <div class="bath-row">
                     
@@ -648,8 +643,8 @@
                         <div class="bath-image-area">
                             <img src="images/bath_outdoor.jpg" alt="川音の湯" class="bath-img">
                             <div class="bath-tag-vertical">
-                                <span class="bath-tag-sub">女性総檜露天風呂</span>
-                                <span class="bath-tag-main">川音の湯</span>
+                                <span class="bath-tag-sub" id="bath-women-out-sub">女性総檜露天風呂</span>
+                                <span class="bath-tag-main" id="bath-women-out-main">川音の湯</span>
                             </div>
                         </div>
                     </div>
@@ -658,14 +653,14 @@
                         <div class="bath-image-area">
                             <img src="images/bath_indoor.jpg" alt="月待ちの湯" class="bath-img">
                             <div class="bath-tag-vertical">
-                                <span class="bath-tag-sub">女性大浴場</span>
-                                <span class="bath-tag-main">月待ちの湯</span>
+                                <span class="bath-tag-sub" id="bath-women-in-sub">女性大浴場</span>
+                                <span class="bath-tag-main" id="bath-women-in-main">月待ちの湯</span>
                             </div>
                         </div>
                     </div>
 
                 </div>
-                <h3 class="bath-gender-title">男性のお風呂</h3>
+                <h3 class="bath-gender-title" id="bath-men-title">男性のお風呂</h3>
 
                 <div class="bath-row">
                     
@@ -673,8 +668,8 @@
                         <div class="bath-image-area">
                             <img src="images/bath_outdoor_m.jpg" alt="川面の湯" class="bath-img">
                             <div class="bath-tag-vertical">
-                                <span class="bath-tag-sub">男性総檜露天風呂</span>
-                                <span class="bath-tag-main">川面の湯</span>
+                                <span class="bath-tag-sub" id="bath-men-out-sub">男性総檜露天風呂</span>
+                                <span class="bath-tag-main" id="bath-men-out-main">川面の湯</span>
                             </div>
                         </div>
                     </div>
@@ -683,8 +678,8 @@
                         <div class="bath-image-area">
                             <img src="images/bath_indoor_m.jpg" alt="山陰の湯" class="bath-img">
                             <div class="bath-tag-vertical">
-                                <span class="bath-tag-sub">男性大浴場</span>
-                                <span class="bath-tag-main">山陰の湯</span>
+                                <span class="bath-tag-sub" id="bath-men-in-sub">男性大浴場</span>
+                                <span class="bath-tag-main" id="bath-men-in-main">山陰の湯</span>
                             </div>
                         </div>
                     </div>
@@ -692,18 +687,18 @@
                 </div>
                 <div class="bath-info-footer">
                     <div class="info-card">
-                        <h3 class="bath-footer-title">ご利用時間</h3>
+                        <h3 class="bath-footer-title" id="bath-hours-title">ご利用時間</h3>
                         
                         <p style="text-align: center; font-size: 20px; font-weight: bold; color: #4A7C7E; margin: 10px 0;">
                             15:00 〜 翌 9:30
                         </p>
-                        <p style="text-align: center; font-size: 14px; color: #666;">
+                        <p style="text-align: center; font-size: 14px; color: #666;" id="bath-hours-note">
                             （夜通しお入りいただけます）
                         </p>
 
                         <div style="border-top: 1px dashed #ccc; margin: 20px 0;"></div>
 
-                        <p class="bath-note-text">
+                        <p class="bath-note-text" id="bath-notes">
                             ※刺青・タトゥーのある方のご入浴はお断りしております。<br>
                             ※タオルはお部屋のものをお持ちください。
                         </p>
@@ -713,17 +708,17 @@
             </main>
 
             <footer class="page-footer">
-                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+                <button class="back-button" onclick="showPage('home')" id="bath-footer-back">トップに戻る</button>
             </footer>
         </div>
 
         <div id="page-seasonal" class="page">
             <header class="page-header">
                 <button class="back-to-top-button" onclick="showPage('home')">
-                    <span class="back-arrow">←</span> トップへ
+                    <span class="back-arrow">←</span> <span id="season-back-text">トップへ</span>
                 </button>
-                <h2 class="page-title">季節のイベントご案内</h2>
-                <p class="subtitle">鬼怒川温泉の旬な情報をお届けします</p>
+                <h2 class="page-title" id="season-title">季節のイベントご案内</h2>
+                <p class="subtitle" id="season-subtitle">鬼怒川温泉の旬な情報をお届けします</p>
             </header>
 
             <main class="page-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 50vh;">
@@ -731,9 +726,10 @@
                 <div class="no-event-container">
                     <span class="material-icons-outlined no-event-icon-font">calendar_month</span>
                     
-                    <h3 class="no-event-title">現在、開催中のイベントはございません</h3>
+                    <h3 class="no-event-title" id="season-no-event-title">現在、開催中のイベントはございません</h3>
                     
-                    <div class="no-event-divider"></div> <p class="no-event-text">
+                    <div class="no-event-divider"></div> 
+                    <p class="no-event-text" id="season-no-event-text">
                         次回の季節のイベントが決まり次第、<br>
                         こちらでご案内させていただきます。
                     </p>
@@ -742,7 +738,7 @@
             </main>
 
             <footer class="page-footer">
-                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+                <button class="back-button" onclick="showPage('home')" id="season-footer-back">トップに戻る</button>
             </footer>
         </div>
 
@@ -774,7 +770,7 @@
         <div id="page-breakfast" class="page breakfast-wrapper">
             <header class="breakfast-header">
                 <button class="back-to-top-button" onclick="showPage('home')" style="background-color: #8B7355; top: 20px; left: 20px;">
-                    <span class="back-arrow">←</span> トップ
+                    <span class="back-arrow">←</span> <span id="bf-back-text">トップ</span>
                 </button>
                 <h1 class="breakfast-page-title" id="breakfast-page-title">朝食のご案内</h1>
                 <button class="premium-toggle-button-simple" onclick="togglePremiumBreakfast()">
@@ -789,15 +785,14 @@
                     <button class="accordion-btn" onclick="toggleAccordion()">
                         <span class="acc-title">
                             <span class="material-icons-outlined" style="color: #C9A063; font-size: 22px;">menu_book</span>
-                            当宿の朝ごはんについて
+                            <span id="bf-acc-title">当宿の朝ごはんについて</span>
                         </span>
                         <span class="acc-icon" id="acc-icon">▼</span>
                     </button>
                     <div class="accordion-content" id="acc-content">
-                        <div class="acc-inner-text">
+                        <div class="acc-inner-text" id="bf-acc-text">
                             <p>宿の朝ごはんには、普段の朝ご飯以上についついたくさん食べてしまう不思議な魅力があります。</p>
-                            <p>当館では、皆様に少しでも魅力的な朝ごはんを召し上がっていただきたいと思い、お一人様ごとに、通常の朝ごはんの内容にお好きなセットを選んでいただいた「自分好みの朝ごはん」を召し上がっていただきます。</p>
-                            <p>是非とも朝のご朝食を思い描きながらお考えになっていただければと思います。</p>
+                            <p>当館では、お一人様ごとに、通常の朝ごはんの内容にお好きなセットを選んでいただいた「自分好みの朝ごはん」を召し上がっていただきます。</p>
                         </div>
                     </div>
                 </div>
@@ -806,34 +801,34 @@
                     <div class="breakfast-main-card">
                         <img src="images/breakfast-main.jpg" onerror="this.src='https://placehold.co/700x400/e8ddd0/8b7355?text=基本の朝食'" alt="基本の朝食全体" class="breakfast-main-img">
                         <div class="breakfast-main-text">
-                            <h2>基本の朝食</h2>
-                            <p>ご飯・味噌汁・焼き魚・小鉢色々・野菜サラダ など</p>
+                            <h2 id="bf-main-title">基本の朝食</h2>
+                            <p id="bf-main-desc">ご飯・味噌汁・焼き魚・小鉢色々・野菜サラダ など</p>
                         </div>
                     </div>
                 </section>
 
                 <div class="new-flow-container">
                     <div class="speech-bubble-box">
-                        <p>この下から、お好きなものを<br><strong>無料で1つ追加</strong>していただけます。</p>
+                        <p id="bf-flow-bubble">この下から、お好きなものを<br><strong>無料で1つ追加</strong>していただけます。</p>
                         <div class="speech-triangle"></div>
                     </div>
 
                     <div class="pulsing-icon-area">
                         <div class="big-plus-icon">
-                            <span class="plus-symbol">＋1品</span>
+                            <span class="plus-symbol" id="bf-plus-text">＋1品</span>
                         </div>
                     </div>
 
                     <div class="selection-section">
-                        <h3 class="selection-heading">この中から1つだけお選びください</h3>
+                        <h3 class="selection-heading" id="bf-select-title">この中から1つだけお選びください</h3>
                         
                         <p class="selection-notes">
-                            <span class="note-item">※ お一人様ずつ無料で1つお選びいただけます</span>
+                            <span class="note-item" id="bf-select-note">※ お一人様ずつ無料で1つお選びいただけます</span>
                         </p>
 
                         <div class="important-notice">
                             <span class="notice-icon"></span>
-                            <span class="notice-text">夕食時にスタッフがお伺いいたします</span>
+                            <span class="notice-text" id="bf-staff-note">夕食時にスタッフがお伺いいたします</span>
                         </div>
                     </div>
                 </div>
@@ -842,12 +837,12 @@
                     <article class="bf-set-card set-yuki">
                         <div class="bf-card-img-box">
                             <img src="images/set-yuki.jpg" onerror="this.src='https://placehold.co/280x220/7BAFD4/ffffff?text=雪'" alt="雪セット">
-                            <span class="card-tag tag-yuki">朝の定番</span>
+                            <span class="card-tag tag-yuki" id="bf-yuki-tag">朝の定番</span>
                         </div>
                         <div class="bf-card-title-box">
-                            <span class="bf-card-name">雪</span>
+                            <span class="bf-card-name" id="bf-yuki-title">雪</span>
                         </div>
-                        <div class="bf-card-content">
+                        <div class="bf-card-content" id="bf-yuki-list">
                             <ul>
                                 <li><span class="bullet">●</span> 納豆</li>
                                 <li><span class="bullet">●</span> 大吟醸もろみ醤油</li>
@@ -859,12 +854,12 @@
                     <article class="bf-set-card set-tsuki">
                         <div class="bf-card-img-box">
                             <img src="images/set-tsuki.jpg" onerror="this.src='https://placehold.co/280x220/F4C35C/ffffff?text=月'" alt="月セット">
-                            <span class="card-tag tag-tsuki">たまごかけご飯</span>
+                            <span class="card-tag tag-tsuki" id="bf-tsuki-tag">たまごかけご飯</span>
                         </div>
                         <div class="bf-card-title-box">
-                            <span class="bf-card-name">月</span>
+                            <span class="bf-card-name" id="bf-tsuki-title">月</span>
                         </div>
-                        <div class="bf-card-content">
+                        <div class="bf-card-content" id="bf-tsuki-list">
                             <ul>
                                 <li><span class="bullet">●</span> 那須御養卵</li>
                                 <li><span class="bullet">●</span> 大吟醸もろみ醤油</li>
@@ -876,12 +871,12 @@
                     <article class="bf-set-card set-hana">
                         <div class="bf-card-img-box">
                             <img src="images/set-hana.jpg" onerror="this.src='https://placehold.co/280x220/98D4A8/ffffff?text=花'" alt="花セット">
-                            <span class="card-tag tag-hana">食前に</span>
+                            <span class="card-tag tag-hana" id="bf-hana-tag">食前に</span>
                         </div>
                         <div class="bf-card-title-box">
-                            <span class="bf-card-name">花</span>
+                            <span class="bf-card-name" id="bf-hana-title">花</span>
                         </div>
-                        <div class="bf-card-content">
+                        <div class="bf-card-content" id="bf-hana-list">
                             <ul>
                                 <li><span class="bullet">●</span> 生絞りミカンジュース</li>
                                 <li><span class="bullet">●</span> ヨーグルトとアロエ</li>
@@ -895,7 +890,7 @@
                     <div class="footer-options">
                         <button class="more-options-btn" onclick="showMoreOptionsModal()">
                             <span class="btn-icon"></span>
-                            もっと追加したい方へ
+                            <span id="bf-more-btn">もっと追加したい方へ</span>
                         </button>
                     </div>
                 </footer>
@@ -904,7 +899,7 @@
             <div id="premium-breakfast" class="breakfast-content-wrapper" style="display: none;">
                 
                 <div class="premium-header-logo">
-                    <h2 class="logo-jp">至福の朝ごはん</h2>
+                    <h2 class="logo-jp" id="pre-title-jp">至福の朝ごはん</h2>
                     <p class="logo-en">Premium Breakfast</p>
                 </div>
 
@@ -913,16 +908,16 @@
                     <div class="combined-header-warning">
                         <span class="material-icons-outlined warning-icon">calendar_month</span>
                         <div class="warning-text-group">
-                            <span class="warning-title">事前予約限定プラン</span>
-                            <span class="warning-desc">ご宿泊の3日前までにご予約が必要です</span>
+                            <span class="warning-title" id="pre-warn-title">事前予約限定プラン</span>
+                            <span class="warning-desc" id="pre-warn-desc">ご宿泊の3日前までにご予約が必要です</span>
                         </div>
                     </div>
 
                     <div class="combined-body">
-                        <h3 class="combined-title">ご朝食のご案内</h3>
+                        <h3 class="combined-title" id="pre-body-title">ご朝食のご案内</h3>
                         
                         <div class="combined-description">
-                            <p class="desc-lead">
+                            <p class="desc-lead" id="pre-body-lead">
                                 「魅力的な朝ごはん」をお楽しみいただくため、<br>
                                 お一人様ずつお好きなメニューを選んで作る<br>
                                 <strong>「自分好みの朝ごはん」</strong>をご用意いたします。
@@ -931,23 +926,23 @@
                             <div class="visual-choice-box">
                                 <div class="v-item">
                                     <span class="material-icons-outlined v-icon">local_cafe</span>
-                                    <span class="v-text">目覚めの一杯</span>
+                                    <span class="v-text" id="pre-v-drink">目覚めの一杯</span>
                                 </div>
                                 <span class="v-plus">＋</span>
                                 <div class="v-item">
                                     <span class="material-icons-outlined v-icon">egg</span>
-                                    <span class="v-text">玉子料理</span>
+                                    <span class="v-text" id="pre-v-egg">玉子料理</span>
                                 </div>
                             </div>
                             
-                            <p class="desc-sub">
+                            <p class="desc-sub" id="pre-body-sub">
                                 是非とも朝のご朝食を思い描きながら<br>お考えになっていただければと思います。
                             </p>
                         </div>
 
                         <div class="combined-staff-note">
                             <span class="material-icons-outlined note-icon">restaurant_menu</span>
-                            <span class="note-text">ご注文は、<strong>ご夕食時にスタッフがお伺いいたします</strong></span>
+                            <span class="note-text" id="pre-staff-note">ご注文は、<strong>ご夕食時にスタッフがお伺いいたします</strong></span>
                         </div>
                     </div>
                 </div>
@@ -957,14 +952,14 @@
                     <div class="choice-card-with-image choice-drink">
                         <div class="choice-image-area">
                             <img src="images/premium-drinks.jpg" onerror="this.src='https://placehold.co/600x400/4A7C7E/ffffff?text=Drink Image'" alt="目覚めの一杯" class="choice-image">
-                            <div class="choice-badge">Choice 1</div>
+                            <div class="choice-badge" id="pre-c1-badge">Choice 1</div>
                         </div>
                         <div class="choice-text-area">
                             <div class="choice-header">
                                 <span class="choice-icon-simple material-icons-outlined">local_cafe</span>
-                                <h3 class="choice-title">目覚めの一杯</h3>
+                                <h3 class="choice-title" id="pre-c1-title">目覚めの一杯</h3>
                             </div>
-                            <ul class="choice-list-simple">
+                            <ul class="choice-list-simple" id="pre-c1-list">
                                 <li>生搾りみかんジュース</li>
                                 <li>ココファーム 葡萄ジュース</li>
                                 <li>牛乳</li>
@@ -975,17 +970,17 @@
                     <div class="choice-card-with-image choice-egg">
                         <div class="choice-image-area">
                             <img src="images/premium-egg.jpg" onerror="this.src='https://placehold.co/600x400/4A7C7E/ffffff?text=Egg Image'" alt="那須御養卵" class="choice-image">
-                            <div class="choice-badge">Choice 2</div>
+                            <div class="choice-badge" id="pre-c2-badge">Choice 2</div>
                         </div>
                         <div class="choice-text-area">
                             <div class="choice-header">
                                 <span class="choice-icon-simple material-icons-outlined">egg</span>
-                                <h3 class="choice-title">那須御養卵「極」</h3>
+                                <h3 class="choice-title" id="pre-c2-title">那須御養卵「極」</h3>
                             </div>
                             <div class="egg-description">
-                                <p>漢方処方の飼料を与え甘みとコクを併せ持ったたっぷりと栄養を含んだ深いオレンジ色の極上の卵です。</p>
+                                <p id="pre-c2-desc">漢方処方の飼料を与え甘みとコクを併せ持ったたっぷりと栄養を含んだ深いオレンジ色の極上の卵です。</p>
                             </div>
-                            <ul class="choice-list-simple">
+                            <ul class="choice-list-simple" id="pre-c2-list">
                                 <li>出汁巻玉子</li>
                                 <li>玉子かけご飯</li>
                                 <li>オムレツ</li>
@@ -997,102 +992,62 @@
                 </section>
 
                 <footer class="premium-footer-simple">
-                    <p class="footer-message">
+                    <p class="footer-message" id="pre-footer-msg">
                         ✨ この特別な朝ごはんは、事前予約のお客様限定です ✨
                     </p>
-                    <p class="footer-sub">ご宿泊の3日前までにお申し込みください</p>
+                    <p class="footer-sub" id="pre-footer-sub">ご宿泊の3日前までにお申し込みください</p>
                 </footer>
             </div>
         </div>
         
-        <!-- ===== 緊急時のご案内 ===== -->
-        <div id="page-emergency" class="page">
-            <header class="page-header emergency-header">
-                <button class="back-to-top-button emergency-back" onclick="showPage('home')">
-                    <span class="back-arrow">←</span> トップへ
-                </button>
-                <h2 class="page-title">緊急時のご案内</h2>
-            </header>
-
-            <main class="page-content">
-                <div class="emergency-card alert">
-                    <div class="emergency-icon-large">⚠️</div>
-                    <h3>まずは落ち着いて行動してください</h3>
-                </div>
-
-                <div class="emergency-card" id="emergency-fire">
-                    <h3>🔥 火災の場合</h3>
-                    <!-- JavaScriptで挿入 -->
-                </div>
-
-                <div class="emergency-card" id="emergency-earthquake">
-                    <h3>🏠 地震の場合</h3>
-                    <!-- JavaScriptで挿入 -->
-                </div>
-
-                <div class="emergency-card" id="emergency-illness">
-                    <h3>🏥 急病・けがの場合</h3>
-                    <!-- JavaScriptで挿入 -->
-                </div>
-
-                <div class="emergency-contact">
-                    <p class="emergency-contact-text">
-                        緊急の際は、電話の「フロント」ボタンを押してお知らせください。<br>
-                        スタッフが迅速に対応いたします。
-                    </p>
-                </div>
-            </main>
-
-            <footer class="page-footer">
-                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
-            </footer>
-        </div>
+    
 
     </div>
 
     <script src="script.js"></script>
-    <div id="amenity-modal" class="amenity-modal-overlay" style="display: none;">
-    <div class="amenity-modal-content">
-        <button class="modal-close-btn" onclick="toggleAmenityModal()">×</button>
-        <h3 class="modal-title">有料アメニティ・その他</h3>
-        <p class="modal-desc">フロントにお問い合わせください</p>
-        
-        <ul class="amenity-list">
-            <li>
-                <span class="amenity-name">フェイスタオル</span>
-                <span class="amenity-price">250円</span>
-            </li>
-            <li>
-                <span class="amenity-name">バスタオル（レンタル）</span>
-                <span class="amenity-price">100円</span>
-            </li>
-            <li>
-                <span class="amenity-name">歯ブラシ</span>
-                <span class="amenity-price">100円</span>
-            </li>
-             <li>
-                <span class="amenity-name">使い捨てコンタクト保存液</span>
-                <span class="amenity-price">200円</span>
-            </li>
-            <li>
-                <span class="amenity-name">「お～いお茶」 抹茶入り緑茶（１本）</span>
-                <span class="amenity-price">100円</span>
-            </li>
-            <li>
-                <span class="amenity-name">コーヒー・紅茶カプセル（各1個）</span>
-                <span class="amenity-price">200円</span>
-            </li>
-        </ul>
-        
-        <div class="modal-footer">
-            <button class="modal-back-btn" onclick="toggleAmenityModal()">閉じる</button>
+   <div id="amenity-modal" class="amenity-modal-overlay" style="display: none;">
+        <div class="amenity-modal-content">
+            <button class="modal-close-btn" onclick="toggleAmenityModal()">×</button>
+            <h3 class="modal-title" id="ame-title">有料アメニティ・その他</h3>
+            <p class="modal-desc" id="ame-desc">フロントにお問い合わせください</p>
+            
+            <ul class="amenity-list" id="ame-list">
+                <li>
+                    <span class="amenity-name">フェイスタオル</span>
+                    <span class="amenity-price">250円</span>
+                </li>
+                <li>
+                    <span class="amenity-name">バスタオル（レンタル）</span>
+                    <span class="amenity-price">100円</span>
+                </li>
+                <li>
+                    <span class="amenity-name">歯ブラシ</span>
+                    <span class="amenity-price">100円</span>
+                </li>
+                 <li>
+                    <span class="amenity-name">使い捨てコンタクト保存液</span>
+                    <span class="amenity-price">200円</span>
+                </li>
+                <li>
+                    <span class="amenity-name">「お～いお茶」 抹茶入り緑茶（１本）</span>
+                    <span class="amenity-price">100円</span>
+                </li>
+                <li>
+                    <span class="amenity-name">コーヒー・紅茶カプセル（各1個）</span>
+                    <span class="amenity-price">200円</span>
+                </li>
+            </ul>
+            
+            <div class="modal-footer">
+                <button class="modal-back-btn" onclick="toggleAmenityModal()" id="ame-close-btn">閉じる</button>
+            </div>
         </div>
     </div>
-</div>
+
 <button id="terms-fab" class="terms-fab" onclick="toggleTermsModal()">
-        <span class="material-icons-outlined">description</span>
-        <span class="terms-text">約款・規約</span>
-    </button>
+    <span class="material-icons-outlined">description</span>
+    <span class="terms-text" id="fab-terms-text">約款・規約</span>
+</button>
 
     <div id="terms-modal" class="terms-modal-overlay" style="display: none;">
         <div class="terms-modal-content">
@@ -1404,43 +1359,42 @@
     <div id="more-options-modal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-btn" onclick="hideMoreOptionsModal()">×</button>
-            <h3 class="modal-title">追加のご注文</h3>
+            <h3 class="modal-title" id="more-title">追加のご注文</h3>
             
             <div class="modal-body">
-                <p style="text-align: center; margin-bottom: 20px; font-size: 14px; color: #666;">
+                <p style="text-align: center; margin-bottom: 20px; font-size: 14px; color: #666;" id="more-desc">
                     ご希望の場合はスタッフまでお申し付けください。<br>
                     <span style="font-size: 12px;">（価格は全て税込です）</span>
                 </p>
 
-                <div class="price-item">
-                    <span class="item-name">那須御養卵（生卵）</span>
-                    <span class="item-price">330円</span>
-                </div>
+                <div id="more-list">
+                    <div class="price-item">
+                        <span class="item-name">那須御養卵（生卵）</span>
+                        <span class="item-price">330円</span>
+                    </div>
 
-                <div class="price-item">
-                    <span class="item-name">納豆</span>
-                    <span class="item-price">330円</span>
-                </div>
+                    <div class="price-item">
+                        <span class="item-name">納豆</span>
+                        <span class="item-price">330円</span>
+                    </div>
 
-                <div class="price-item">
-                    <span class="item-name">生絞りミカンジュース</span>
-                    <span class="item-price">330円</span>
-                </div>
+                    <div class="price-item">
+                        <span class="item-name">生絞りミカンジュース</span>
+                        <span class="item-price">330円</span>
+                    </div>
 
-                <div class="price-item">
-                    <span class="item-name">ヨーグルト</span>
-                    <span class="item-price">330円</span>
-                </div>
+                    <div class="price-item">
+                        <span class="item-name">ヨーグルト</span>
+                        <span class="item-price">330円</span>
+                    </div>
 
-                 <div class="price-item">
-                    <span class="item-name">焼き海苔
-                    </span>
-                    <span class="item-price">110円</span>
+                    <div class="price-item">
+                        <span class="item-name">焼き海苔</span>
+                        <span class="item-price">110円</span>
+                    </div>
                 </div>
-                 
-                </div>
-            
-            <p class="modal-note">※仕入れ状況によりご提供できない場合がございます。</p>
+                <p class="modal-note" id="more-note">※仕入れ状況によりご提供できない場合がございます。</p>
+            </div>
         </div>
     </div>
 </body>
