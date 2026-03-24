@@ -2629,6 +2629,47 @@ body {
     font-weight: 600;
 }
 
+/* サブテキスト（通常は非表示） */
+.card-sub {
+    display: none;
+}
+
+/* 朝食ボタン：控えめに目立たせる */
+@keyframes breakfast-glow {
+    0%, 100% { box-shadow: 0 0 6px rgba(192, 148, 72, 0.2), 0 4px 16px rgba(0,0,0,0.12); }
+    50%       { box-shadow: 0 0 12px rgba(192, 148, 72, 0.4), 0 4px 16px rgba(0,0,0,0.15); }
+}
+
+#page-home .special-guide {
+    background: linear-gradient(145deg, #FEFAF2, #FAF0D8) !important;
+    border: 1.5px solid #D4AB6A !important;
+    border-radius: 28px !important;
+    position: relative;
+    animation: breakfast-glow 3s ease-in-out infinite;
+}
+
+#page-home .special-guide .card-icon {
+    color: #B07830;
+}
+
+#page-home .special-guide .card-icon span {
+    font-size: 50px;
+}
+
+#page-home .special-guide .card-title {
+    color: #5C3E18;
+    font-size: 16px;
+}
+
+#page-home .special-guide .card-sub {
+    display: block;
+    font-size: 11px;
+    color: #9A6A2A;
+    margin-top: 6px;
+    letter-spacing: 0.03em;
+    opacity: 0.85;
+}
+
 /* 下にあるロゴ */
 .bottom-logo-container {
     text-align: center;

@@ -616,6 +616,7 @@ function toggleLanguage() {
             'menu-text-drinks': 'Room Service',
             'menu-text-coffee': 'Coffee Machine',
             'menu-text-breakfast': 'Breakfast',
+            'menu-sub-breakfast': 'Explained at check-in',
             'menu-text-bicycle': 'Rental Cycle',
             'menu-text-seasonal': 'Seasonal Info',
             'menu-text-bus': 'Shuttle Bus'
