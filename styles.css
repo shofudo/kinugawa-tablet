@@ -2855,6 +2855,46 @@ body {
     color: #999;
 }
 
+/* プレミアム専用スライド */
+.pres-visual-choice {
+    margin: 4px 0;
+}
+.pres-choice-badge {
+    font-size: 16px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #4A7C7E, #6AACAE);
+    color: #fff;
+    padding: 5px 18px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+}
+.pres-choice-badge-2 {
+    background: linear-gradient(135deg, #C9A063, #E8C87A);
+}
+.pres-choice-icon {
+    font-size: 48px;
+    color: #8B7355;
+}
+.pres-choice-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.pres-choice-list li {
+    background: #FAF5EC;
+    border: 1px solid #E0D0B0;
+    border-radius: 10px;
+    padding: 14px 20px;
+    font-size: 18px;
+    color: #4A3A26;
+    font-family: 'Noto Serif JP', serif;
+}
+
 /* スライド4: プレミアム */
 .pres-premium-badge {
     font-size: 20px;

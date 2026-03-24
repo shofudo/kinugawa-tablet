@@ -553,10 +553,17 @@ document.addEventListener('keydown', function(e) {
 // プレゼンモード
 // ===========================
 let currentSlide = 1;
-const TOTAL_SLIDES = 4;
+let presMode = 'standard'; // 'standard' or 'premium'
+const STANDARD_SLIDES = 3;
+const PREMIUM_SLIDES = 3;
+
+function getTotalSlides() {
+    return presMode === 'premium' ? PREMIUM_SLIDES : STANDARD_SLIDES;
+}
 
 function startPresentationMode() {
     currentSlide = 1;
+    presMode = isPremiumBreakfastShown ? 'premium' : 'standard';
     document.getElementById('pres-modal').style.display = 'flex';
     updatePresSlide();
 }
@@ -566,7 +573,7 @@ function closePresentationMode() {
 }
 
 function nextSlide() {
-    if (currentSlide < TOTAL_SLIDES) {
+    if (currentSlide < getTotalSlides()) {
         currentSlide++;
         updatePresSlide();
     }
@@ -580,16 +587,30 @@ function prevSlide() {
 }
 
 function updatePresSlide() {
-    for (let i = 1; i <= TOTAL_SLIDES; i++) {
+    const totalSlides = getTotalSlides();
+
+    // 通常スライドをすべて非表示
+    for (let i = 1; i <= STANDARD_SLIDES; i++) {
         const el = document.getElementById(`pres-slide-${i}`);
-        if (el) el.style.display = i === currentSlide ? 'flex' : 'none';
+        if (el) el.style.display = 'none';
     }
-    document.getElementById('pres-counter').textContent = `${currentSlide} / ${TOTAL_SLIDES}`;
+    // プレミアムスライドをすべて非表示
+    for (let i = 1; i <= PREMIUM_SLIDES; i++) {
+        const el = document.getElementById(`pres-slide-p${i}`);
+        if (el) el.style.display = 'none';
+    }
+
+    // 現在のスライドを表示
+    const slideId = presMode === 'premium' ? `pres-slide-p${currentSlide}` : `pres-slide-${currentSlide}`;
+    const currentEl = document.getElementById(slideId);
+    if (currentEl) currentEl.style.display = 'flex';
+
+    document.getElementById('pres-counter').textContent = `${currentSlide} / ${totalSlides}`;
 
     const prevBtn = document.getElementById('pres-prev-btn');
     const nextBtn = document.getElementById('pres-next-btn');
     if (prevBtn) prevBtn.style.visibility = currentSlide === 1 ? 'hidden' : 'visible';
-    if (nextBtn) nextBtn.style.visibility = currentSlide === TOTAL_SLIDES ? 'hidden' : 'visible';
+    if (nextBtn) nextBtn.style.visibility = currentSlide === totalSlides ? 'hidden' : 'visible';
 }
 
 // ===========================
@@ -678,6 +699,25 @@ function toggleLanguage() {
             'pres-s4-title': 'Premium Breakfast',
             'pres-s4-notice': 'Reservation required 3 days in advance.',
             'pres-s4-desc': 'A special plan where each guest selects their own drink and egg dish.',
+            'pres-sp1-title': 'Premium Breakfast',
+            'pres-sp1-notice': 'Reservation only plan — must book 3 days in advance.',
+            'pres-sp1-drink': 'Morning Drink',
+            'pres-sp1-egg': 'Egg Dish',
+            'pres-sp1-desc': 'A special breakfast where each guest chooses their own favourite menu.',
+            'pres-sp1-note': 'Our staff will take your order at dinner.',
+            'pres-sp2-badge': 'Choice 1',
+            'pres-sp2-title': 'Morning Drink',
+            'pres-sp2-desc': 'Please choose one drink per person.',
+            'pres-sp2-item1': 'Fresh Squeezed Mandarin Juice',
+            'pres-sp2-item2': 'Coco Farm Grape Juice',
+            'pres-sp2-item3': 'Milk',
+            'pres-sp3-badge': 'Choice 2',
+            'pres-sp3-title': 'Nasu Goyoran "Kiwami"',
+            'pres-sp3-desc': 'Please choose one egg dish per person.',
+            'pres-sp3-item1': 'Japanese Rolled Omelet (Dashimaki)',
+            'pres-sp3-item2': 'Egg on Rice (TKG)',
+            'pres-sp3-item3': 'Omelet',
+            'pres-sp3-item4': 'Onsen Tamago, etc.',
             'pres-prev-text': 'Back',
             'pres-next-text': 'Next',
             'menu-text-bicycle': 'Rental Cycle',
