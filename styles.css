@@ -38,6 +38,7 @@ body {
     width: 100%;
     height: 100%;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding: 30px 40px;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -2696,18 +2697,36 @@ body {
     flex-direction: column;
     min-height: 100vh;
     overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
     font-family: 'Noto Serif JP', serif;
 }
 
 /* ========== 2. ヘッダー（タイトル） ========== */
 .breakfast-header {
-    padding: 20px 0;
+    padding: 15px 20px;
     flex-shrink: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: relative;
     background-color: #F9F5F0;
+}
+
+/* 戻るボタンをflexアイテムとして正規配置 */
+.breakfast-header .back-to-top-button {
+    position: static;
+    flex-shrink: 0;
+}
+
+/* タイトルをflexアイテムとして中央配置 */
+.breakfast-header .breakfast-page-title {
+    flex: 1;
+    text-align: center;
+}
+
+/* 切り替えボタンをflexアイテムとして右端配置 */
+.breakfast-header .premium-toggle-button-simple {
+    flex-shrink: 0;
 }
 
 .breakfast-page-title {
@@ -3399,9 +3418,6 @@ body {
 
 /* --- 3. 切り替えボタン（素敵なデザイン） --- */
 .premium-toggle-button-simple {
-    position: absolute;
-    right: 20px;
-    top: 20px;
     background: linear-gradient(135deg, #FFFDF5 0%, #FFF8E7 100%);
     color: #8B6914;
     border: 2px solid #C9A063;
@@ -3415,9 +3431,7 @@ body {
     gap: 8px;
     transition: all 0.3s ease;
     font-family: 'Noto Serif JP', serif;
-    z-index: 100;
     box-shadow: 0 3px 10px rgba(201, 160, 99, 0.2);
-    position: relative;
     overflow: hidden;
 }
 
@@ -3445,6 +3459,19 @@ body {
 
 .premium-toggle-button-simple:hover::before,
 .premium-toggle-button-simple:hover::after {
+    color: white;
+}
+
+/* 至福の朝ごはん表示中のアクティブ状態 */
+.premium-toggle-button-simple.is-premium-active {
+    background: linear-gradient(135deg, #C9A063 0%, #B8924F 100%);
+    color: white;
+    border-color: #B8924F;
+    box-shadow: 0 4px 12px rgba(201, 160, 99, 0.45);
+}
+
+.premium-toggle-button-simple.is-premium-active::before,
+.premium-toggle-button-simple.is-premium-active::after {
     color: white;
 }
 
@@ -3809,10 +3836,7 @@ body {
    追加でペーストしてください（前回のは消さないでOK）
    ============================================ */
 
-/* --- 修正1: 切り替えボタンをもっと右に --- */
-.premium-toggle-button-simple {
-    right: -330px !important;  /* 20px → 40px に変更 */
-}
+/* 修正1: 切り替えボタン位置（flexレイアウトに統一したため不要） */
 
 /* --- 修正2: 風鈴マーク（🎐）を消す --- */
 .combined-header-warning::after {
@@ -3842,13 +3866,7 @@ body {
    追加でペーストしてください
    ============================================ */
 
-/* --- 「朝食のご案内」を完全に中央に配置 --- */
-.breakfast-page-title {
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    margin: 0 !important;
-}
+/* 「朝食のご案内」中央配置（flexレイアウトに統一したため不要） */
 /* ============================================
    🔧 修正パッチ3（桜アイコンを消す）
    

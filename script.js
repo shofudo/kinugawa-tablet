@@ -338,6 +338,19 @@ function showPage(pageId) {
             populateDrinksPage();
         }, 10);
     }
+
+    // 朝食ページが開かれたらアコーディオンを初期状態（開）にする
+    if (pageId === 'breakfast') {
+        setTimeout(() => {
+            const btn = document.querySelector('.accordion-btn');
+            const content = document.getElementById('acc-content');
+            if (btn && content) {
+                btn.classList.add('active');
+                content.classList.add('open');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        }, 10);
+    }
 }
 
 // ===========================
@@ -540,19 +553,22 @@ function togglePremiumBreakfast() {
     const standardBreakfast = document.getElementById('standard-breakfast');
     const premiumBreakfast = document.getElementById('premium-breakfast');
     const toggleText = document.getElementById('toggle-text');
-    
+    const toggleBtn = document.querySelector('.premium-toggle-button-simple');
+
     if (!standardBreakfast || !premiumBreakfast) return;
-    
+
     isPremiumBreakfastShown = !isPremiumBreakfastShown;
     const isEnglish = (currentLang === 'en');
-    
+
     if (isPremiumBreakfastShown) {
         // グレードアップ表示
         standardBreakfast.style.display = 'none';
         premiumBreakfast.style.display = 'block';
         // ボタン文字：今が英語なら「Standard」、日本語なら「通常の朝食」
         toggleText.textContent = isEnglish ? 'Standard Breakfast' : '通常の朝食';
-        
+        // ボタンをアクティブ状態にする
+        if (toggleBtn) toggleBtn.classList.add('is-premium-active');
+
         const pageContainer = document.getElementById('page-breakfast');
         if(pageContainer) pageContainer.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -562,7 +578,9 @@ function togglePremiumBreakfast() {
         premiumBreakfast.style.display = 'none';
         // ボタン文字：今が英語なら「Premium」、日本語なら「至福の朝ごはん」
         toggleText.textContent = isEnglish ? 'Premium Breakfast' : '至福の朝ごはん';
-        
+        // ボタンのアクティブ状態を解除する
+        if (toggleBtn) toggleBtn.classList.remove('is-premium-active');
+
         const pageContainer = document.getElementById('page-breakfast');
         if(pageContainer) pageContainer.scrollTo({ top: 0, behavior: 'smooth' });
     }
