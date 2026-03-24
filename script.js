@@ -542,6 +542,10 @@ function hideMoreOptionsModal() {
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         hideMoreOptionsModal();
+        const amenityModal = document.getElementById('amenity-modal');
+        if (amenityModal) amenityModal.style.display = 'none';
+        const termsModal = document.getElementById('terms-modal');
+        if (termsModal) termsModal.style.display = 'none';
     }
 });
 // ===========================
