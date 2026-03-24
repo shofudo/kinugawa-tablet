@@ -774,6 +774,10 @@
                     <span class="back-arrow">←</span> <span id="bf-back-text">トップ</span>
                 </button>
                 <h1 class="breakfast-page-title" id="breakfast-page-title">朝食のご案内</h1>
+                <button class="pres-mode-btn" onclick="startPresentationMode()" id="pres-mode-btn">
+                    <span class="material-icons-outlined">slideshow</span>
+                    <span id="pres-btn-text">説明モード</span>
+                </button>
                 <button class="premium-toggle-button-simple" onclick="togglePremiumBreakfast()">
                     <span class="toggle-icon-left">✨</span>
                     <span class="toggle-text" id="toggle-text">至福の朝ごはん</span>
@@ -1397,6 +1401,97 @@
             </div>
         </div>
     </div>
+    <!-- ===== プレゼンモード モーダル ===== -->
+    <div id="pres-modal" class="pres-modal" style="display:none;">
+        <div class="pres-overlay" onclick="closePresentationMode()"></div>
+        <div class="pres-container">
+
+            <div class="pres-header">
+                <span class="pres-counter" id="pres-counter">1 / 4</span>
+                <button class="pres-close-btn" onclick="closePresentationMode()">✕</button>
+            </div>
+
+            <!-- スライド1: 基本の朝食 -->
+            <div class="pres-slide" id="pres-slide-1">
+                <h2 class="pres-slide-title" id="pres-s1-title">基本の朝食</h2>
+                <img src="images/breakfast-main.jpg" onerror="this.src='https://placehold.co/700x380/e8ddd0/8b7355?text=基本の朝食'" class="pres-main-img" alt="基本の朝食">
+                <p class="pres-slide-desc" id="pres-s1-desc">ご飯・味噌汁・焼き魚・小鉢色々・野菜サラダなど</p>
+                <div class="pres-nepali-note">
+                    <span class="nepali-label">स्टाफ</span>
+                    यो आधारभूत बिहानको खाना हो — भात, मिसो सूप, ग्रिल माछा, साइड डिश, सलाद।
+                </div>
+            </div>
+
+            <!-- スライド2: ＋1品 -->
+            <div class="pres-slide" id="pres-slide-2" style="display:none;">
+                <div class="pres-plus-badge" id="pres-s2-badge">＋1品</div>
+                <h2 class="pres-slide-title" id="pres-s2-title">無料でもう1品お選びいただけます</h2>
+                <p class="pres-slide-desc" id="pres-s2-desc">お一人様ずつ、下の3つのセットから<br>1つだけ無料でお選びいただけます</p>
+                <div class="pres-staff-note">
+                    <span class="material-icons-outlined">restaurant_menu</span>
+                    <span id="pres-s2-note">夕食時にスタッフがお伺いいたします</span>
+                </div>
+                <div class="pres-nepali-note">
+                    <span class="nepali-label">स्टाफ</span>
+                    प्रत्येक अतिथिले तीन सेटमध्ये एउटा नि:शुल्क छनौट गर्न सक्नुहुन्छ। रात्रिभोजमा अर्डर लिनुहोस्।
+                </div>
+            </div>
+
+            <!-- スライド3: セット選択 -->
+            <div class="pres-slide" id="pres-slide-3" style="display:none;">
+                <h2 class="pres-slide-title" id="pres-s3-title">セットをお選びください</h2>
+                <div class="pres-sets">
+                    <div class="pres-set-card">
+                        <img src="images/set-yuki.jpg" onerror="this.src='https://placehold.co/240x180/7BAFD4/ffffff?text=雪'" alt="雪">
+                        <span class="pres-set-tag pres-tag-yuki" id="pres-s3-tag1">朝の定番</span>
+                        <span class="pres-set-name" id="pres-s3-name1">雪</span>
+                        <ul id="pres-s3-list1"><li>納豆</li><li>大吟醸もろみ醤油</li><li>焼海苔</li></ul>
+                        <div class="pres-set-nepali">納豆 (किण्वित सोयाबिन्स), सोया सस, समुद्री सिवार</div>
+                    </div>
+                    <div class="pres-set-card">
+                        <img src="images/set-tsuki.jpg" onerror="this.src='https://placehold.co/240x180/F4C35C/ffffff?text=月'" alt="月">
+                        <span class="pres-set-tag pres-tag-tsuki" id="pres-s3-tag2">たまごかけご飯</span>
+                        <span class="pres-set-name" id="pres-s3-name2">月</span>
+                        <ul id="pres-s3-list2"><li>那須御養卵</li><li>大吟醸もろみ醤油</li><li>焼海苔</li></ul>
+                        <div class="pres-set-nepali">कच्चा अण्डा भातमाथि (TKG), सोया सस, समुद्री सिवार</div>
+                    </div>
+                    <div class="pres-set-card">
+                        <img src="images/set-hana.jpg" onerror="this.src='https://placehold.co/240x180/98D4A8/ffffff?text=花'" alt="花">
+                        <span class="pres-set-tag pres-tag-hana" id="pres-s3-tag3">食前に</span>
+                        <span class="pres-set-name" id="pres-s3-name3">花</span>
+                        <ul id="pres-s3-list3"><li>生絞りミカンジュース</li><li>ヨーグルトとアロエ</li><li class="small-note">(自家製ジャム添え)</li></ul>
+                        <div class="pres-set-nepali">सुन्तलाको रस, दही र एलोभेरा (घरेलु जाम सहित)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- スライド4: プレミアム案内 -->
+            <div class="pres-slide" id="pres-slide-4" style="display:none;">
+                <div class="pres-premium-badge">✨ Premium</div>
+                <h2 class="pres-slide-title" id="pres-s4-title">至福の朝ごはん</h2>
+                <div class="pres-premium-notice">
+                    <span class="material-icons-outlined">calendar_month</span>
+                    <span id="pres-s4-notice">ご宿泊の3日前までにご予約が必要です</span>
+                </div>
+                <p class="pres-slide-desc" id="pres-s4-desc">目覚めの一杯 ＋ 玉子料理など、<br>お一人様ずつメニューをお選びいただける特別な朝食プランです。</p>
+                <div class="pres-nepali-note">
+                    <span class="nepali-label">स्टाफ</span>
+                    विशेष प्रिमियम नास्ता। बुकिङ ३ दिन अगाडि आवश्यक। पेय पदार्थ र अण्डाको व्यञ्जन आफ्नो रोजाइमा।
+                </div>
+            </div>
+
+            <div class="pres-nav">
+                <button class="pres-nav-btn pres-prev" onclick="prevSlide()" id="pres-prev-btn">
+                    ← <span id="pres-prev-text">前へ</span>
+                </button>
+                <button class="pres-nav-btn pres-next" onclick="nextSlide()" id="pres-next-btn">
+                    <span id="pres-next-text">次へ</span> →
+                </button>
+            </div>
+
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

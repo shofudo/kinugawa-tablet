@@ -2670,6 +2670,272 @@ body {
     opacity: 0.85;
 }
 
+/* ===========================
+   説明モードボタン（朝食ヘッダー内）
+   =========================== */
+.pres-mode-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #8B7355;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-family: 'Noto Serif JP', serif;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.pres-mode-btn:active {
+    background: #6B5535;
+}
+.pres-mode-btn .material-icons-outlined {
+    font-size: 18px;
+}
+
+/* ===========================
+   プレゼンモード モーダル
+   =========================== */
+.pres-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pres-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+}
+.pres-container {
+    position: relative;
+    background: #FEFAF4;
+    border-radius: 20px;
+    width: 92vw;
+    max-width: 860px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.pres-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: #8B7355;
+    color: #fff;
+}
+.pres-counter {
+    font-size: 15px;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.1em;
+}
+.pres-close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 4px;
+}
+
+/* スライド共通 */
+.pres-slide {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 32px;
+    gap: 14px;
+    overflow-y: auto;
+    text-align: center;
+}
+.pres-slide-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 26px;
+    color: #4A3A26;
+    margin: 0;
+}
+.pres-main-img {
+    width: 100%;
+    max-width: 560px;
+    border-radius: 12px;
+    object-fit: cover;
+    max-height: 260px;
+}
+.pres-slide-desc {
+    font-size: 18px;
+    color: #5C4A30;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* スライド2: ＋1品 */
+.pres-plus-badge {
+    font-size: 52px;
+    font-weight: 700;
+    color: #C09448;
+    font-family: 'Noto Serif JP', serif;
+    line-height: 1;
+}
+.pres-staff-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #F5EDD8;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #6B4E20;
+}
+.pres-staff-note .material-icons-outlined {
+    color: #C09448;
+}
+
+/* スライド3: セット */
+.pres-sets {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+}
+.pres-set-card {
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #E0D0B0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pres-set-card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+.pres-set-tag {
+    font-size: 12px;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin: 8px 0 0;
+}
+.pres-tag-yuki  { background: #7BAFD4; }
+.pres-tag-tsuki { background: #D4A33C; }
+.pres-tag-hana  { background: #78B488; }
+.pres-set-name {
+    font-size: 22px;
+    font-family: 'Noto Serif JP', serif;
+    color: #4A3A26;
+    margin: 4px 0;
+}
+.pres-set-card ul {
+    list-style: none;
+    padding: 0 12px 12px;
+    margin: 0;
+    font-size: 13px;
+    color: #5C4A30;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+}
+.pres-set-card ul li {
+    padding: 2px 0;
+}
+.pres-set-card ul li.small-note {
+    font-size: 11px;
+    color: #999;
+}
+
+/* スライド4: プレミアム */
+.pres-premium-badge {
+    font-size: 20px;
+    background: linear-gradient(135deg, #C9A063, #E8C87A);
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 20px;
+    letter-spacing: 0.1em;
+}
+.pres-premium-notice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFF3E0;
+    border: 1px solid #F0C060;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #7A5010;
+}
+.pres-premium-notice .material-icons-outlined {
+    color: #D4A030;
+}
+
+/* スタッフ向けネパール語メモ */
+.pres-nepali-note {
+    width: 100%;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: #aaa;
+    line-height: 1.5;
+    text-align: left;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+.nepali-label {
+    font-size: 9px;
+    color: #bbb;
+    border: 1px solid #ddd;
+    padding: 1px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.pres-set-nepali {
+    font-size: 10px;
+    color: #bbb;
+    padding: 4px 10px 6px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    line-height: 1.4;
+}
+
+/* ナビゲーション */
+.pres-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 24px;
+    border-top: 1px solid #E8DCC8;
+    background: #FAF5EC;
+}
+.pres-nav-btn {
+    background: #8B7355;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-family: 'Noto Serif JP', serif;
+    cursor: pointer;
+    min-width: 120px;
+}
+.pres-nav-btn:active {
+    background: #6B5535;
+}
+.pres-nav-btn[style*="visibility: hidden"] {
+    pointer-events: none;
+}
+
 /* 下にあるロゴ */
 .bottom-logo-container {
     text-align: center;

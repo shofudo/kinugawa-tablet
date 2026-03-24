@@ -549,6 +549,50 @@ document.addEventListener('keydown', function(e) {
     }
 });
 // ===========================
+// ===========================
+// プレゼンモード
+// ===========================
+let currentSlide = 1;
+const TOTAL_SLIDES = 4;
+
+function startPresentationMode() {
+    currentSlide = 1;
+    document.getElementById('pres-modal').style.display = 'flex';
+    updatePresSlide();
+}
+
+function closePresentationMode() {
+    document.getElementById('pres-modal').style.display = 'none';
+}
+
+function nextSlide() {
+    if (currentSlide < TOTAL_SLIDES) {
+        currentSlide++;
+        updatePresSlide();
+    }
+}
+
+function prevSlide() {
+    if (currentSlide > 1) {
+        currentSlide--;
+        updatePresSlide();
+    }
+}
+
+function updatePresSlide() {
+    for (let i = 1; i <= TOTAL_SLIDES; i++) {
+        const el = document.getElementById(`pres-slide-${i}`);
+        if (el) el.style.display = i === currentSlide ? 'flex' : 'none';
+    }
+    document.getElementById('pres-counter').textContent = `${currentSlide} / ${TOTAL_SLIDES}`;
+
+    const prevBtn = document.getElementById('pres-prev-btn');
+    const nextBtn = document.getElementById('pres-next-btn');
+    if (prevBtn) prevBtn.style.visibility = currentSlide === 1 ? 'hidden' : 'visible';
+    if (nextBtn) nextBtn.style.visibility = currentSlide === TOTAL_SLIDES ? 'hidden' : 'visible';
+}
+
+// ===========================
 // 朝食ページ切り替え機能（言語対応版）
 // ===========================
 let isPremiumBreakfastShown = false;
@@ -617,6 +661,25 @@ function toggleLanguage() {
             'menu-text-coffee': 'Coffee Machine',
             'menu-text-breakfast': 'Breakfast',
             'menu-sub-breakfast': 'Explained at check-in',
+            'pres-btn-text': 'Presentation',
+            'pres-s1-title': 'Standard Breakfast',
+            'pres-s1-desc': 'Rice, miso soup, grilled fish, side dishes, salad, etc.',
+            'pres-s2-badge': '+1 Dish',
+            'pres-s2-title': 'Choose one free add-on',
+            'pres-s2-desc': 'Each guest may choose one set from the three options below — free of charge.',
+            'pres-s2-note': 'Our staff will take your order at dinner.',
+            'pres-s3-title': 'Choose Your Set',
+            'pres-s3-tag1': 'Classic',
+            'pres-s3-name1': 'Yuki (Snow)',
+            'pres-s3-tag2': 'Egg on Rice',
+            'pres-s3-name2': 'Tsuki (Moon)',
+            'pres-s3-tag3': 'Before Meal',
+            'pres-s3-name3': 'Hana (Flower)',
+            'pres-s4-title': 'Premium Breakfast',
+            'pres-s4-notice': 'Reservation required 3 days in advance.',
+            'pres-s4-desc': 'A special plan where each guest selects their own drink and egg dish.',
+            'pres-prev-text': 'Back',
+            'pres-next-text': 'Next',
             'menu-text-bicycle': 'Rental Cycle',
             'menu-text-seasonal': 'Seasonal Info',
             'menu-text-bus': 'Shuttle Bus'
