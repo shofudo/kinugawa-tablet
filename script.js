@@ -622,6 +622,7 @@ function togglePremiumBreakfast() {
     const standardBreakfast = document.getElementById('standard-breakfast');
     const premiumBreakfast = document.getElementById('premium-breakfast');
     const toggleText = document.getElementById('toggle-text');
+    const toggleEnSub = document.getElementById('toggle-en-sub');
     const toggleBtn = document.querySelector('.premium-toggle-button-simple');
 
     if (!standardBreakfast || !premiumBreakfast) return;
@@ -635,6 +636,7 @@ function togglePremiumBreakfast() {
         premiumBreakfast.style.display = 'block';
         // ボタン文字：今が英語なら「Standard」、日本語なら「通常の朝食」
         toggleText.textContent = isEnglish ? 'Standard Breakfast' : '通常の朝食';
+        if (toggleEnSub) toggleEnSub.textContent = 'Standard Breakfast';
         // ボタンをアクティブ状態にする
         if (toggleBtn) toggleBtn.classList.add('is-premium-active');
 
@@ -647,6 +649,7 @@ function togglePremiumBreakfast() {
         premiumBreakfast.style.display = 'none';
         // ボタン文字：今が英語なら「Premium」、日本語なら「至福の朝ごはん」
         toggleText.textContent = isEnglish ? 'Premium Breakfast' : '至福の朝ごはん';
+        if (toggleEnSub) toggleEnSub.textContent = 'Premium Breakfast';
         // ボタンのアクティブ状態を解除する
         if (toggleBtn) toggleBtn.classList.remove('is-premium-active');
 

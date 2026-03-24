@@ -776,11 +776,17 @@
                 <h1 class="breakfast-page-title" id="breakfast-page-title">朝食のご案内</h1>
                 <button class="pres-mode-btn" onclick="startPresentationMode()" id="pres-mode-btn">
                     <span class="material-icons-outlined">slideshow</span>
-                    <span id="pres-btn-text">説明モード</span>
+                    <span class="pres-btn-label">
+                        <span id="pres-btn-text">説明モード</span>
+                        <small class="btn-en-sub" id="pres-btn-en-sub">Presentation</small>
+                    </span>
                 </button>
                 <button class="premium-toggle-button-simple" onclick="togglePremiumBreakfast()">
                     <span class="toggle-icon-left">✨</span>
-                    <span class="toggle-text" id="toggle-text">至福の朝ごはん</span>
+                    <span class="toggle-label">
+                        <span class="toggle-text" id="toggle-text">至福の朝ごはん</span>
+                        <small class="btn-en-sub" id="toggle-en-sub">Premium Breakfast</small>
+                    </span>
                     <span class="toggle-icon-right">✨</span>
                 </button>
             </header>
