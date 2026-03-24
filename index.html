@@ -1004,7 +1004,7 @@
 
     </div>
 
-   <div id="amenity-modal" class="amenity-modal-overlay" style="display: none;">
+   <div id="amenity-modal" class="amenity-modal-overlay" style="display: none;" onclick="if(event.target===this)toggleAmenityModal()">
         <div class="amenity-modal-content">
             <button class="modal-close-btn" onclick="toggleAmenityModal()">×</button>
             <h3 class="modal-title" id="ame-title">有料アメニティ・その他</h3>
@@ -1048,7 +1048,7 @@
     <span class="terms-text" id="fab-terms-text">約款・規約</span>
 </button>
 
-    <div id="terms-modal" class="terms-modal-overlay" style="display: none;">
+    <div id="terms-modal" class="terms-modal-overlay" style="display: none;" onclick="if(event.target===this)toggleTermsModal()">
         <div class="terms-modal-content">
             <button class="modal-close-btn" onclick="toggleTermsModal()">×</button>
             
@@ -1355,7 +1355,7 @@
             </div>
         </div>
     </div>
-    <div id="more-options-modal" class="modal-overlay">
+    <div id="more-options-modal" class="modal-overlay" onclick="if(event.target===this)hideMoreOptionsModal()">
         <div class="modal-content">
             <button class="modal-close-btn" onclick="hideMoreOptionsModal()">×</button>
             <h3 class="modal-title" id="more-title">追加のご注文</h3>
