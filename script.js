@@ -452,8 +452,8 @@ window.addEventListener('load', () => {
 function initSurveyPage() {
     // お部屋名
     const roomEl = document.getElementById('survey-room-name');
-    if (roomEl && configData && configData.roomName) {
-        roomEl.textContent = configData.roomName;
+    if (roomEl) {
+        roomEl.value = '';
     }
 
     // 回答日（今日の日付）
@@ -507,7 +507,7 @@ async function submitSurvey() {
     const now = new Date();
     const data = {
         timestamp: now.toLocaleString('ja-JP'),
-        roomName: (configData && configData.roomName) ? configData.roomName : '不明',
+        roomName: document.getElementById('survey-room-name').value.trim() || '未記入',
         q_dinner:          getRating('q_dinner'),
         q_breakfast:       getRating('q_breakfast'),
         q_checkin:         getRating('q_checkin'),

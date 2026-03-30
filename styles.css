@@ -40,14 +40,17 @@ body {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     padding: 30px 40px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
 }
 
 .page.active {
     display: flex;
     flex-direction: column;
-    opacity: 1;
+    animation: pageShow 0.3s ease-in-out forwards;
+}
+
+@keyframes pageShow {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 /* ページヘッダー */
@@ -3040,8 +3043,6 @@ body {
     padding: 0 !important;
     padding-bottom: 50px !important;
     background-color: #F9F5F0;
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch;
@@ -4472,6 +4473,14 @@ body {
     font-weight: 600;
     color: #4A3A26;
     font-family: 'Noto Serif JP', serif;
+}
+.survey-room-input {
+    border: none;
+    border-bottom: 2px solid #C9A063;
+    background: transparent;
+    outline: none;
+    width: 240px;
+    padding: 2px 4px;
 }
 
 /* セクション共通 */
