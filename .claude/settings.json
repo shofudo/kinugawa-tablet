@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(\"c:/Users/saria/Documents/GitHub/kinugawa-tablet/styles.css\":*)"
+      "Bash(\"c:/Users/saria/Documents/GitHub/kinugawa-tablet/styles.css\":*)",
+      "Bash(node -e \"const fs=require\\(''fs''\\); const html=fs.readFileSync\\(''index.html'',''utf8''\\); console.log\\(''page-survey exists:'', html.includes\\(''id=\"\"page-survey\"\"''\\)\\); console.log\\(''survey-form-body exists:'', html.includes\\(''id=\"\"survey-form-body\"\"''\\)\\); console.log\\(''survey-rating-table exists:'', html.includes\\(''survey-rating-table''\\)\\);\")"
     ]
   }
 }
