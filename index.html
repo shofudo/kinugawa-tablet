@@ -97,7 +97,15 @@
         <button class="menu-card" onclick="showPage('bus')">
             <div class="card-icon"><span class="material-icons-outlined">directions_bus</span></div>
             <div class="card-title" id="menu-text-bus">ダイヤルバス</div>
-        </button>  
+        </button>
+    </div>
+
+    <div class="menu-section">
+        <button class="menu-card survey-card" onclick="showPage('survey')">
+            <div class="card-icon"><span class="material-icons-outlined">rate_review</span></div>
+            <div class="card-title">アンケート</div>
+            <div class="card-sub">ご感想をお聞かせください</div>
+        </button>
     </div>
 </div>
                 <div class="bottom-logo-container">
@@ -1011,7 +1019,242 @@
             </div>
         </div>
         
-    
+        <!-- ===== アンケートページ ===== -->
+        <div id="page-survey" class="page">
+            <header class="page-header">
+                <button class="back-to-top-button" onclick="showPage('home')">
+                    <span class="back-arrow">←</span> トップへ
+                </button>
+                <h2 class="page-title">お客様アンケート</h2>
+                <p class="page-title-en">Guest Questionnaire</p>
+            </header>
+
+            <main class="page-content">
+
+                <!-- 基本情報 -->
+                <div class="survey-info-bar">
+                    <div class="survey-info-item">
+                        <span class="survey-info-label">お部屋名</span>
+                        <span class="survey-info-value" id="survey-room-name">―</span>
+                    </div>
+                    <div class="survey-info-item">
+                        <span class="survey-info-label">ご回答日</span>
+                        <span class="survey-info-value" id="survey-date">―</span>
+                    </div>
+                </div>
+
+                <!-- 送信完了メッセージ（初期非表示） -->
+                <div id="survey-success" class="survey-success-msg" style="display:none;">
+                    <span class="material-icons-outlined" style="font-size:48px; color:#4A7C7E;">check_circle</span>
+                    <h3>ご回答ありがとうございました</h3>
+                    <p>大切なご意見として、より良いサービスに活かしてまいります。</p>
+                    <button class="survey-submit-btn" onclick="showPage('home')" style="margin-top:20px;">トップに戻る</button>
+                </div>
+
+                <!-- アンケートフォーム本体 -->
+                <div id="survey-form-body">
+
+                    <!-- Section 1: 評価 -->
+                    <div class="survey-section">
+                        <h3 class="survey-section-title">■ 各項目をご評価ください</h3>
+                        <div class="survey-rating-table">
+                            <div class="survey-rating-header">
+                                <span class="survey-item-label"></span>
+                                <span class="survey-rating-label">大変良い</span>
+                                <span class="survey-rating-label">良い</span>
+                                <span class="survey-rating-label">普通</span>
+                                <span class="survey-rating-label">やや悪い</span>
+                                <span class="survey-rating-label">悪い</span>
+                            </div>
+
+                            <div class="survey-rating-row">
+                                <span class="survey-item-label"><span class="survey-category">お料理</span>夕食の味・質</span>
+                                <label class="survey-radio-cell"><input type="radio" name="q_dinner" value="5"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_dinner" value="4"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_dinner" value="3"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_dinner" value="2"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_dinner" value="1"><span class="survey-radio-btn"></span></label>
+                            </div>
+
+                            <div class="survey-rating-row">
+                                <span class="survey-item-label"><span class="survey-category">お料理</span>朝食の味・質</span>
+                                <label class="survey-radio-cell"><input type="radio" name="q_breakfast" value="5"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_breakfast" value="4"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_breakfast" value="3"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_breakfast" value="2"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_breakfast" value="1"><span class="survey-radio-btn"></span></label>
+                            </div>
+
+                            <div class="survey-rating-row">
+                                <span class="survey-item-label"><span class="survey-category">スタッフ</span>チェックイン時のご対応</span>
+                                <label class="survey-radio-cell"><input type="radio" name="q_checkin" value="5"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_checkin" value="4"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_checkin" value="3"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_checkin" value="2"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_checkin" value="1"><span class="survey-radio-btn"></span></label>
+                            </div>
+
+                            <div class="survey-rating-row">
+                                <span class="survey-item-label"><span class="survey-category">スタッフ</span>夕食時のご対応</span>
+                                <label class="survey-radio-cell"><input type="radio" name="q_dinner_staff" value="5"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_dinner_staff" value="4"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_dinner_staff" value="3"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_dinner_staff" value="2"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_dinner_staff" value="1"><span class="survey-radio-btn"></span></label>
+                            </div>
+
+                            <div class="survey-rating-row">
+                                <span class="survey-item-label"><span class="survey-category">スタッフ</span>朝食時のご対応</span>
+                                <label class="survey-radio-cell"><input type="radio" name="q_breakfast_staff" value="5"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_breakfast_staff" value="4"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_breakfast_staff" value="3"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_breakfast_staff" value="2"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_breakfast_staff" value="1"><span class="survey-radio-btn"></span></label>
+                            </div>
+
+                            <div class="survey-rating-row">
+                                <span class="survey-item-label"><span class="survey-category">環境</span>客室の清潔感</span>
+                                <label class="survey-radio-cell"><input type="radio" name="q_room_clean" value="5"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_room_clean" value="4"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_room_clean" value="3"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_room_clean" value="2"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_room_clean" value="1"><span class="survey-radio-btn"></span></label>
+                            </div>
+
+                            <div class="survey-rating-row">
+                                <span class="survey-item-label"><span class="survey-category">環境</span>館内・大浴場の清潔感</span>
+                                <label class="survey-radio-cell"><input type="radio" name="q_bath_clean" value="5"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_bath_clean" value="4"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_bath_clean" value="3"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_bath_clean" value="2"><span class="survey-radio-btn"></span></label>
+                                <label class="survey-radio-cell"><input type="radio" name="q_bath_clean" value="1"><span class="survey-radio-btn"></span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: 選んだ理由 -->
+                    <div class="survey-section">
+                        <h3 class="survey-section-title">■ この宿をお選びいただいた理由をお教えください<span class="survey-section-note">（あてはまるものすべて）</span></h3>
+                        <div class="survey-checkbox-group">
+                            <label class="survey-checkbox-item">
+                                <input type="checkbox" name="q_reason" value="food">
+                                <span class="survey-checkbox-btn"></span>
+                                <span>お料理が美味しそうだったから</span>
+                            </label>
+                            <label class="survey-checkbox-item">
+                                <input type="checkbox" name="q_reason" value="onsen">
+                                <span class="survey-checkbox-btn"></span>
+                                <span>温泉・お風呂が良さそうだったから</span>
+                            </label>
+                            <label class="survey-checkbox-item">
+                                <input type="checkbox" name="q_reason" value="word_of_mouth">
+                                <span class="survey-checkbox-btn"></span>
+                                <span>周囲の方の口コミを聞いて</span>
+                            </label>
+                            <label class="survey-checkbox-item">
+                                <input type="checkbox" name="q_reason" value="location">
+                                <span class="survey-checkbox-btn"></span>
+                                <span>ロケーション・自然環境に惹かれて</span>
+                            </label>
+                            <label class="survey-checkbox-item survey-checkbox-other">
+                                <input type="checkbox" name="q_reason" value="other">
+                                <span class="survey-checkbox-btn"></span>
+                                <span>その他（</span>
+                                <input type="text" id="q_reason_other_text" class="survey-inline-input" placeholder="ご記入ください">
+                                <span>）</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: ご記入欄 -->
+                    <div class="survey-section">
+                        <h3 class="survey-section-title">■ ご記入欄</h3>
+
+                        <div class="survey-textarea-block">
+                            <p class="survey-textarea-label">▶ 印象に残ったお料理、または改善してほしいお料理があればお教えください</p>
+                            <textarea id="q_food_comment" class="survey-textarea" rows="3" placeholder="例：夕食のお刺身がとても美味しかったです。"></textarea>
+                        </div>
+
+                        <div class="survey-textarea-block">
+                            <p class="survey-textarea-label">▶ ご滞在を通じてのご感想・お気づきの点をお聞かせください</p>
+                            <textarea id="q_overall_comment" class="survey-textarea" rows="3" placeholder="ご自由にお書きください。"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: 最後の3問 -->
+                    <div class="survey-section survey-section-final">
+                        <div class="survey-final-question">
+                            <p class="survey-final-label">今回のご滞在は有意義にお過ごしいただけましたか？</p>
+                            <div class="survey-final-options">
+                                <label class="survey-final-option">
+                                    <input type="radio" name="q_satisfaction" value="very_good">
+                                    <span class="survey-final-btn">十分に過ごせた</span>
+                                </label>
+                                <label class="survey-final-option">
+                                    <input type="radio" name="q_satisfaction" value="good">
+                                    <span class="survey-final-btn">まあまあ過ごせた</span>
+                                </label>
+                                <label class="survey-final-option">
+                                    <input type="radio" name="q_satisfaction" value="not_good">
+                                    <span class="survey-final-btn">あまり過ごせなかった</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="survey-final-question">
+                            <p class="survey-final-label">またきぬ川不動瀧にお越しになりたいですか？</p>
+                            <div class="survey-final-options">
+                                <label class="survey-final-option">
+                                    <input type="radio" name="q_revisit" value="yes">
+                                    <span class="survey-final-btn">ぜひまた来たい</span>
+                                </label>
+                                <label class="survey-final-option">
+                                    <input type="radio" name="q_revisit" value="maybe">
+                                    <span class="survey-final-btn">来てもいい</span>
+                                </label>
+                                <label class="survey-final-option">
+                                    <input type="radio" name="q_revisit" value="unknown">
+                                    <span class="survey-final-btn">わからない</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="survey-final-question">
+                            <p class="survey-final-label">ご友人・ご家族にお勧めいただけますか？</p>
+                            <div class="survey-final-options">
+                                <label class="survey-final-option">
+                                    <input type="radio" name="q_recommend" value="yes">
+                                    <span class="survey-final-btn">ぜひ勧めたい</span>
+                                </label>
+                                <label class="survey-final-option">
+                                    <input type="radio" name="q_recommend" value="conditional">
+                                    <span class="survey-final-btn">条件次第</span>
+                                </label>
+                                <label class="survey-final-option">
+                                    <input type="radio" name="q_recommend" value="no">
+                                    <span class="survey-final-btn">すすめない</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 送信ボタン -->
+                    <div class="survey-submit-area">
+                        <p class="survey-submit-note">ご記入内容はテーブル上のままにしていただければ結構です。どうか、誠にありがとうございました。</p>
+                        <button class="survey-submit-btn" id="survey-submit-btn" onclick="submitSurvey()">
+                            <span class="material-icons-outlined">send</span>
+                            アンケートを送信する
+                        </button>
+                    </div>
+
+                </div><!-- /survey-form-body -->
+
+            </main>
+
+            <footer class="page-footer">
+                <button class="back-button" onclick="showPage('home')">トップに戻る</button>
+            </footer>
+        </div>
 
     </div>
 

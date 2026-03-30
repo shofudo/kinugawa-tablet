@@ -1,4 +1,10 @@
 {
+  "roomName": "〇〇の間",
+
+  "survey": {
+    "gasUrl": "https://script.google.com/macros/s/AKfycby58a-4MIoMwhRMmDF5WOgUBkUU8F7KEADfqo34rG-ce0Mekabc8aBJdRWq5XAuXzfe/exec"
+  },
+
   "wifi": {
     "networkName": "fudotaki",
     "password": "fudotaki"

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"c:/Users/saria/Documents/GitHub/kinugawa-tablet/styles.css\":*)"
+    ]
+  }
+}

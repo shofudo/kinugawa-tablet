@@ -339,6 +339,11 @@ function showPage(pageId) {
         }, 10);
     }
 
+    // アンケートページが開かれたら初期化
+    if (pageId === 'survey') {
+        setTimeout(() => { initSurveyPage(); }, 10);
+    }
+
     // 朝食ページが開かれたらアコーディオンを初期状態（開）にする
     if (pageId === 'breakfast') {
         setTimeout(() => {
@@ -440,6 +445,112 @@ function preventScreenSleep() {
 window.addEventListener('load', () => {
     preventScreenSleep();
 });
+
+// ===========================
+// アンケートページ
+// ===========================
+function initSurveyPage() {
+    // お部屋名
+    const roomEl = document.getElementById('survey-room-name');
+    if (roomEl && configData && configData.roomName) {
+        roomEl.textContent = configData.roomName;
+    }
+
+    // 回答日（今日の日付）
+    const dateEl = document.getElementById('survey-date');
+    if (dateEl) {
+        const now = new Date();
+        const y = now.getFullYear();
+        const m = now.getMonth() + 1;
+        const d = now.getDate();
+        dateEl.textContent = `${y}年${m}月${d}日`;
+    }
+
+    // フォームをリセット
+    const form = document.getElementById('survey-form-body');
+    if (form) {
+        form.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+        form.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
+        form.querySelectorAll('textarea').forEach(t => t.value = '');
+        const otherText = document.getElementById('q_reason_other_text');
+        if (otherText) otherText.value = '';
+    }
+
+    // 完了メッセージを隠してフォームを表示
+    document.getElementById('survey-success').style.display = 'none';
+    document.getElementById('survey-form-body').style.display = 'block';
+    const btn = document.getElementById('survey-submit-btn');
+    if (btn) { btn.disabled = false; btn.textContent = ''; btn.innerHTML = '<span class="material-icons-outlined">send</span> アンケートを送信する'; }
+}
+
+async function submitSurvey() {
+    const btn = document.getElementById('survey-submit-btn');
+    if (btn) { btn.disabled = true; btn.textContent = '送信中...'; }
+
+    // 回答を収集
+    const getRating = name => {
+        const checked = document.querySelector(`input[name="${name}"]:checked`);
+        return checked ? checked.value : '';
+    };
+    const getReasons = () => {
+        const checked = document.querySelectorAll('input[name="q_reason"]:checked');
+        const vals = Array.from(checked).map(c => c.value);
+        if (vals.includes('other')) {
+            const otherText = document.getElementById('q_reason_other_text').value.trim();
+            if (otherText) {
+                vals[vals.indexOf('other')] = `その他: ${otherText}`;
+            }
+        }
+        return vals.join('、');
+    };
+
+    const now = new Date();
+    const data = {
+        timestamp: now.toLocaleString('ja-JP'),
+        roomName: (configData && configData.roomName) ? configData.roomName : '不明',
+        q_dinner:          getRating('q_dinner'),
+        q_breakfast:       getRating('q_breakfast'),
+        q_checkin:         getRating('q_checkin'),
+        q_dinner_staff:    getRating('q_dinner_staff'),
+        q_breakfast_staff: getRating('q_breakfast_staff'),
+        q_room_clean:      getRating('q_room_clean'),
+        q_bath_clean:      getRating('q_bath_clean'),
+        q_reason:          getReasons(),
+        q_food_comment:    document.getElementById('q_food_comment').value.trim(),
+        q_overall_comment: document.getElementById('q_overall_comment').value.trim(),
+        q_satisfaction:    getRating('q_satisfaction'),
+        q_revisit:         getRating('q_revisit'),
+        q_recommend:       getRating('q_recommend'),
+    };
+
+    const gasUrl = (configData && configData.survey && configData.survey.gasUrl) ? configData.survey.gasUrl : '';
+
+    if (!gasUrl) {
+        // GAS URL未設定の場合はコンソールにログだけ出して完了表示
+        console.log('アンケート回答（GAS未設定）:', data);
+        showSurveySuccess();
+        return;
+    }
+
+    try {
+        await fetch(gasUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        });
+        showSurveySuccess();
+    } catch (err) {
+        console.error('アンケート送信エラー:', err);
+        // エラー時も完了表示（データはコンソールに残る）
+        showSurveySuccess();
+    }
+}
+
+function showSurveySuccess() {
+    document.getElementById('survey-form-body').style.display = 'none';
+    document.getElementById('survey-success').style.display = 'flex';
+}
 // ===========================
 // アメニティポップアップの制御
 // ===========================

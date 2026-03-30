@@ -4420,3 +4420,347 @@ body {
     align-items: center;
     line-height: 1.3;
 }
+/* ===========================
+   アンケートページ
+   =========================== */
+
+/* ホーム画面のアンケートボタン */
+.survey-card {
+    background: linear-gradient(135deg, #4A7C7E 0%, #3a6264 100%);
+    color: #fff;
+    border: none;
+}
+#page-home .survey-card .card-title {
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+.survey-card .card-sub {
+    color: rgba(255,255,255,0.85);
+    font-size: 12px;
+    margin-top: 4px;
+}
+#page-home .survey-card .material-icons-outlined {
+    color: #fff;
+}
+
+/* 基本情報バー */
+.survey-info-bar {
+    display: flex;
+    gap: 30px;
+    background: #FFFAF6;
+    border: 1px solid rgba(201,160,99,0.3);
+    border-radius: 12px;
+    padding: 16px 24px;
+    margin-bottom: 24px;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.survey-info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.survey-info-label {
+    font-size: 13px;
+    color: #888;
+    font-weight: 500;
+}
+.survey-info-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #4A3A26;
+    font-family: 'Noto Serif JP', serif;
+}
+
+/* セクション共通 */
+.survey-section {
+    background: #FFFAF6;
+    border: 1px solid rgba(201,160,99,0.25);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.survey-section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4A3A26;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(201,160,99,0.3);
+}
+.survey-section-note {
+    font-size: 13px;
+    font-weight: 400;
+    color: #888;
+    margin-left: 6px;
+}
+
+/* 評価テーブル */
+.survey-rating-table {
+    width: 100%;
+}
+.survey-rating-header {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 68px);
+    gap: 4px;
+    margin-bottom: 6px;
+}
+.survey-rating-header .survey-item-label {
+    /* 空欄 */
+}
+.survey-rating-label {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    font-weight: 500;
+}
+.survey-rating-row {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 68px);
+    gap: 4px;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #e8e0d4;
+}
+.survey-rating-row:last-child {
+    border-bottom: none;
+}
+.survey-item-label {
+    font-size: 14px;
+    color: #5D5245;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.survey-category {
+    font-size: 11px;
+    background: #C9A063;
+    color: #fff;
+    padding: 2px 7px;
+    border-radius: 10px;
+    white-space: nowrap;
+    font-weight: 500;
+}
+.survey-radio-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.survey-radio-cell input[type="radio"] {
+    display: none;
+}
+.survey-radio-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #C9A063;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+}
+.survey-radio-cell input[type="radio"]:checked + .survey-radio-btn {
+    background: #C9A063;
+    border-color: #C9A063;
+}
+.survey-radio-cell input[type="radio"]:checked + .survey-radio-btn::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+/* チェックボックスグループ */
+.survey-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.survey-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #5D5245;
+}
+.survey-checkbox-item input[type="checkbox"] {
+    display: none;
+}
+.survey-checkbox-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 2px solid #C9A063;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+}
+.survey-checkbox-item input[type="checkbox"]:checked + .survey-checkbox-btn {
+    background: #C9A063;
+    border-color: #C9A063;
+}
+.survey-checkbox-item input[type="checkbox"]:checked + .survey-checkbox-btn::after {
+    content: '✓';
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+.survey-checkbox-other {
+    flex-wrap: wrap;
+}
+.survey-inline-input {
+    border: none;
+    border-bottom: 1px solid #C9A063;
+    background: transparent;
+    font-size: 14px;
+    color: #4A3A26;
+    padding: 2px 6px;
+    min-width: 160px;
+    outline: none;
+    font-family: inherit;
+}
+
+/* テキストエリア */
+.survey-textarea-block {
+    margin-bottom: 20px;
+}
+.survey-textarea-block:last-child {
+    margin-bottom: 0;
+}
+.survey-textarea-label {
+    font-size: 14px;
+    color: #5D5245;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.survey-textarea {
+    width: 100%;
+    border: 1px solid rgba(201,160,99,0.4);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #4A3A26;
+    background: #fff;
+    resize: vertical;
+    outline: none;
+    line-height: 1.7;
+}
+.survey-textarea:focus {
+    border-color: #C9A063;
+}
+
+/* 最後の3問 */
+.survey-section-final {
+    border-color: rgba(74,124,126,0.25);
+    background: #F5FAFA;
+}
+.survey-final-question {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #c8dede;
+}
+.survey-final-question:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.survey-final-label {
+    font-size: 15px;
+    color: #4A3A26;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.survey-final-options {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.survey-final-option {
+    cursor: pointer;
+}
+.survey-final-option input[type="radio"] {
+    display: none;
+}
+.survey-final-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 2px solid #4A7C7E;
+    color: #4A7C7E;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+.survey-final-option input[type="radio"]:checked + .survey-final-btn {
+    background: #4A7C7E;
+    color: #fff;
+}
+
+/* 送信エリア */
+.survey-submit-area {
+    max-width: 860px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+.survey-submit-note {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+.survey-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #C9A063, #b08040);
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: 16px 48px;
+    font-size: 18px;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(201,160,99,0.4);
+    transition: all 0.2s;
+}
+.survey-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* 送信完了メッセージ */
+.survey-success-msg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 60px 20px;
+    text-align: center;
+    max-width: 500px;
+    margin: 40px auto;
+}
+.survey-success-msg h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px;
+    color: #4A3A26;
+}
+.survey-success-msg p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.8;
+}
