@@ -799,6 +799,7 @@ function toggleLanguage() {
             'pres-btn-text': 'Presentation',
             'pres-s1-title': 'Standard Breakfast',
             'pres-s1-desc': 'Rice, miso soup, grilled fish, side dishes, salad, etc.',
+            'pres-s1-caption': '※ Photo shows the "Hana" set option.',
             'pres-s2-badge': '+1 Dish',
             'pres-s2-title': 'Choose one free add-on',
             'pres-s2-desc': 'Each guest may choose one set from the three options below — free of charge.',
@@ -868,7 +869,8 @@ function toggleLanguage() {
         
         document.getElementById('bf-main-title').textContent = 'Standard Set';
         document.getElementById('bf-main-desc').textContent = 'Rice, Miso Soup, Grilled Fish, Small Dishes, Salad, etc.';
-        
+        document.getElementById('bf-photo-caption').textContent = '※ Photo shows the "Hana" set option.';
+
         document.getElementById('bf-flow-bubble').innerHTML = 'Choose one additional item from below<br><strong>for free</strong>.';
         document.getElementById('bf-plus-text').textContent = '+1 Item';
         document.getElementById('bf-select-title').textContent = 'Please choose one from these options';
