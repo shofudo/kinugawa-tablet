@@ -4207,12 +4207,39 @@ body {
     display: none !important;
 }
 
-/* --- 修正3: 「ご宿泊の3日前までに〜」を小さく＆色変更 --- */
+/* --- 修正3: 「ご宿泊の3日前までに〜」を読みやすく --- */
 .warning-desc {
-    font-size: 12px !important;      /* 少し小さく */
-    color: rgba(255, 255, 255, 0.85) !important;  /* 少し薄い白 */
-    font-weight: normal !important;   /* 太字をやめる */
+    font-size: 14px !important;
+    color: rgba(255, 255, 255, 1.0) !important;
+    font-weight: normal !important;
     letter-spacing: 0.5px;
+}
+
+/* 「3日前」の強調 */
+.warning-desc strong {
+    font-weight: bold !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    padding-bottom: 1px;
+}
+
+/* インライン予約注記 */
+.reservation-reminder {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 10px 16px;
+    background: #F0F5FA;
+    border-left: 3px solid #3D6B99;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: #3D6B99;
+    text-align: left;
+}
+
+.reservation-reminder .material-icons-outlined {
+    font-size: 16px;
+    flex-shrink: 0;
 }
 
 /* 「事前予約限定プラン」はそのまま目立たせる */
