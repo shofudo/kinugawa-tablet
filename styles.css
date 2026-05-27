@@ -4563,9 +4563,7 @@ body {
     gap: 4px;
     margin-bottom: 6px;
 }
-.survey-rating-header .survey-item-label {
-    /* 空欄 */
-}
+
 .survey-rating-label {
     text-align: center;
     font-size: 12px;
@@ -4815,4 +4813,41 @@ body {
     font-size: 15px;
     color: #666;
     line-height: 1.8;
+}
+
+/* 自動保存のご案内バー */
+.survey-autosave-notice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #EAF4F4;
+    border: 1px solid #A8D0D0;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 12px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    color: #3A6B6B;
+    line-height: 1.6;
+}
+.survey-autosave-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    color: #4A7C7E;
+}
+
+/* 復元通知バー */
+.survey-restore-notice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFF8E1;
+    border: 1px solid #F0C040;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 12px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    color: #7A5F00;
+    line-height: 1.6;
 }

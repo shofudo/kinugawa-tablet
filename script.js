@@ -447,15 +447,101 @@ window.addEventListener('load', () => {
 });
 
 // ===========================
+// アンケート自動保存機能
+// ===========================
+const SURVEY_DRAFT_KEY = 'survey_draft';
+
+function saveSurveyDraft() {
+    const formData = {
+        savedAt: new Date().toISOString(),
+        roomName: document.getElementById('survey-room-name')?.value || '',
+        q_dinner:          document.querySelector('input[name="q_dinner"]:checked')?.value || '',
+        q_breakfast:       document.querySelector('input[name="q_breakfast"]:checked')?.value || '',
+        q_checkin:         document.querySelector('input[name="q_checkin"]:checked')?.value || '',
+        q_dinner_staff:    document.querySelector('input[name="q_dinner_staff"]:checked')?.value || '',
+        q_breakfast_staff: document.querySelector('input[name="q_breakfast_staff"]:checked')?.value || '',
+        q_room_clean:      document.querySelector('input[name="q_room_clean"]:checked')?.value || '',
+        q_bath_clean:      document.querySelector('input[name="q_bath_clean"]:checked')?.value || '',
+        q_reason:          Array.from(document.querySelectorAll('input[name="q_reason"]:checked')).map(c => c.value),
+        q_reason_other:    document.getElementById('q_reason_other_text')?.value || '',
+        q_food_comment:    document.getElementById('q_food_comment')?.value || '',
+        q_overall_comment: document.getElementById('q_overall_comment')?.value || '',
+        q_satisfaction:    document.querySelector('input[name="q_satisfaction"]:checked')?.value || '',
+        q_revisit:         document.querySelector('input[name="q_revisit"]:checked')?.value || '',
+        q_recommend:       document.querySelector('input[name="q_recommend"]:checked')?.value || '',
+    };
+    try {
+        localStorage.setItem(SURVEY_DRAFT_KEY, JSON.stringify(formData));
+    } catch (e) {}
+}
+
+function isSaveDraftValid(savedAt) {
+    const now = new Date();
+    const hour = now.getHours();
+    // 10:00〜14:59はチェックアウト後・チェックイン前のため無効
+    if (hour >= 10 && hour < 15) return false;
+    // 直近のチェックイン時刻（15:00）を基準にする
+    const windowStart = new Date(now);
+    if (hour < 10) windowStart.setDate(windowStart.getDate() - 1);
+    windowStart.setHours(15, 0, 0, 0);
+    return new Date(savedAt) >= windowStart;
+}
+
+function loadSurveyDraft() {
+    try {
+        const raw = localStorage.getItem(SURVEY_DRAFT_KEY);
+        if (!raw) return false;
+        const data = JSON.parse(raw);
+        if (!data.savedAt || !isSaveDraftValid(data.savedAt)) {
+            localStorage.removeItem(SURVEY_DRAFT_KEY);
+            return false;
+        }
+        const roomEl = document.getElementById('survey-room-name');
+        if (roomEl && data.roomName) roomEl.value = data.roomName;
+
+        ['q_dinner','q_breakfast','q_checkin','q_dinner_staff','q_breakfast_staff',
+         'q_room_clean','q_bath_clean','q_satisfaction','q_revisit','q_recommend'].forEach(name => {
+            if (data[name]) {
+                const r = document.querySelector(`input[name="${name}"][value="${data[name]}"]`);
+                if (r) r.checked = true;
+            }
+        });
+        if (Array.isArray(data.q_reason)) {
+            data.q_reason.forEach(val => {
+                const cb = document.querySelector(`input[name="q_reason"][value="${val}"]`);
+                if (cb) cb.checked = true;
+            });
+        }
+        const otherText = document.getElementById('q_reason_other_text');
+        if (otherText && data.q_reason_other) otherText.value = data.q_reason_other;
+        const foodComment = document.getElementById('q_food_comment');
+        if (foodComment && data.q_food_comment) foodComment.value = data.q_food_comment;
+        const overallComment = document.getElementById('q_overall_comment');
+        if (overallComment && data.q_overall_comment) overallComment.value = data.q_overall_comment;
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+function clearSurveyDraft() {
+    localStorage.removeItem(SURVEY_DRAFT_KEY);
+}
+
+function setupSurveyAutoSave() {
+    const form = document.getElementById('survey-form-body');
+    if (!form) return;
+    // 重複登録を防ぐため先に削除してから追加
+    form.removeEventListener('change', saveSurveyDraft);
+    form.removeEventListener('input', saveSurveyDraft);
+    form.addEventListener('change', saveSurveyDraft);
+    form.addEventListener('input', saveSurveyDraft);
+}
+
+// ===========================
 // アンケートページ
 // ===========================
 function initSurveyPage() {
-    // お部屋名
-    const roomEl = document.getElementById('survey-room-name');
-    if (roomEl) {
-        roomEl.value = '';
-    }
-
     // 回答日（今日の日付）
     const dateEl = document.getElementById('survey-date');
     if (dateEl) {
@@ -466,21 +552,31 @@ function initSurveyPage() {
         dateEl.textContent = `${y}年${m}月${d}日`;
     }
 
-    // フォームをリセット
-    const form = document.getElementById('survey-form-body');
-    if (form) {
-        form.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-        form.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
-        form.querySelectorAll('textarea').forEach(t => t.value = '');
-        const otherText = document.getElementById('q_reason_other_text');
-        if (otherText) otherText.value = '';
-    }
-
     // 完了メッセージを隠してフォームを表示
     document.getElementById('survey-success').style.display = 'none';
     document.getElementById('survey-form-body').style.display = 'block';
     const btn = document.getElementById('survey-submit-btn');
     if (btn) { btn.disabled = false; btn.textContent = ''; btn.innerHTML = '<span class="material-icons-outlined">send</span> アンケートを送信する'; }
+
+    // 保存済みデータを復元する（有効期間内のみ）
+    const restored = loadSurveyDraft();
+
+    // 復元できなかった場合はフォームをリセット
+    if (!restored) {
+        const form = document.getElementById('survey-form-body');
+        if (form) {
+            const roomEl = document.getElementById('survey-room-name');
+            if (roomEl) roomEl.value = '';
+            form.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+            form.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
+            form.querySelectorAll('textarea').forEach(t => t.value = '');
+            const otherText = document.getElementById('q_reason_other_text');
+            if (otherText) otherText.value = '';
+        }
+    }
+
+    // 自動保存のイベントリスナーをセット（重複登録を防ぐため一旦削除してから追加）
+    setupSurveyAutoSave();
 }
 
 async function submitSurvey() {
@@ -548,6 +644,7 @@ async function submitSurvey() {
 }
 
 function showSurveySuccess() {
+    clearSurveyDraft();
     document.getElementById('survey-form-body').style.display = 'none';
     document.getElementById('survey-success').style.display = 'flex';
 }
