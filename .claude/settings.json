@@ -7,7 +7,17 @@
       "Bash(node -e ' *)",
       "PowerShell(node -e \"console.log\\('node OK'\\)\")",
       "PowerShell(\\(Get-Command python -ErrorAction SilentlyContinue\\).Source; \\(Get-Command python3 -ErrorAction SilentlyContinue\\).Source; \\(Get-Command node -ErrorAction SilentlyContinue\\).Source; \\(Get-Command npx -ErrorAction SilentlyContinue\\).Source)",
-      "Read(//c/Users/saria/**)"
+      "Read(//c/Users/saria/**)",
+      "Bash(find /c/Users/saria/AppData/Local/Temp/claude -iname \"*.png\" -o -iname \"*.jpg\" 2>/dev/null | tail -20)",
+      "Read(//c/Users/saria/AppData/Local/Temp/claude/**)",
+      "Bash(find /c/Users/saria/AppData/Local/Temp -maxdepth 3 -newer /c/Users/saria/AppData/Local/Temp -iname \"*.png\" 2>/dev/null | head -20; echo \"---\"; find /c/Users/saria -maxdepth 2 -iname \"*.png\" -newermt \"-2 hours\" 2>/dev/null)",
+      "Read(//c/Users/saria/AppData/Local/Temp/**)",
+      "Bash(find /c/Users/saria/Downloads /c/Users/saria/Desktop /c/Users/saria/Pictures -maxdepth 2 \\\\\\( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" \\\\\\) -newermt \"-1 day\" 2>/dev/null)",
+      "Read(//c/Users/saria/Downloads/**)",
+      "Bash(cp \"/c/Users/saria/Desktop/DL/kinuhime.jpg\" \"/c/Users/saria/Documents/GitHub/kinugawa-tablet/images/seasonal/kinuhime-2026.jpg\" && ls -la \"/c/Users/saria/Documents/GitHub/kinugawa-tablet/images/seasonal/\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\saria\\Desktop\\DL"
     ]
   }
 }

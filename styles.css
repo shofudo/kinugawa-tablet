@@ -2178,6 +2178,96 @@ body {
     line-height: 1.8;
 }
 /* ===========================
+   季節のご案内：イベント開催中のデザイン
+   =========================== */
+
+.season-event-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.event-poster-wrapper {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto 25px;
+}
+
+.event-poster-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.event-detail-card {
+    background-color: #fff;
+    border: 1px solid #E8E6E1;
+    border-radius: 15px;
+    padding: 35px;
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.event-detail-title {
+    font-size: 22px;
+    color: #5D5245;
+    text-align: center;
+    font-family: 'Noto Serif JP', serif;
+    margin-bottom: 8px;
+}
+
+.event-detail-period {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #C9A063;
+    margin-bottom: 10px;
+}
+
+.event-detail-catch {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.event-divider {
+    border-top: 1px dashed #DCC095;
+    margin: 20px 0;
+}
+
+.event-detail-text {
+    font-size: 15px;
+    color: #5D5245;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.event-how-to {
+    margin-top: 25px;
+}
+
+.event-how-to-title {
+    font-weight: bold;
+    color: #5D5245;
+    margin-bottom: 10px;
+}
+
+.event-how-to-list {
+    padding-left: 20px;
+    color: #5D5245;
+    line-height: 1.9;
+}
+
+.event-how-to-list li {
+    margin-bottom: 8px;
+}
+
+/* ===========================
    ダイヤルバスのデザイン（シンプル版・復旧）
    =========================== */
 

@@ -15,7 +15,29 @@ let inactivityTimer = null;
 document.addEventListener('DOMContentLoaded', function() {
     loadConfig();
     setupInactivityTimer();
+    updateSeasonalEventDisplay();
 });
+
+// ===========================
+// 季節のイベント：終了日を過ぎたら自動的に非表示にする
+// ===========================
+function updateSeasonalEventDisplay() {
+    const eventContainer = document.getElementById('season-event-container');
+    const noEventContainer = document.getElementById('season-no-event-container');
+    if (!eventContainer || !noEventContainer) return;
+
+    const endDateStr = eventContainer.dataset.eventEnd; // 例: "2026-07-17"
+    const endDate = new Date(endDateStr + 'T23:59:59');
+    const now = new Date();
+
+    if (now <= endDate) {
+        eventContainer.style.display = '';
+        noEventContainer.style.display = 'none';
+    } else {
+        eventContainer.style.display = 'none';
+        noEventContainer.style.display = '';
+    }
+}
 
 // ===========================
 // 設定ファイル読み込み
