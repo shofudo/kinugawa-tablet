@@ -14,7 +14,8 @@
       "Read(//c/Users/saria/AppData/Local/Temp/**)",
       "Bash(find /c/Users/saria/Downloads /c/Users/saria/Desktop /c/Users/saria/Pictures -maxdepth 2 \\\\\\( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" \\\\\\) -newermt \"-1 day\" 2>/dev/null)",
       "Read(//c/Users/saria/Downloads/**)",
-      "Bash(cp \"/c/Users/saria/Desktop/DL/kinuhime.jpg\" \"/c/Users/saria/Documents/GitHub/kinugawa-tablet/images/seasonal/kinuhime-2026.jpg\" && ls -la \"/c/Users/saria/Documents/GitHub/kinugawa-tablet/images/seasonal/\")"
+      "Bash(cp \"/c/Users/saria/Desktop/DL/kinuhime.jpg\" \"/c/Users/saria/Documents/GitHub/kinugawa-tablet/images/seasonal/kinuhime-2026.jpg\" && ls -la \"/c/Users/saria/Documents/GitHub/kinugawa-tablet/images/seasonal/\")",
+      "Bash(dir \"images\\\\seasonal\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\saria\\Desktop\\DL"
