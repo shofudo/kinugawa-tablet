@@ -2188,6 +2188,13 @@ body {
     width: 100%;
 }
 
+.seasonal-event-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 .event-poster-wrapper {
     width: 100%;
     max-width: 480px;

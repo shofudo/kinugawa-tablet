@@ -26,11 +26,18 @@ function updateSeasonalEventDisplay() {
     const noEventContainer = document.getElementById('season-no-event-container');
     if (!eventContainer || !noEventContainer) return;
 
-    const endDateStr = eventContainer.dataset.eventEnd; // 例: "2026-07-17"
-    const endDate = new Date(endDateStr + 'T23:59:59');
     const now = new Date();
+    const eventItems = eventContainer.querySelectorAll('.seasonal-event-item');
+    let hasActiveEvent = false;
 
-    if (now <= endDate) {
+    eventItems.forEach(item => {
+        const endDate = new Date(item.dataset.eventEnd + 'T23:59:59');
+        const isActive = now <= endDate;
+        item.style.display = isActive ? '' : 'none';
+        if (isActive) hasActiveEvent = true;
+    });
+
+    if (hasActiveEvent) {
         eventContainer.style.display = '';
         noEventContainer.style.display = 'none';
     } else {
