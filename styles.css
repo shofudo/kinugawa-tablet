@@ -3605,6 +3605,17 @@ body {
     margin-top: -5px;
 }
 
+.bf-card-content .egg-origin-label,
+.pres-set-card .egg-origin-label {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background-color: #FFF1D6;
+    color: #765018;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+}
 /* ========== 7. フッター ========== */
 .breakfast-footer {
     flex-shrink: 0;

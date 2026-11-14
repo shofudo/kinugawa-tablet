@@ -953,7 +953,7 @@ function toggleLanguage() {
             'pres-sp2-item2': 'Coco Farm Grape Juice',
             'pres-sp2-item3': 'Milk',
             'pres-sp3-badge': 'Choice 2',
-            'pres-sp3-title': 'Nasu Goyoran "Kiwami"',
+            'pres-sp3-title': 'Free-range Eggs from Nikko: "Akadama Kinu"',
             'pres-sp3-desc': 'Please choose one egg dish per person.',
             'pres-sp3-item1': 'Japanese Rolled Omelet (Dashimaki)',
             'pres-sp3-item2': 'Egg on Rice (TKG)',
@@ -1008,9 +1008,11 @@ function toggleLanguage() {
         document.getElementById('bf-yuki-title').textContent = 'Yuki (Standard)';
         document.getElementById('bf-yuki-list').innerHTML = '<ul><li><span class="bullet">●</span> Natto (Fermented Soybeans)</li><li><span class="bullet">●</span> Moromi Soy Sauce</li><li><span class="bullet">●</span> Nori (Dried Seaweed)</li></ul>';
 
+        document.querySelector('#pres-s3-list2 li').textContent = 'Akadama Kinu';
+        document.getElementById('pres-s3-egg-note').textContent = 'Free-range eggs from Nikko';
         document.getElementById('bf-tsuki-tag').textContent = 'Egg on Rice';
         document.getElementById('bf-tsuki-title').textContent = 'Tsuki (Egg)';
-        document.getElementById('bf-tsuki-list').innerHTML = '<ul><li><span class="bullet">●</span> Nasu Goyoran Egg</li><li><span class="bullet">●</span> Moromi Soy Sauce</li><li><span class="bullet">●</span> Nori (Dried Seaweed)</li></ul>';
+        document.getElementById('bf-tsuki-list').innerHTML = '<ul><li><span class="bullet">●</span> Akadama Kinu Egg</li><li><span class="egg-origin-label">Free-range eggs from Nikko</span></li><li><span class="bullet">●</span> Moromi Soy Sauce</li><li><span class="bullet">●</span> Nori (Dried Seaweed)</li></ul>';
 
         document.getElementById('bf-hana-tag').textContent = 'Light';
         document.getElementById('bf-hana-title').textContent = 'Hana (Light)';
@@ -1034,9 +1036,10 @@ function toggleLanguage() {
         document.getElementById('pre-c1-title').textContent = 'Morning Drink';
         document.getElementById('pre-c1-list').innerHTML = '<li>Fresh Mandarin Juice</li><li>Coco Farm Grape Juice</li><li>Milk</li>';
 
+        document.getElementById('pre-c2-image').alt = 'Egg dish';
         document.getElementById('pre-c2-badge').textContent = 'Choice 2';
-        document.getElementById('pre-c2-title').textContent = 'Nasu Goyoran "Kiwami"';
-        document.getElementById('pre-c2-desc').innerHTML = '<p>Top quality eggs with deep orange color, rich sweetness and nutrition.</p>';
+        document.getElementById('pre-c2-title').textContent = 'Free-range Eggs from Nikko: "Akadama Kinu"';
+        document.getElementById('pre-c2-desc').textContent = 'Akadama Kinu eggs are laid by free-range hens at NANTAI Farm in Nikko City. They are characterized by firm whites and flavorful yolks. Enjoy them prepared in your preferred egg dish.';
         document.getElementById('pre-c2-list').innerHTML = '<li>Japanese Omelet (Dashimaki)</li><li>Egg on Rice</li><li>Omelet</li><li>Onsen Tamago, etc.</li>';
 
         document.getElementById('pre-footer-msg').textContent = '✨ This special breakfast is for reservation only ✨';
@@ -1050,7 +1053,7 @@ function toggleLanguage() {
         const moreList = document.getElementById('more-list');
         if(moreList) {
             moreList.innerHTML = `
-                <div class="price-item"><span class="item-name">Nasu Goyoran (Raw Egg)</span><span class="item-price">330 yen</span></div>
+                <div class="price-item"><span class="item-name">Akadama Kinu (Raw Egg)</span><span class="item-price">330 yen</span></div>
                 <div class="price-item"><span class="item-name">Natto</span><span class="item-price">330 yen</span></div>
                 <div class="price-item"><span class="item-name">Fresh Mandarin Juice</span><span class="item-price">330 yen</span></div>
                 <div class="price-item"><span class="item-name">Yogurt</span><span class="item-price">330 yen</span></div>
